@@ -5,6 +5,7 @@ Client of "Presentable" (Vue version).
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+  - [Running the Project](#running-the-project)
 
 ## Getting started
 ### Prerequisites
@@ -44,11 +45,14 @@ npm install
 - For other editors:
     - Integrate ESLint and Prettier according to your editor's documentation.
 
-### Compile and Hot-Reload for Development
+### Running the project
+To run the project locally, use the following command in the project directory:
 
 ```sh
 npm run dev
 ```
+This will start a development server. Its URL will be logged in the terminal after running `npm run serve`. You can view the application by opening this URL in your browser. When you change the source files, the application will automatically be updated.
+
 
 ### Compile and Minify for Production
 
