@@ -10,6 +10,7 @@ Client of "Presentable" (Vue version).
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Running the Project](#running-the-project)
+- [Project Structure](#project-structure)
 
 ## Getting started
 ### Prerequisites
@@ -57,6 +58,24 @@ npm run dev
 ```
 This will start a development server. Its URL will be logged in the terminal after running `npm run serve`. You can view the application by opening this URL in your browser. When you change the source files, the application will automatically be updated.
 
+## Project Structure
+The project is structured as a typical vue project. Here is an overview of the different folders and their content:
+
+    .
+    ├── .vscode
+    ├── node_modules                    # dependencies needed to build the project
+    ├── public                          # files that shouldn't be processed by vite 
+    |                                     (e.g. html for static sites, large static assets, 
+    |                                      favicon, SEO-related files (e.g. robots.txt), 
+    |                                      custom error pages, ...)
+    ├── src                             # application code
+    │   ├── assets/                     # images, style sheets etc.
+    |   ├── components/                 # building blocks of the app
+    |   ├── router/                     # Vue router (app navigation)
+    |   ├── stores/                     # Pinia (state management)
+    │   ├── views/                      # Components for different subpages
+    │   ├── App.vue                     # Root component
+    │   └── main.js                     # Renders app & mounts it to DOM
 
 ### Compile and Minify for Production
 
