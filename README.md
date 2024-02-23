@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="src/assets/logo-presentable-v2.png" width="300" alt="logo"/>
+</p>
+
 # Presentable Client (Vue)
 Client of "Presentable" (Vue version).
 
