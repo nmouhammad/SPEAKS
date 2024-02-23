@@ -1,6 +1,4 @@
-# presentable-client-vue
-
-This template should help get you started developing with Vue 3 in Vite.
+# Presentable Client (Vue)
 
 ## Recommended IDE Setup
 
