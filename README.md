@@ -1,20 +1,48 @@
 # Presentable Client (Vue)
+Client of "Presentable" (Vue version).
 
-## Recommended IDE Setup
+## Table of Contents
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
 
-[VSCode](https://code.visualstudio.com/) with the following extensions:
-- [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) 
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-## Customize configuration
+## Getting started
+### Prerequisites
+Before you begin, ensure you have Node.js and npm installed on your machine ([Click here to download & install Node.js](https://nodejs.org/))
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+We recommend to use
+[VSCode](https://code.visualstudio.com/) with the extension [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar).
 
-## Project Setup
+### Installation of the project
+1) Clone the repository: 
+```sh
+git clone https://gitlab.educs-hosting.net/hytea/presentable-client-vue
+```
 
+2) Navigate into the project directory
+```sh
+cd presentable-client-vue
+```
+
+3) Install dependencies
 ```sh
 npm install
 ```
+
+4) Set up ESLint and Prettier
+- For VS Code users:
+    - Install the extensions [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+    - Open settings.json (File > Preferences > Settings) and add the following configuration:
+    ```json
+    {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+        },
+        "editor.formatOnSave": true
+    }
+    ```
+- For other editors:
+    - Integrate ESLint and Prettier according to your editor's documentation.
 
 ### Compile and Hot-Reload for Development
 
