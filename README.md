@@ -63,14 +63,14 @@ The project is structured as a typical vue project. Here is an overview of the d
 
     .
     ├── .vscode
-    ├── node_modules                    # dependencies needed to build the project
-    ├── public                          # files that shouldn't be processed by vite 
+    ├── node_modules                    # Dependencies needed to build the project
+    ├── public                          # Files that shouldn't be processed by vite 
     |                                     (e.g. html for static sites, large static assets, 
     |                                      favicon, SEO-related files (e.g. robots.txt), 
     |                                      custom error pages, ...)
-    ├── src                             # application code
-    │   ├── assets/                     # images, style sheets etc.
-    |   ├── components/                 # building blocks of the app
+    ├── src                             # Application code
+    │   ├── assets/                     # Images, style sheets etc.
+    |   ├── components/                 # Building blocks of the app
     |   ├── router/                     # Vue router (app navigation)
     |   ├── stores/                     # Pinia (state management)
     │   ├── views/                      # Components for different subpages
