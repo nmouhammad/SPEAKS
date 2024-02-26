@@ -38,13 +38,30 @@ npm install
 4) Set up ESLint and Prettier
 - For VS Code users:
     - Install the extensions [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-    - Open settings.json (File > Preferences > Settings) and add the following configuration:
+    - Open the workspace settings.json (File > Preferences > Settings > Workspace, on the top right click on the "file"-symbol with an arrow (text on hover: "Open Settings (JSON)")) and add the following configuration:
     ```json
     {
         "editor.codeActionsOnSave": {
+
             "source.fixAll.eslint": true
         },
-        "editor.formatOnSave": true
+        "[vue]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.formatOnSave": true
+        },
+        "[javascript]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.formatOnSave": true
+        },
+        "[css]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.formatOnSave": true
+        },
+        "[html]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.formatOnSave": true
+        },
+        "eslint.codeActionsOnSave.rules": null
     }
     ```
 - For other editors:
