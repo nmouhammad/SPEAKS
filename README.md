@@ -15,6 +15,7 @@ Client of "Presentable" (Vue version).
     - [Documenting Vue Components](#documenting-vue-components)
     - [CSS Framework (Bootstrap)](#css-framework-bootstrap)
 - [Project Structure](#project-structure)
+- [Customizing Bootstrap](#customizing-bootstrap)
 
 ## Getting started
 ### Prerequisites
@@ -128,3 +129,12 @@ The project is structured as a typical vue project. Here is an overview of the d
     │   ├── App.vue                     # Root component
     │   └── main.js                     # Renders app & mounts it to DOM
     └── vuese-documentation             # Documentation generated with vuese
+
+
+## Customizing Bootstrap
+The standard bootstrap css framework can be customized (e.g. to change colors) by making changes in the file `src/assets/bootstrap-customisation/custom-styles.scss`. Documentation on how to customize can be found [here](https://getbootstrap.com/docs/5.3/customize/overview/). 
+
+After each change, the `custom-styles.scss` needs to be compiled, this can be done by the following command (from the source folder of the project):
+```sh
+npx sass ./src/assets/bootstrap-customisation/custom-styles.scss ./src/assets/bootstrap-customisation/custom-styles.css
+```
