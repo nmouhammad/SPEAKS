@@ -10,6 +10,7 @@ Client of "Presentable" (Vue version).
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Running the Project](#running-the-project)
+  - [Compile and Minify for Production](#compile-and-minify-for-production)
 - [Project Structure](#project-structure)
 
 ## Getting started
@@ -75,16 +76,27 @@ npm run dev
 ```
 This will start a development server. Its URL will be logged in the terminal after running `npm run serve`. You can view the application by opening this URL in your browser. When you change the source files, the application will automatically be updated.
 
+### Compile and Minify for Production
+To compile and minify the project for production run the following command in the project directory:
+```sh
+npm run build
+```
+This command compiles the project and generates a dist directory containing the production-ready assets (HTML, CSS, JavaScript).
+
+*Please test the output before deploying it.*
+
 ## Project Structure
 The project is structured as a typical vue project. Here is an overview of the different folders and their content:
 
     .
     ├── .vscode
+    ├── dist                            # Contains the compiled version that will 
+    |                                   # be deployed
     ├── node_modules                    # Dependencies needed to build the project
     ├── public                          # Files that shouldn't be processed by vite 
-    |                                     (e.g. html for static sites, large static assets, 
-    |                                      favicon, SEO-related files (e.g. robots.txt), 
-    |                                      custom error pages, ...)
+    |                                     (e.g. html for static sites, large static 
+    |                                      assets, favicon, SEO-related files (e.g. 
+    |                                      robots.txt), custom error pages, ...)
     ├── src                             # Application code
     │   ├── assets/                     # Images, style sheets etc.
     |   ├── components/                 # Building blocks of the app
@@ -93,15 +105,3 @@ The project is structured as a typical vue project. Here is an overview of the d
     │   ├── views/                      # Components for different subpages
     │   ├── App.vue                     # Root component
     │   └── main.js                     # Renders app & mounts it to DOM
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
