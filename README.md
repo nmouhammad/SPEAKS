@@ -11,6 +11,7 @@ Client of "Presentable" (Vue version).
   - [Installation](#installation)
   - [Running the Project](#running-the-project)
   - [Compile and Minify for Production](#compile-and-minify-for-production)
+- [Coding Guidelines](#coding-guidelines)
 - [Project Structure](#project-structure)
 
 ## Getting started
@@ -85,6 +86,22 @@ This command compiles the project and generates a dist directory containing the 
 
 *Please test the output before deploying it.*
 
+## Coding Guidelines
+### Documenting vue components
+This project uses [vuese](https://vuese.github.io/website/cli/) to document all vue components. The most important thing is to write a concise description for each prop, slot, event, method and component. You can do this by adding a comment before the corresponding prop, slot, etc. [Here](https://vuese.github.io/website/cli/#writing-documentation-for-your-component) you can find more detailed instructions.
+
+To update the documentation run:
+```sh
+npx vuese gen
+```
+
+To then view the documentation run:
+```sh
+npx vuese serve --open
+```
+which starts and opens a server where you can access the documentation.
+
+
 ## Project Structure
 The project is structured as a typical vue project. Here is an overview of the different folders and their content:
 
@@ -105,3 +122,4 @@ The project is structured as a typical vue project. Here is an overview of the d
     │   ├── views/                      # Components for different subpages
     │   ├── App.vue                     # Root component
     │   └── main.js                     # Renders app & mounts it to DOM
+    └── vuese-documentation             # Documentation generated with vuese
