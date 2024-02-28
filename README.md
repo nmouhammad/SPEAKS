@@ -12,6 +12,8 @@ Client of "Presentable" (Vue version).
   - [Running the Project](#running-the-project)
   - [Compile and Minify for Production](#compile-and-minify-for-production)
 - [Coding Guidelines](#coding-guidelines)
+    - [Documenting Vue Components](#documenting-vue-components)
+    - [CSS Framework (Bootstrap)](#css-framework-bootstrap)
 - [Project Structure](#project-structure)
 
 ## Getting started
@@ -100,6 +102,9 @@ To then view the documentation run:
 npx vuese serve --open
 ```
 which starts and opens a server where you can access the documentation.
+
+### CSS Framework (Bootstrap)
+This application uses [bootstrap](https://getbootstrap.com/) as css framework to enable building well-looking pages easily. If you are not familiar with bootstrap, check the [documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
 
 ## Project Structure
