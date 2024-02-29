@@ -30,7 +30,7 @@
 
 <template>
   <button
-    class="btn"
+    class="btn btn-lg"
     :class="[isCurrent ? 'btn-primary' : 'btn-outline-primary']"
     v-show="isShown"
     @click="store.changeStep(abbreviation)"
@@ -39,4 +39,15 @@
   </button>
 </template>
 
-<style scoped></style>
+<style scoped>
+  /* modified from https://bootsnipp.com/snippets/dKB */
+  .btn-lg {
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    padding: 10px 5px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
+  }
+</style>
