@@ -32,8 +32,10 @@
       </div>
     </div>
   </div>
-  <button class="btn btn-secondary" @click="previousStep()">Back</button>
-  <button class="btn btn-secondary" @click="nextStep()">Next</button>
+  <div class="d-flex justify-content-center mt-5">
+    <button class="btn btn-secondary" @click="previousStep()">Back</button>
+    <button class="btn btn-secondary" @click="nextStep()">Next</button>
+  </div>
 </template>
 
 <style scoped></style>
