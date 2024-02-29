@@ -10,14 +10,45 @@ export const useProgressStore = defineStore('ProgressStore', {
       {
         name: 'Audience-Beginning',
         abbreviation: 'AB',
-        nextStepAbbreviation: 'AE'
+        nextStepAbbreviation: 'AE',
+        hasBeenVisited: true
       },
-      { name: 'Introduction', abbreviation: 'I', nextStepAbbreviation: 'E' },
-      { name: 'Main-1', abbreviation: '1', nextStepAbbreviation: '2' },
-      { name: 'Main-2', abbreviation: '2', nextStepAbbreviation: '3' },
-      { name: 'Main-3', abbreviation: '3', nextStepAbbreviation: null },
-      { name: 'End', abbreviation: 'E', nextStepAbbreviation: '1' },
-      { name: 'Audience-End', abbreviation: 'AE', nextStepAbbreviation: 'I' }
+      {
+        name: 'Introduction',
+        abbreviation: 'I',
+        nextStepAbbreviation: 'E',
+        hasBeenVisited: false
+      },
+      {
+        name: 'Main-1',
+        abbreviation: '1',
+        nextStepAbbreviation: '2',
+        hasBeenVisited: false
+      },
+      {
+        name: 'Main-2',
+        abbreviation: '2',
+        nextStepAbbreviation: '3',
+        hasBeenVisited: false
+      },
+      {
+        name: 'Main-3',
+        abbreviation: '3',
+        nextStepAbbreviation: null,
+        hasBeenVisited: false
+      },
+      {
+        name: 'End',
+        abbreviation: 'E',
+        nextStepAbbreviation: '1',
+        hasBeenVisited: false
+      },
+      {
+        name: 'Audience-End',
+        abbreviation: 'AE',
+        nextStepAbbreviation: 'I',
+        hasBeenVisited: false
+      }
     ],
     currentStepID: 0
   }),
@@ -42,6 +73,8 @@ export const useProgressStore = defineStore('ProgressStore', {
         )
         // set the currentStepID to the previously found nextStepID
         this.currentStepID = nextStepID
+        // indicate that the next step has now been visited as well
+        this.steps[nextStepID].hasBeenVisited = true
       }
     },
     /**

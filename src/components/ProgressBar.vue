@@ -27,6 +27,7 @@
           :key="index"
           :abbreviation="step.abbreviation"
           :isCurrent="store.isCurrent(index)"
+          :isShown="step.hasBeenVisited"
         />
       </div>
     </div>

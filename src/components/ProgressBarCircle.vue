@@ -13,6 +13,11 @@
       isCurrent: {
         type: Boolean,
         default: false
+      },
+      // True if this step should already be visible
+      isShown: {
+        type: Boolean,
+        default: false
       }
     }
   }
@@ -27,6 +32,7 @@
   <button
     class="btn"
     :class="[isCurrent ? 'btn-primary' : 'btn-outline-primary']"
+    v-show="isShown"
     @click="store.changeStep(abbreviation)"
   >
     {{ abbreviation }}
