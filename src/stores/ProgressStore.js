@@ -22,13 +22,25 @@ export const useProgressStore = defineStore('ProgressStore', {
     currentStepID: 0
   }),
   actions: {
+    /**
+     * Change the current step to the next step (hint: in this case, steps are
+     * ordered depending on when they should be done during the message
+     * composition (e.g. users will prepare the introduction, then the end and
+     * only afterwards the main part, even though in the presentation, they
+     * will first present the introduction, then the main part and only
+     * afterwards the end))
+     */
     nextStep() {
+      // figure out which step will be next by getting the nextStepAbbreviation
       const nextStepAbbreviation =
         this.steps[this.currentStepID].nextStepAbbreviation
+      // check if there is a next step
       if (nextStepAbbreviation) {
+        // find the id of the next step based on the nextStepAbbreviation
         const nextStepID = this.steps.findIndex(
           (step) => step.abbreviation === nextStepAbbreviation
         )
+        // set the currentStepID to the previously found nextStepID
         this.currentStepID = nextStepID
       }
     }
