@@ -21,7 +21,7 @@
 
 <template>
   <div class="container">
-    <div class="row align-items-center">
+    <div class="d-flex justify-content-evenly">
       <div v-for="(step, index) in steps" :key="index" class="mt-1 col-md-1">
         <ProgressBarCircle
           :key="index"
