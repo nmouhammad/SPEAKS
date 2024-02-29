@@ -72,6 +72,16 @@ export const useProgressStore = defineStore('ProgressStore', {
         // set the currentStepID to the previously found previousStepID
         this.currentStepID = previousStepID
       }
+    },
+    /**
+     * Changes the current step to the step with the given stepAbbreviation
+     * @param {String} stepAbbreviation
+     */
+    changeStep(stepAbbreviation) {
+      const stepID = this.steps.findIndex(
+        (step) => step.abbreviation === stepAbbreviation
+      )
+      this.currentStepID = stepID
     }
   },
   getters: {

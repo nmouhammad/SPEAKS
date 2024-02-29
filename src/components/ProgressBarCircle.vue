@@ -18,10 +18,16 @@
   }
 </script>
 
+<script setup>
+  import { useProgressStore } from '@/stores/ProgressStore'
+  const store = useProgressStore()
+</script>
+
 <template>
   <button
     class="btn"
     :class="[isCurrent ? 'btn-primary' : 'btn-outline-primary']"
+    @click="store.changeStep(abbreviation)"
   >
     {{ abbreviation }}
   </button>
