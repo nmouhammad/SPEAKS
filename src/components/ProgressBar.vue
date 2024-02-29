@@ -22,8 +22,12 @@
 <template>
   <div class="container">
     <div class="row align-items-center">
-      <div v-for="step in steps" :key="step.id" class="mt-1 col-md-1">
-        <ProgressBarCircle :key="step.id" :abbreviation="step.abbreviation" />
+      <div v-for="(step, index) in steps" :key="index" class="mt-1 col-md-1">
+        <ProgressBarCircle
+          :key="index"
+          :abbreviation="step.abbreviation"
+          :isCurrent="store.isCurrent(index)"
+        />
       </div>
     </div>
   </div>

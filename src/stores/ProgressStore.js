@@ -73,5 +73,15 @@ export const useProgressStore = defineStore('ProgressStore', {
         this.currentStepID = previousStepID
       }
     }
+  },
+  getters: {
+    /**
+     * Check whether the state with the given id is the current state
+     * @param {Number} id
+     * @returns true, if the state with the given id is the current state
+     */
+    isCurrent: (state) => (id) => {
+      return state.currentStepID == id
+    }
   }
 })

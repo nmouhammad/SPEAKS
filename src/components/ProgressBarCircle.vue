@@ -8,13 +8,23 @@
       abbreviation: {
         type: String,
         required: true
+      },
+      // True, if this step is the current step, false otherwise
+      isCurrent: {
+        type: Boolean,
+        default: false
       }
     }
   }
 </script>
 
 <template>
-  <button class="btn btn-primary">{{ abbreviation }}</button>
+  <button
+    class="btn"
+    :class="[isCurrent ? 'btn-primary' : 'btn-outline-primary']"
+  >
+    {{ abbreviation }}
+  </button>
 </template>
 
 <style scoped></style>
