@@ -2,11 +2,13 @@
   import { useProgressStore } from '@/stores/ProgressStore'
 
   const store = useProgressStore()
-  const { steps } = store
+  const { steps } = storeToRefs(store)
+  const { nextStep } = store
 </script>
 
 <script>
   import ProgressBarCircle from './ProgressBarCircle.vue'
+  import { storeToRefs } from 'pinia'
 
   // @vuese
   // The progress indicator on top showing users which step of the message composition they are in.
@@ -24,6 +26,7 @@
       </div>
     </div>
   </div>
+  <button class="btn btn-secondary" @click="nextStep()">Next</button>
 </template>
 
 <style scoped></style>

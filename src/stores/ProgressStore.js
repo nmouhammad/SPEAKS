@@ -7,13 +7,30 @@ import { defineStore } from 'pinia'
 export const useProgressStore = defineStore('ProgressStore', {
   state: () => ({
     steps: [
-      { name: 'Audience-Beginning', abbreviation: 'AB' },
-      { name: 'Introduction', abbreviation: 'I' },
-      { name: 'Main-1', abbreviation: '1' },
-      { name: 'Main-2', abbreviation: '2' },
-      { name: 'Main-3', abbreviation: '3' },
-      { name: 'End', abbreviation: 'E' },
-      { name: 'Audience-End', abbreviation: 'AE' }
-    ]
-  })
+      {
+        name: 'Audience-Beginning',
+        abbreviation: 'AB',
+        nextStepAbbreviation: 'AE'
+      },
+      { name: 'Introduction', abbreviation: 'I', nextStepAbbreviation: 'E' },
+      { name: 'Main-1', abbreviation: '1', nextStepAbbreviation: '2' },
+      { name: 'Main-2', abbreviation: '2', nextStepAbbreviation: '3' },
+      { name: 'Main-3', abbreviation: '3', nextStepAbbreviation: null },
+      { name: 'End', abbreviation: 'E', nextStepAbbreviation: '1' },
+      { name: 'Audience-End', abbreviation: 'AE', nextStepAbbreviation: 'I' }
+    ],
+    currentStepID: 0
+  }),
+  actions: {
+    nextStep() {
+      const nextStepAbbreviation =
+        this.steps[this.currentStepID].nextStepAbbreviation
+      if (nextStepAbbreviation) {
+        const nextStepID = this.steps.findIndex(
+          (step) => step.abbreviation === nextStepAbbreviation
+        )
+        this.currentStepID = nextStepID
+      }
+    }
+  }
 })
