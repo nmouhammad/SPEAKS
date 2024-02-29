@@ -4,6 +4,7 @@
   const store = useProgressStore()
   const { steps } = storeToRefs(store)
   const { nextStep } = store
+  const { previousStep } = store
 </script>
 
 <script>
@@ -26,6 +27,7 @@
       </div>
     </div>
   </div>
+  <button class="btn btn-secondary" @click="previousStep()">Back</button>
   <button class="btn btn-secondary" @click="nextStep()">Next</button>
 </template>
 
