@@ -1,13 +1,18 @@
 <script>
+  import ProgressBarCircle from './ProgressBarCircle.vue'
+
   // @vuese
   // The progress indicator on top showing users which step of the message composition they are in.
   export default {
-    name: 'ProgressBar'
+    name: 'ProgressBar',
+    components: { ProgressBarCircle }
   }
 </script>
 
 <template>
-  <div><p>Content of ProgressBar</p></div>
+  <div>
+    <ProgressBarCircle />
+  </div>
 </template>
 
 <style scoped></style>
