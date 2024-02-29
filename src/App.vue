@@ -1,7 +1,18 @@
-<script setup></script>
+<script>
+  import ProgressBar from './components/ProgressBar.vue'
+
+  export default {
+    name: 'App',
+    components: {
+      ProgressBar
+    }
+  }
+</script>
 
 <template>
-  <p>Hello World</p>
+  <div class="container mt-5">
+    <ProgressBar />
+  </div>
 </template>
 
 <style scoped></style>
