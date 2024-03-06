@@ -30,9 +30,9 @@
 
 <template>
   <button
+    v-show="isShown"
     class="btn btn-lg"
     :class="[isCurrent ? 'btn-primary' : 'btn-outline-primary']"
-    v-show="isShown"
     @click="store.changeStep(abbreviation)"
   >
     {{ abbreviation }}
