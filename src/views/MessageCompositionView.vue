@@ -2,6 +2,7 @@
   import ProgressBar from '@/components/ProgressBar.vue'
 
   // @vuese
+  // @group Views
   // The MessageCompositionView is the root view containing all other elements of the message composition software
   export default {
     name: 'MessageCompositionView',

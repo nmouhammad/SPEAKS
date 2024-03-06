@@ -1,5 +1,6 @@
 <script>
   // @vuese
+  // @group Components
   // One of the circles representing one step in the ProgressBar.
   export default {
     name: 'ProgressBarCircle',
