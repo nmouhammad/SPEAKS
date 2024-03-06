@@ -1,17 +1,17 @@
 <script>
-  import ProgressBar from './components/ProgressBar.vue'
+  import MessageCompositionView from './views/MessageCompositionView.vue'
 
   export default {
     name: 'App',
     components: {
-      ProgressBar
+      MessageCompositionView
     }
   }
 </script>
 
 <template>
   <div class="container mt-5">
-    <ProgressBar />
+    <MessageCompositionView />
   </div>
 </template>
 
