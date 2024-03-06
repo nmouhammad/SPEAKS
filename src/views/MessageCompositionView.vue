@@ -1,5 +1,6 @@
 <script>
   import ProgressBar from '@/components/ProgressBar.vue'
+  import AudienceBeginningView from '@/views/AudienceBeginningView.vue'
 
   // @vuese
   // @group Views
@@ -8,6 +9,7 @@
     name: 'MessageCompositionView',
     components: {
       ProgressBar,
+      AudienceBeginningView
     }
   }
 </script>
@@ -22,6 +24,7 @@
 
 <template>
   <ProgressBar />
+  <AudienceBeginningView v-if="progressStore.isCurrentByAbbreviation('AB')" />
   <div class="d-flex justify-content-center mt-5">
     <button class="btn btn-secondary" @click="previousStep()">Back</button>
     <button class="btn btn-secondary" @click="nextStep()">Next</button>
