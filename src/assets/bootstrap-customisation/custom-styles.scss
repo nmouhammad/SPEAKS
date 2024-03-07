@@ -2,10 +2,6 @@
 
 $primary: #fb9759; // New primary color
 
-$theme-colors: (
-  "primary": $primary,
-);
-
 
 // Re-compile Bootstrap with modified variables (below this you should not override any default variable anymore)
 @import "../../../node_modules/bootstrap/scss/bootstrap";
