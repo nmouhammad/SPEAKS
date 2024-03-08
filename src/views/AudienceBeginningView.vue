@@ -11,7 +11,6 @@
 </script>
 
 <script setup>
-  import { ref } from 'vue'
   import { storeToRefs } from 'pinia'
   import { useAudienceStore } from '@/stores/AudienceStore'
 
