@@ -19,16 +19,14 @@
 </script>
 
 <template>
-  <div class="container">
-    <div class="d-flex justify-content-evenly">
-      <div v-for="(step, index) in steps" :key="index" class="mt-1 col-md-1">
-        <ProgressBarCircle
-          :key="index"
-          :abbreviation="step.abbreviation"
-          :is-current="store.isCurrent(index)"
-          :is-shown="step.hasBeenVisited"
-        />
-      </div>
+  <div class="d-flex justify-content-evenly">
+    <div v-for="(step, index) in steps" :key="index" class="mt-1 col-md-1">
+      <ProgressBarCircle
+        :key="index"
+        :abbreviation="step.abbreviation"
+        :is-current="store.isCurrent(index)"
+        :is-shown="step.hasBeenVisited"
+      />
     </div>
   </div>
 </template>

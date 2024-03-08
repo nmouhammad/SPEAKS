@@ -22,15 +22,13 @@
 </script>
 
 <template>
-  <div>
-    <p>What does your audience already know about your topic?</p>
-    <ContentBox
-      :content-elements="knowledgeBeginning"
-      :to-remove="knowledgeToRemove"
-      @remove="store.removeFromKnowledgeBeginning"
-    />
-    <SubpointAdder :content="content" @add="store.addToknowledgeBeginning" />
-  </div>
+  <h5>What does your audience already know about your topic?</h5>
+  <SubpointAdder :content="content" @add="store.addToknowledgeBeginning" />
+  <ContentBox
+    :content-elements="knowledgeBeginning"
+    :to-remove="knowledgeToRemove"
+    @remove="store.removeFromKnowledgeBeginning"
+  />
 </template>
 
 <style scoped></style>

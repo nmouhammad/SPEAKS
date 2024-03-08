@@ -13,9 +13,7 @@
 </script>
 
 <template>
-  <div class="container mt-5">
-    <MessageCompositionView />
-  </div>
+  <MessageCompositionView />
 </template>
 
 <style scoped></style>

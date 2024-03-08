@@ -23,11 +23,26 @@
 </script>
 
 <template>
-  <ProgressBar />
-  <AudienceBeginningView v-if="progressStore.isCurrentByAbbreviation('AB')" />
-  <div class="d-flex justify-content-center mt-5">
-    <button class="btn btn-secondary" @click="previousStep()">Back</button>
-    <button class="btn btn-secondary" @click="nextStep()">Next</button>
+  <div class="container mt-5 mx-auto h-100">
+    <!-- HEADER -->
+    <ProgressBar />
+
+    <!-- BODY -->
+    <div
+      class="container d-flex flex-column align-items-center gap-3 w-50 mt-5"
+    >
+      <AudienceBeginningView
+        v-if="progressStore.isCurrentByAbbreviation('AB')"
+      />
+    </div>
+
+    <!-- FOOTER -->
+    <div
+      class="d-flex justify-content-center gap-2 align-self-end fixed-bottom mb-3"
+    >
+      <button class="btn btn-secondary" @click="previousStep()">Back</button>
+      <button class="btn btn-secondary" @click="nextStep()">Next</button>
+    </div>
   </div>
 </template>
 

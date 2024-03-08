@@ -32,18 +32,22 @@
 </script>
 
 <template>
-  <div class="row g-2">
-    <div class="col-auto">
-      <input
-        v-model="content"
-        type="text"
-        class="form-control"
-        aria-label="Previous knowledge of the audience"
-        @keyup.enter="addContent"
-      />
-    </div>
-    <div class="col-auto">
-      <button class="btn btn-primary" @click.prevent="addContent">Add</button>
+  <div class="container">
+    <div class="row">
+      <div class="col-10 p-0">
+        <input
+          v-model="content"
+          type="text"
+          class="form-control"
+          aria-label="Previous knowledge of the audience"
+          @keyup.enter="addContent"
+        />
+      </div>
+      <div class="col-2 p-0 ps-2">
+        <button class="btn btn-primary w-100" @click.prevent="addContent">
+          Add
+        </button>
+      </div>
     </div>
   </div>
 </template>
