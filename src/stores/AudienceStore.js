@@ -14,8 +14,8 @@ export const useAudienceStore = defineStore('AudienceStore', {
      * contains the knowledge the audience has in the beginning
      * @param {Object} contentObject object containing the content that should be added
      */
-    addToknowledgeBeginning(contentObject) {
-      this.knowledgeBeginning.push(contentObject.content)
+    addToknowledgeBeginning(content) {
+      this.knowledgeBeginning.push(content)
     },
     /**
      * Removes the content with the given id from the array knowledgeBeginning which

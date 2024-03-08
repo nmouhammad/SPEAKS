@@ -20,10 +20,9 @@
       addContent() {
         const contentToAdd = this.content.trim()
         if (contentToAdd !== '') {
-          let objectToSend = { content: contentToAdd }
           // sends content of the textfield to parent when "Add" is clicked
           // @arg an object containing the content of the textfield
-          this.$emit('add', objectToSend)
+          this.$emit('add', contentToAdd)
           this.content = ''
         }
       }
