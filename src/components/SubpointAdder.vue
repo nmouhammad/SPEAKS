@@ -39,6 +39,7 @@
         type="text"
         class="form-control"
         aria-label="Previous knowledge of the audience"
+        @keyup.enter="addContent"
       />
     </div>
     <div class="col-auto">
