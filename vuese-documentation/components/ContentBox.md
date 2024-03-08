@@ -8,7 +8,18 @@ A box displaying the content that is given to it by its parent with one badge ea
 |Name|Description|Type|Required|Default|
 |---|---|---|---|---|
 |contentElements|Array containing the elements that should be shown|`Array`|`false`|[]|
+|hasRemoveOption|Whether there is an "x" on each badge for removing this content|`Boolean`|`false`|true|
 
 <!-- @vuese:ContentBox:props:end -->
+
+
+## Events
+
+<!-- @vuese:ContentBox:events:start -->
+|Event Name|Description|Parameters|
+|---|---|---|
+|remove|-|-|
+
+<!-- @vuese:ContentBox:events:end -->
 
 
