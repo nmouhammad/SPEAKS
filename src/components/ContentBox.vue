@@ -21,12 +21,7 @@
       // @vuese
       // sends object containing the id of the content to be removed ("toRemove") to the parent
       'remove'
-    ],
-    data() {
-      return {
-        toRemove: ''
-      }
-    }
+    ]
   }
 </script>
 
