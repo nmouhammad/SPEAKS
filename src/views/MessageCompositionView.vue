@@ -40,8 +40,10 @@
     <div
       class="d-flex justify-content-center gap-2 align-self-end fixed-bottom mb-3"
     >
-      <button class="btn btn-secondary" @click="previousStep()">Back</button>
-      <button class="btn btn-secondary" @click="nextStep()">Next</button>
+      <button class="btn btn-outline-primary" @click="previousStep()">
+        Back
+      </button>
+      <button class="btn btn-outline-primary" @click="nextStep()">Next</button>
     </div>
   </div>
 </template>
