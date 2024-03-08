@@ -15,6 +15,11 @@
       hasRemoveOption: {
         type: Boolean,
         default: true
+      },
+      // The heading of the box displaying the content
+      contentBoxHeading: {
+        type: String,
+        required: true
       }
     },
     emits: [
@@ -27,7 +32,7 @@
 
 <template>
   <div class="card w-100">
-    <div class="card-header">Previous knowledge of your audience:</div>
+    <div class="card-header">{{ contentBoxHeading }}</div>
     <div class="card-body">
       <span
         v-for="(content, id) in contentElements"

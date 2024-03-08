@@ -9,6 +9,7 @@ A box displaying the content that is given to it by its parent with one badge ea
 |---|---|---|---|---|
 |contentElements|Array containing the elements that should be shown|`Array`|`false`|[]|
 |hasRemoveOption|Whether there is an "x" on each badge for removing this content|`Boolean`|`false`|true|
+|contentBoxHeading|The heading of the box displaying the content|`String`|`true`|-|
 
 <!-- @vuese:ContentBox:props:end -->
 

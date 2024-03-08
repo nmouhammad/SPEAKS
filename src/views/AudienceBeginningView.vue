@@ -1,12 +1,11 @@
 <script>
-  import SubpointAdder from '@/components/SubpointAdder.vue'
-  import ContentBox from '@/components/ContentBox.vue'
+  import ContentCollector from '@/components/ContentCollector.vue'
   // @vuese
   // @group Views
   // This view contains all elements regarding the analysis of the audience in the beginning of the presentation
   export default {
     name: 'AudienceBeginningView',
-    components: { SubpointAdder, ContentBox }
+    components: { ContentCollector }
   }
 </script>
 
@@ -20,8 +19,10 @@
 
 <template>
   <h5>What does your audience already know about your topic?</h5>
-  <ContentBox
-    :content-elements="knowledgeBeginning"
+  <ContentCollector
+    :all-content-to-display="knowledgeBeginning"
+    content-box-heading="Previous knowledge of your audience"
+    @add="store.addToknowledgeBeginning"
     @remove="store.removeFromKnowledgeBeginning"
   />
 </template>
