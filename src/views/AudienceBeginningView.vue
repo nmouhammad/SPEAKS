@@ -16,17 +16,13 @@
   import { useAudienceStore } from '@/stores/AudienceStore'
 
   const store = useAudienceStore()
-  const content = ref('')
-  const knowledgeToRemove = ref('')
   const { knowledgeBeginning } = storeToRefs(store)
 </script>
 
 <template>
   <h5>What does your audience already know about your topic?</h5>
-  <SubpointAdder :content="content" @add="store.addToknowledgeBeginning" />
   <ContentBox
     :content-elements="knowledgeBeginning"
-    :to-remove="knowledgeToRemove"
     @remove="store.removeFromKnowledgeBeginning"
   />
 </template>
