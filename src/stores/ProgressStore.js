@@ -132,11 +132,9 @@ export const useProgressStore = defineStore('ProgressStore', {
      * @returns true, if the state with the given abbreviation is the current state
      */
     isCurrentByAbbreviation: (state) => (stepAbbreviation) => {
-      console.log(stepAbbreviation)
       const stepID = state.steps.findIndex(
         (step) => step.abbreviation === stepAbbreviation
       )
-      console.log(stepID)
       return state.currentStepID == stepID
     }
   }
