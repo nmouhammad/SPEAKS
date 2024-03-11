@@ -18,7 +18,9 @@
 </script>
 
 <template>
-  <h5>What does your audience already know about your topic?</h5>
+  <h5 class="text-center">
+    What does your audience already know about your topic?
+  </h5>
   <ContentCollector
     :all-content-to-display="knowledgeBeginning"
     content-box-heading="Previous knowledge of your audience"

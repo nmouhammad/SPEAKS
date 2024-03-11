@@ -18,7 +18,7 @@
 </script>
 
 <template>
-  <h5>
+  <h5 class="text-center">
     What should your audience know about your topic after your presentation?
   </h5>
   <ContentCollector
