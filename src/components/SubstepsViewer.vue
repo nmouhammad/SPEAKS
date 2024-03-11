@@ -1,9 +1,14 @@
 <script>
+  import KeyboardListener from '@/components/KeyboardListener.vue'
+
   // @vuese
   // @group Components
   // If one view (e.g. Introduction) has different substeps, this component can be used
   // to display one of the substeps at a time
   export default {
+    components: {
+      KeyboardListener
+    },
     props: {
       // the text that should be displayed
       text: {
@@ -23,10 +28,31 @@
         required: true
       }
     },
-    emits: ['next', 'previous']
+    emits: ['next', 'previous'],
+    methods: {
+      keydownEvent(event) {
+        // if any of the following keys is pressed, 'next' should be emitted
+        const keysTriggeringNext = ['ArrowRight', 'Enter', ' ']
+        // if any of the following keys is pressed, 'previous' should be emitted
+        const keysTriggeringPrevious = ['ArrowLeft']
+        const pressedKey = event.key
+
+        // check whether the pressedKey is in the array keysTriggeringNext
+        if (keysTriggeringNext.indexOf(pressedKey) !== -1) {
+          this.$emit('next')
+        }
+        // check whether the pressedKey is in the array keysTriggeringPrevious
+        if (keysTriggeringPrevious.indexOf(pressedKey) !== -1) {
+          this.$emit('previous')
+        }
+      }
+    }
   }
 </script>
+
 <template>
+  <!-- Changing the substep -->
+  <KeyboardListener @keydown="keydownEvent" />
   <div class="btn-group">
     <!-- Chevron left -->
     <button

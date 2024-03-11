@@ -19,8 +19,8 @@ If one view (e.g. Introduction) has different substeps, this component can be us
 <!-- @vuese:SubstepsViewer:events:start -->
 |Event Name|Description|Parameters|
 |---|---|---|
-|previous|-|-|
 |next|-|-|
+|previous|-|-|
 
 <!-- @vuese:SubstepsViewer:events:end -->
 
