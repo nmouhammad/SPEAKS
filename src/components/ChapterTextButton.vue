@@ -24,8 +24,9 @@
     computed: {
       // check whether the button should already be shown
       showButton() {
-        // if the last subtext is shown: show the button as well
-        return this.currentSubtextID === this.texts.length - 1
+        // show the button after all other texts have been shown and the user
+        // clicked next one more time
+        return this.currentSubtextID === this.texts.length
       }
     },
     methods: {

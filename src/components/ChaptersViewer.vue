@@ -33,6 +33,14 @@
       // returns the current subchapter object
       currentSubchapter() {
         return this.content[this.currentChapterID]
+      },
+      numberOfSubstepsForCurrentChapter() {
+        if (this.currentSubchapter.type == 'ChapterTextButton') {
+          // ChapterTextButton has one step more than it has texts
+          // (the last step is to show the button)
+          return this.currentSubtexts.length
+        }
+        return this.currentSubtexts.length - 1
       }
     },
     methods: {
@@ -56,7 +64,7 @@
       // uncover the next text or change the chapter if all texts for this chapter
       // are already uncovered
       next() {
-        if (this.currentSubtextID === this.currentSubtexts.length - 1) {
+        if (this.currentSubtextID === this.numberOfSubstepsForCurrentChapter) {
           if (this.currentChapterID < this.content.length - 1) {
             this.currentChapterID++
             this.currentSubtextID = 0
@@ -71,7 +79,7 @@
         if (this.currentSubtextID === 0) {
           if (this.currentChapterID > 0) {
             this.currentChapterID--
-            this.currentSubtextID = this.currentSubtexts.length - 1
+            this.currentSubtextID = this.numberOfSubstepsForCurrentChapter
           }
         } else {
           this.currentSubtextID--
