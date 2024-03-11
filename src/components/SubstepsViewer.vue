@@ -20,7 +20,6 @@
         required: true
       }
     },
-    emits: ['next', 'previous'],
     data() {
       return { currentSubtextID: 0, currentChapterID: 0 }
     },
