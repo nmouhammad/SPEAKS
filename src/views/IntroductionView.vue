@@ -1,5 +1,5 @@
 <script>
-  import SubstepsViewer from '@/components/SubstepsViewer.vue'
+  import ChaptersViewer from '@/components/ChaptersViewer.vue'
 
   // @vuese
   // @group Views
@@ -7,7 +7,7 @@
   export default {
     name: 'IntroductionView',
     components: {
-      SubstepsViewer
+      ChaptersViewer
     }
   }
 </script>
@@ -42,5 +42,5 @@
 
 <template>
   <p>Introduction</p>
-  <SubstepsViewer :content="subtextArray" />
+  <ChaptersViewer :content="subtextArray" />
 </template>
