@@ -8,7 +8,20 @@ If one view (e.g. Introduction) has different substeps, this component can be us
 |Name|Description|Type|Required|Default|
 |---|---|---|---|---|
 |text|the text that should be displayed|`String`|`true`|-|
+|nextIsPossible|whether there currently is a next possible step = whether the next button should be activated|`Boolean`|`true`|-|
+|previousIsPossible|whether there currently is a previous possible step = whether the previous button should be activated|`Boolean`|`true`|-|
 
 <!-- @vuese:SubstepsViewer:props:end -->
+
+
+## Events
+
+<!-- @vuese:SubstepsViewer:events:start -->
+|Event Name|Description|Parameters|
+|---|---|---|
+|previous|-|-|
+|next|-|-|
+
+<!-- @vuese:SubstepsViewer:events:end -->
 
 
