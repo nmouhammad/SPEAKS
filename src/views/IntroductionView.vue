@@ -14,7 +14,11 @@
 <script setup>
   import { ref } from 'vue'
 
-  const textArray = ['text 1', 'text 2', 'text 3']
+  const subtextArray = [
+    ['text 1.1', 'text 1.2', 'text 1.3'],
+    ['text 2.1', 'text 2.2', 'text 2.3'],
+    ['text 3.1', 'text 3.2', 'text 3.3']
+  ]
   const currentTextID = ref(0)
 
   /**
@@ -33,27 +37,12 @@
       currentTextID.value--
     }
   }
-
-  /**
-   * Checks whether there is a next step based on textArray
-   */
-  function nextIsPossible() {
-    return currentTextID.value < textArray.length - 1
-  }
-  /**
-   * Checks whether there is a previous step based on textArray
-   */
-  function previousIsPossible() {
-    return currentTextID.value > 0
-  }
 </script>
 
 <template>
   <p>Introduction</p>
   <SubstepsViewer
-    :text="textArray[currentTextID]"
-    :next-is-possible="nextIsPossible()"
-    :previous-is-possible="previousIsPossible()"
+    :texts="subtextArray"
     @next="increaseTextID"
     @previous="decreaseTextID"
   />

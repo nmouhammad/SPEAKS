@@ -4,32 +4,38 @@
   // @vuese
   // @group Components
   // If one view (e.g. Introduction) has different substeps, this component can be used
-  // to display one of the substeps at a time
+  // to display one of the substeps at a time. Each substep is called "chapter" and can
+  // consist of multiple texts which will be uncovered one by one.
   export default {
     components: {
       KeyboardListener
     },
     props: {
-      // the text that should be displayed
-      text: {
-        type: String,
-        required: true
-      },
-      // whether there currently is a next possible step = whether the next button
-      // should be activated
-      nextIsPossible: {
-        type: Boolean,
-        required: true
-      },
-      // whether there currently is a previous possible step = whether the previous
-      // button should be activated
-      previousIsPossible: {
-        type: Boolean,
+      // collection of texts that should be displayed after each other
+      texts: {
+        type: Array,
+        default() {
+          return [[]]
+        },
         required: true
       }
     },
     emits: ['next', 'previous'],
+    data() {
+      return { currentSubtextID: 0, currentChapterID: 0 }
+    },
+    computed: {
+      // return the subtexts of the current chapter
+      currentSubtexts() {
+        return this.texts[this.currentChapterID]
+      },
+      // return the subtexts of the current chapter that have already been uncovered
+      subtextsToShow() {
+        return this.currentSubtexts.slice(0, this.currentSubtextID + 1)
+      }
+    },
     methods: {
+      // check whether a key is pressed and if yes trigger the corresponding event
       keydownEvent(event) {
         // if any of the following keys is pressed, 'next' should be emitted
         const keysTriggeringNext = ['ArrowRight', 'Enter', ' ']
@@ -39,11 +45,35 @@
 
         // check whether the pressedKey is in the array keysTriggeringNext
         if (keysTriggeringNext.indexOf(pressedKey) !== -1) {
-          this.$emit('next')
+          this.next()
         }
         // check whether the pressedKey is in the array keysTriggeringPrevious
         if (keysTriggeringPrevious.indexOf(pressedKey) !== -1) {
-          this.$emit('previous')
+          this.previous()
+        }
+      },
+      // uncover the next text or change the chapter if all texts for this chapter
+      // are already uncovered
+      next() {
+        if (this.currentSubtextID === this.currentSubtexts.length - 1) {
+          if (this.currentChapterID < this.texts.length - 1) {
+            this.currentChapterID++
+            this.currentSubtextID = 0
+          }
+        } else {
+          this.currentSubtextID++
+        }
+      },
+      // go one step back by either removing the current text or change the chapter
+      // if all texts for this chapter have already been removed
+      previous() {
+        if (this.currentSubtextID === 0) {
+          if (this.currentChapterID > 0) {
+            this.currentChapterID--
+            this.currentSubtextID = this.currentSubtexts.length - 1
+          }
+        } else {
+          this.currentSubtextID--
         }
       }
     }
@@ -55,11 +85,7 @@
   <KeyboardListener @keydown="keydownEvent" />
   <div class="btn-group">
     <!-- Chevron left -->
-    <button
-      class="btn btn-outline-secondary"
-      :disabled="!previousIsPossible"
-      @click="$emit('previous')"
-    >
+    <button class="btn btn-outline-secondary" @click="previous">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -75,11 +101,7 @@
       </svg>
     </button>
     <!-- Chevron right -->
-    <button
-      class="btn btn-outline-secondary"
-      :disabled="!nextIsPossible"
-      @click="$emit('next')"
-    >
+    <button class="btn btn-outline-secondary" @click="next">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -95,5 +117,8 @@
       </svg>
     </button>
   </div>
-  <p>{{ text }}</p>
+  <!-- <p>{{ text }}</p> -->
+  <p v-for="(currentSubtext, id) in subtextsToShow" :key="id">
+    {{ currentSubtext }}
+  </p>
 </template>
