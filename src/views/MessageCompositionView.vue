@@ -2,6 +2,7 @@
   import ProgressBar from '@/components/ProgressBar.vue'
   import AudienceBeginningView from '@/views/AudienceBeginningView.vue'
   import AudienceEndView from '@/views/AudienceEndView.vue'
+  import IntroductionView from '@/views/IntroductionView.vue'
 
   // @vuese
   // @group Views
@@ -11,7 +12,8 @@
     components: {
       ProgressBar,
       AudienceBeginningView,
-      AudienceEndView
+      AudienceEndView,
+      IntroductionView
     }
   }
 </script>
@@ -37,6 +39,7 @@
         v-if="progressStore.isCurrentByAbbreviation('AB')"
       />
       <AudienceEndView v-if="progressStore.isCurrentByAbbreviation('AE')" />
+      <IntroductionView v-if="progressStore.isCurrentByAbbreviation('I')" />
     </div>
 
     <!-- FOOTER -->
