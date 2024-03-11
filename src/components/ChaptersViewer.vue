@@ -1,18 +1,20 @@
 <script>
   import KeyboardListener from '@/components/KeyboardListener.vue'
+  import ChapterTextButton from '@/components/ChapterTextButton.vue'
 
   // @vuese
   // @group Components
-  // If one view (e.g. Introduction) has different substeps, this component can be used
-  // to display one of the substeps at a time. Each substep is called "chapter" and can
-  // consist of multiple texts which will be uncovered one by one.
+  // If one view (e.g. Introduction) has different substeps (="chapters"), this component
+  // can be used to display one of the chapters at a time.
   export default {
+    name: 'ChaptersViewer',
     components: {
-      KeyboardListener
+      KeyboardListener,
+      ChapterTextButton
     },
     props: {
-      // collection of texts that should be displayed after each other
-      texts: {
+      // collection of content objects that should be displayed after each other
+      content: {
         type: Array,
         default() {
           return [[]]
@@ -26,11 +28,11 @@
     computed: {
       // return the subtexts of the current chapter
       currentSubtexts() {
-        return this.texts[this.currentChapterID]
+        return this.content[this.currentChapterID].texts
       },
-      // return the subtexts of the current chapter that have already been uncovered
-      subtextsToShow() {
-        return this.currentSubtexts.slice(0, this.currentSubtextID + 1)
+      // returns the current subchapter object
+      currentSubchapter() {
+        return this.content[this.currentChapterID]
       }
     },
     methods: {
@@ -55,7 +57,7 @@
       // are already uncovered
       next() {
         if (this.currentSubtextID === this.currentSubtexts.length - 1) {
-          if (this.currentChapterID < this.texts.length - 1) {
+          if (this.currentChapterID < this.content.length - 1) {
             this.currentChapterID++
             this.currentSubtextID = 0
           }
@@ -116,8 +118,13 @@
       </svg>
     </button>
   </div>
-  <!-- <p>{{ text }}</p> -->
-  <p v-for="(currentSubtext, id) in subtextsToShow" :key="id">
-    {{ currentSubtext }}
-  </p>
+  <div>
+    <ChapterTextButton
+      v-if="currentSubchapter.type === 'ChapterTextButton'"
+      :texts="currentSubtexts"
+      :current-subtext-i-d="currentSubtextID"
+      :button-text="currentSubchapter.buttonText"
+      @next="next"
+    />
+  </div>
 </template>
