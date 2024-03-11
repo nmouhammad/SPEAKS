@@ -41,6 +41,5 @@
 </script>
 
 <template>
-  <p>Introduction</p>
   <ChaptersViewer :content="subtextArray" />
 </template>
