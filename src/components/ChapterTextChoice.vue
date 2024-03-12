@@ -14,6 +14,7 @@
 <script setup>
   import { ref } from 'vue'
   import { watch } from 'vue'
+  import { usePresentationPlanStore } from '@/stores/PresentationPlanStore'
 
   const props = defineProps({
     // all elements that should be displayed in this chapter
@@ -28,9 +29,10 @@
     }
   })
   const emit = defineEmits(['next', 'wait', 'stopWaitingGoNext'])
+  const presentationPlanStore = usePresentationPlanStore()
 
   // the id of the button for which the description should be shown (-1 if none)
-  let idOfDescriptionToShow = ref(-1)
+  let idOfChosenIntroType = ref(-1)
 
   // check whether the text with the given id should already been shown
   function showElementWithID(id) {
@@ -39,7 +41,7 @@
 
   // show the description of the button with the given id
   function showDescription(id) {
-    idOfDescriptionToShow.value = id
+    idOfChosenIntroType.value = id
   }
 
   // we watch for the changes in the currentElementID to be able to signal when we
@@ -50,7 +52,35 @@
   // initialized in a state where it should already been waiting
   function watchForWhenToWait(newID) {
     if (newID == props.elements.length - 1) {
-      emit('wait')
+      const IDSavedIntroType = getIDforSavedIntroType()
+      if (IDSavedIntroType > 0) {
+        idOfChosenIntroType.value = IDSavedIntroType
+      } else {
+        emit('wait')
+      }
+    }
+  }
+
+  /**
+   * Saves the chosen IntroType to the store and emits to the parent that the next
+   * Chapter can be started
+   */
+  function saveIntroTypeAndContinue() {
+    presentationPlanStore.setIntroductionType(
+      props.elements[idOfChosenIntroType.value].introType
+    )
+    emit('stopWaitingGoNext')
+  }
+  /**
+   * Returns the ID of the button corresponding to the saved IntroType
+   */
+  function getIDforSavedIntroType() {
+    const introType = presentationPlanStore.introductionType
+    if (introType && introType.length > 0) {
+      const buttonID = props.elements.findIndex(
+        (currentElement) => currentElement.introType === introType
+      )
+      return buttonID
     }
   }
 </script>
@@ -75,7 +105,7 @@
           v-show="showElementWithID(id)"
           class="btn"
           :class="[
-            idOfDescriptionToShow == id ? 'btn-primary' : 'btn-outline-primary'
+            idOfChosenIntroType == id ? 'btn-primary' : 'btn-outline-primary'
           ]"
           @click="showDescription(id)"
         >
@@ -86,18 +116,18 @@
   </div>
 
   <!-- Descriptions (shown after choosing one of the choice buttons) -->
-  <p v-if="idOfDescriptionToShow > -1" class="fs-6 fw-light mt-3 text-center">
-    {{ elements[idOfDescriptionToShow].description }}
+  <p v-if="idOfChosenIntroType > -1" class="fs-6 fw-light mt-3 text-center">
+    {{ elements[idOfChosenIntroType].description }}
   </p>
 
   <!-- Button to go for the next step with the given choice -->
   <div class="d-flex justify-content-center">
     <button
-      v-if="idOfDescriptionToShow > -1"
+      v-if="idOfChosenIntroType > -1"
       class="btn btn-primary"
-      @click="$emit('stopWaitingGoNext')"
+      @click="saveIntroTypeAndContinue"
     >
-      {{ elements[idOfDescriptionToShow].submitText }}
+      {{ elements[idOfChosenIntroType].submitText }}
     </button>
   </div>
 </template>

@@ -45,25 +45,29 @@
           type: 'button',
           text: 'Tell a story',
           description: 'Telling a story is a good way ...',
-          submitText: 'I want to start with a story'
+          submitText: 'I want to start with a story',
+          introType: 'story'
         },
         {
           type: 'button',
           text: 'Make a joke',
           description: 'Making a joke is a good way ...',
-          submitText: 'I want to start with a joke'
+          submitText: 'I want to start with a joke',
+          introType: 'joke'
         },
         {
           type: 'button',
           text: 'Tell an impressive fact',
           description: 'Starting with an impressive fact ..',
-          submitText: 'I want to start with a fact'
+          submitText: 'I want to start with a fact',
+          introType: 'fact'
         },
         {
           type: 'button',
           text: 'Ask a question',
           description: 'Asking your audience a question ...',
-          submitText: 'I want to start with a question'
+          submitText: 'I want to start with a question',
+          introType: 'question'
         }
       ]
     },
