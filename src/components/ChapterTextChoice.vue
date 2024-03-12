@@ -1,59 +1,60 @@
 <script>
+  // @vuese
   // @group Components
   // One of the chapters that can be used in the ChaptersViewer, contains text on top, then multiple
   // buttons from which the user can choose and then sees the corresponding description with the
   // option to either revert their choice by clicking on another button or choosing to go with that
   // choice by clicking the "submit"-button (with custom text) on the bottom.
-  // To see an example how the elements should be formatted, look at IntroductionView.vue.
+  // To see an example how the elements should be formatted, look at IntroductionView.vue
   export default {
-    name: 'ChapterTextChoice',
-    props: {
-      // all elements that should be displayed in this chapter
-      elements: {
-        type: Array,
-        required: true
-      },
-      // the id of the last subtext that should be visible
-      currentElementID: {
-        type: Number,
-        required: true
-      }
+    name: 'ChapterTextChoice'
+  }
+</script>
+
+<script setup>
+  import { ref } from 'vue'
+  import { watch } from 'vue'
+
+  const props = defineProps({
+    // all elements that should be displayed in this chapter
+    elements: {
+      type: Array,
+      required: true
     },
-    emits: ['next', 'wait', 'stopWaitingGoNext'],
-    data: () => {
-      return {
-        // the id of the button for which the description should be shown (-1 if none)
-        idOfDescriptionToShow: -1
-      }
-    },
-    computed: {},
-    watch: {
-      // we watch for the changes in the currentElementID to be able to signal when we
-      // need to wait for user input (in this case: after all choice buttons are shown)
-      currentElementID: {
-        handler(newID) {
-          if (newID == this.elements.length - 1) {
-            this.$emit('wait')
-          }
-        },
-        // we need immediate to be set to true because otherwise the watch does not work
-        // correctly when the user comes back from the previous step and this chapter is
-        // initialized in a state where it should already been waiting
-        immediate: true
-      }
-    },
-    methods: {
-      // check whether the text with the given id should already been shown
-      showElementWithID(id) {
-        return id <= this.currentElementID
-      },
-      // show the description of the button with the given id
-      showDescription(id) {
-        this.idOfDescriptionToShow = id
-      }
+    // the id of the last subtext that should be visible
+    currentElementID: {
+      type: Number,
+      required: true
+    }
+  })
+  const emit = defineEmits(['next', 'wait', 'stopWaitingGoNext'])
+
+  // the id of the button for which the description should be shown (-1 if none)
+  let idOfDescriptionToShow = ref(-1)
+
+  // check whether the text with the given id should already been shown
+  function showElementWithID(id) {
+    return id <= props.currentElementID
+  }
+
+  // show the description of the button with the given id
+  function showDescription(id) {
+    idOfDescriptionToShow.value = id
+  }
+
+  // we watch for the changes in the currentElementID to be able to signal when we
+  // need to wait for user input (in this case: after all choice buttons are shown)
+  watch(() => props.currentElementID, watchForWhenToWait, { immediate: true })
+  // we need immediate to be set to true because otherwise the watch does not work
+  // correctly when the user comes back from the previous step and this chapter is
+  // initialized in a state where it should already been waiting
+  function watchForWhenToWait(newID) {
+    if (newID == props.elements.length - 1) {
+      emit('wait')
     }
   }
 </script>
+
 <template>
   <!-- Texts on top -->
   <div v-for="(currentElement, id) in elements" :key="id">
