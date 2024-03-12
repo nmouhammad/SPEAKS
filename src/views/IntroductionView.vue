@@ -36,6 +36,43 @@
         "The good news is: there are multiple great options how to gain the audience's interest. Just pick what feels like the best match for you!"
       ],
       buttonText: 'Show me these options!'
+    },
+    {
+      type: 'ChapterTextChoice',
+      elements: [
+        { type: 'text', text: 'Ok, here are the different options: ' },
+        {
+          type: 'button',
+          text: 'Tell a story',
+          description: 'Telling a story is a good way ...',
+          submitText: 'I want to start with a story'
+        },
+        {
+          type: 'button',
+          text: 'Make a joke',
+          description: 'Making a joke is a good way ...',
+          submitText: 'I want to start with a joke'
+        },
+        {
+          type: 'button',
+          text: 'Tell an impressive fact',
+          description: 'Starting with an impressive fact ..',
+          submitText: 'I want to start with a fact'
+        },
+        {
+          type: 'button',
+          text: 'Ask a question',
+          description: 'Asking your audience a question ...',
+          submitText: 'I want to start with a question'
+        }
+      ]
+    },
+    {
+      type: 'ChapterTextButton',
+      texts: [
+        "The good news is: there are multiple great options how to gain the audience's interest. Just pick what feels like the best match for you!"
+      ],
+      buttonText: 'Show me these options!'
     }
   ]
 </script>
