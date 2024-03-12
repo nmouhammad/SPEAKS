@@ -1,6 +1,6 @@
 # ChapterTextButton
 
-One of the chapters that can be used in the ChaptersViewer
+One of the chapters that can be used in the ChaptersViewer. Consists of multiple texts shown on top and then a button for going to the next subchapter.
 
 ## Props
 
