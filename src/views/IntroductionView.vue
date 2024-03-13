@@ -1,5 +1,6 @@
 <script>
   import ChaptersViewer from '@/components/ChaptersViewer.vue'
+  import CenteringContainer from '@/components/CenteringContainer.vue'
 
   // @vuese
   // @group Views
@@ -7,7 +8,8 @@
   export default {
     name: 'IntroductionView',
     components: {
-      ChaptersViewer
+      ChaptersViewer,
+      CenteringContainer
     }
   }
 </script>
@@ -133,5 +135,7 @@
 </script>
 
 <template>
-  <ChaptersViewer :content="subtextArray" />
+  <CenteringContainer>
+    <ChaptersViewer :content="subtextArray" />
+  </CenteringContainer>
 </template>

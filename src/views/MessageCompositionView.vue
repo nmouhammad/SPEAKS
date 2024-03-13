@@ -32,15 +32,10 @@
     <ProgressBar />
 
     <!-- BODY -->
-    <div
-      class="container d-flex flex-column align-items-center gap-3 w-50 mt-5"
-    >
-      <AudienceBeginningView
-        v-if="progressStore.isCurrentByAbbreviation('AB')"
-      />
-      <AudienceEndView v-if="progressStore.isCurrentByAbbreviation('AE')" />
-      <IntroductionView v-if="progressStore.isCurrentByAbbreviation('I')" />
-    </div>
+
+    <AudienceBeginningView v-if="progressStore.isCurrentByAbbreviation('AB')" />
+    <AudienceEndView v-if="progressStore.isCurrentByAbbreviation('AE')" />
+    <IntroductionView v-if="progressStore.isCurrentByAbbreviation('I')" />
 
     <!-- FOOTER -->
     <div

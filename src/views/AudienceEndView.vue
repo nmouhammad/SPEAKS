@@ -1,11 +1,12 @@
 <script>
   import ContentCollector from '@/components/ContentCollector.vue'
+  import CenteringContainer from '@/components/CenteringContainer.vue'
   // @vuese
   // @group Views
   // This view contains all elements regarding the analysis of the audience in the end of the presentation
   export default {
     name: 'AudienceEndView',
-    components: { ContentCollector }
+    components: { ContentCollector, CenteringContainer }
   }
 </script>
 
@@ -18,15 +19,17 @@
 </script>
 
 <template>
-  <h5 class="text-center">
-    What should your audience know about your topic after your presentation?
-  </h5>
-  <ContentCollector
-    :all-content-to-display="knowledgeEnd"
-    content-box-heading="Gained knowledge of your audience:"
-    @add="store.addToknowledgeEnd"
-    @remove="store.removeFromKnowledgeEnd"
-  />
+  <CenteringContainer>
+    <h5 class="text-center">
+      What should your audience know about your topic after your presentation?
+    </h5>
+    <ContentCollector
+      :all-content-to-display="knowledgeEnd"
+      content-box-heading="Gained knowledge of your audience:"
+      @add="store.addToknowledgeEnd"
+      @remove="store.removeFromKnowledgeEnd"
+    />
+  </CenteringContainer>
 </template>
 
 <style scoped></style>
