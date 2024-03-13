@@ -14,7 +14,9 @@
       type: Object,
       required: true
     },
-    // the id of the last subtext that should be visible
+    /**
+     * the id of the last subtext that should be visible
+     */
     currentElementID: {
       type: Number,
       required: true
