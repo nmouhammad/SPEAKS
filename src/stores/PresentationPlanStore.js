@@ -5,7 +5,14 @@ import { defineStore } from 'pinia'
 export const usePresentationPlanStore = defineStore('PresentationPlanStore', {
   state: () => ({
     introductionType: '',
-    introductionContent: []
+    /**
+     * Array containing the content of the introduction of the user's presentation
+     */
+    introductionContent: [],
+    /**
+     * Array containing the content of the end of the user's presentation
+     */
+    endContent: []
   }),
   actions: {
     /**
@@ -15,19 +22,45 @@ export const usePresentationPlanStore = defineStore('PresentationPlanStore', {
     setIntroductionType(chosenIntroductionType) {
       this.introductionType = chosenIntroductionType
     },
+
+    /**
+     * Add content to the introductionContent
+     * @param {String} content
+     */
     addIntroductionContent(content) {
       this.introductionContent.push(content)
     },
+
+    /**
+     * Remove content with the given ID from introductionContent
+     * @param {Object} toDeleteObject (has attribute toRemove containing the ID)
+     */
     removeFromIntroductionContent(toDeleteObject) {
-      console.log('remove intro content: ' + toDeleteObject)
       let id = toDeleteObject.toRemove
       this.introductionContent.splice(id, 1)
+    },
+
+    /**
+     * Add content to the endContent
+     * @param {String} content
+     */
+    addEndContent(content) {
+      this.endContent.push(content)
+    },
+
+    /**
+     * Remove content with the given ID from endContent
+     * @param {Object} toDeleteObject (has attribute toRemove containing the ID)
+     */
+    removeFromEndContent(toDeleteObject) {
+      let id = toDeleteObject.toRemove
+      this.endContent.splice(id, 1)
     }
   },
-  /**
-   * Get the introductionType
-   */
   getters: {
+    /**
+     * Get the introductionType
+     */
     getIntroductionType: (state) => {
       state.introductionType
     }
