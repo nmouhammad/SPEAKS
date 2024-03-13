@@ -15,8 +15,10 @@
 </script>
 <script setup>
   import { ref, watch } from 'vue'
+  import { storeToRefs } from 'pinia'
   import { usePresentationPlanStore } from '@/stores/PresentationPlanStore'
   const presentationPlanStore = usePresentationPlanStore()
+  const { introductionContent } = storeToRefs(presentationPlanStore)
 
   const subtextArray = ref([
     {
@@ -80,7 +82,7 @@
     {
       type: 'ChapterContentCollector',
       texts: ['example 1', 'example 2'],
-      contentElements: presentationPlanStore.introductionContent,
+      contentElements: introductionContent,
       hasRemoveOption: true,
       contentBoxHeading: 'heading',
       remove: presentationPlanStore.removeFromIntroductionContent,
