@@ -12,10 +12,11 @@
   }
 </script>
 <script setup>
+  import { ref, watch } from 'vue'
   import { usePresentationPlanStore } from '@/stores/PresentationPlanStore'
   const presentationPlanStore = usePresentationPlanStore()
 
-  const subtextArray = [
+  const subtextArray = ref([
     {
       type: 'ChapterTextButton',
       texts: [
@@ -90,7 +91,45 @@
       ],
       buttonText: 'Show me these options!'
     }
-  ]
+  ])
+
+  watch(() => presentationPlanStore.introductionType, reactToIntroTypeChange, {
+    immediate: true
+  })
+
+  function reactToIntroTypeChange(newIntroType, oldIntroType) {
+    // check whether the new introType is not empty
+    // and different than the previous introType
+    if (newIntroType.length > 0 && !(newIntroType === oldIntroType)) {
+      // remove the old introductionContent
+      presentationPlanStore.introductionContent = []
+      // find out which index the chapter where we need to change instructions has
+      const relevantChapterID = subtextArray.value.findIndex(
+        (element) => element.type === 'ChapterContentCollector'
+      )
+      // adapt the content based on the introType
+      if (newIntroType === 'story') {
+        subtextArray.value[relevantChapterID].texts = ['Story 1', 'Story 2']
+        subtextArray.value[relevantChapterID].contentBoxHeading =
+          'Content of your story'
+      } else if (newIntroType === 'fact') {
+        subtextArray.value[relevantChapterID].texts = ['Fact 1', 'Fact 2']
+        subtextArray.value[relevantChapterID].contentBoxHeading =
+          'Presentation of your fact(s)'
+      } else if (newIntroType === 'joke') {
+        subtextArray.value[relevantChapterID].texts = ['Joke 1', 'Joke 2']
+        subtextArray.value[relevantChapterID].contentBoxHeading =
+          'Content of your joke'
+      } else if (newIntroType === 'question') {
+        subtextArray.value[relevantChapterID].texts = [
+          'Question 1',
+          'Question 2'
+        ]
+        subtextArray.value[relevantChapterID].contentBoxHeading =
+          'Presentation of your question'
+      }
+    }
+  }
 </script>
 
 <template>
