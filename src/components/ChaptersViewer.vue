@@ -63,26 +63,6 @@
     },
     methods: {
       /**
-       * check whether a key is pressed and if yes trigger the corresponding event
-       * @public
-       */
-      keydownEvent(event) {
-        // if any of the following keys is pressed, 'next' should be emitted
-        const keysTriggeringNext = ['ArrowRight', 'Enter', ' ']
-        // if any of the following keys is pressed, 'previous' should be emitted
-        const keysTriggeringPrevious = ['ArrowLeft']
-        const pressedKey = event.key
-
-        // check whether the pressedKey is in the array keysTriggeringNext
-        if (keysTriggeringNext.indexOf(pressedKey) !== -1) {
-          this.next()
-        }
-        // check whether the pressedKey is in the array keysTriggeringPrevious
-        if (keysTriggeringPrevious.indexOf(pressedKey) !== -1) {
-          this.previous()
-        }
-      },
-      /**
        * uncover the next text or change the chapter if all texts for this
        * chapter are already uncovered
        * @public
@@ -157,7 +137,7 @@
 
 <template>
   <!-- Changing the substep -->
-  <KeyboardListener @keydown="keydownEvent" />
+  <KeyboardListener @next="next" @previous="previous" />
   <div class="btn-group">
     <!-- Chevron left -->
     <button class="btn btn-outline-secondary" @click="previous">

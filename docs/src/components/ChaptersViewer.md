@@ -8,16 +8,6 @@
 
 ## Methods
 
-### keydownEvent
-
-> check whether a key is pressed and if yes trigger the corresponding event
-
-#### Params
-
-| Param name | Type | Description |
-| ---------- | ---- | ----------- |
-| event      |      |             |
-
 ### next
 
 > uncover the next text or change the chapter if all texts for this
