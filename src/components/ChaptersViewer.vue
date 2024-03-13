@@ -17,7 +17,9 @@
       ChapterContentCollector
     },
     props: {
-      // collection of content objects that should be displayed after each other
+      /**
+       *  collection of content objects that should be displayed after each other
+       */
       content: {
         type: Array,
         default() {
@@ -28,14 +30,16 @@
     },
     data() {
       return {
-        currentSubtextID: 0,
+        currentSubelementID: 0,
         currentChapterID: 0,
         // whether we need to wait for e.g. some user input before going to the next step
         wait: false
       }
     },
     computed: {
-      // return the subtexts of the current chapter
+      /**
+       * return the subtexts of the current chapter
+       */
       currentSubtexts() {
         return this.content[this.currentChapterID].texts
       },
@@ -58,7 +62,10 @@
       }
     },
     methods: {
-      // check whether a key is pressed and if yes trigger the corresponding event
+      /**
+       * check whether a key is pressed and if yes trigger the corresponding event
+       * @public
+       */
       keydownEvent(event) {
         // if any of the following keys is pressed, 'next' should be emitted
         const keysTriggeringNext = ['ArrowRight', 'Enter', ' ']
@@ -75,44 +82,50 @@
           this.previous()
         }
       },
-      // uncover the next text or change the chapter if all texts for this chapter
-      // are already uncovered
+      /**
+       * uncover the next text or change the chapter if all texts for this
+       * chapter are already uncovered
+       * @public
+       */
       next() {
         // check whether we are waiting for some input from the user and can
         // therefore not go next yet
         if (!this.wait) {
           // check whether we reached the end of this chapter
           if (
-            this.currentSubtextID === this.numberOfSubstepsForCurrentChapter
+            this.currentSubelementID === this.numberOfSubstepsForCurrentChapter
           ) {
             // check whether there is another chapter that can be started now
             if (this.currentChapterID < this.content.length - 1) {
               this.currentChapterID++
-              this.currentSubtextID = 0
+              this.currentSubelementID = 0
             }
           } else {
             // there are more steps in the current chapter, so we can uncover
             // the next element of the current chapter
-            this.currentSubtextID++
+            this.currentSubelementID++
           }
         }
       },
-      // go one step back by either removing the current text or change the chapter
-      // if all texts for this chapter have already been removed
+      /**
+       * go one step back by either removing the current text or change the chapter
+       * if all texts for this chapter have already been removed
+       * @public
+       */
       previous() {
         // check whether there is a previous step in the current chapter
-        if (this.currentSubtextID === 0) {
+        if (this.currentSubelementID === 0) {
           // there is no previous step in the current chapter, therefore we now
           // check if there is a previous chapter
           if (this.currentChapterID > 0) {
             // there is a previous chapter, so now we change to the end of the
             // previous chapter
             this.currentChapterID--
-            this.currentSubtextID = this.numberOfSubstepsForCurrentChapter
+            this.currentSubelementID = this.numberOfSubstepsForCurrentChapter
           }
         } else {
           // there is a previous step in the current chapter, we'll go there
-          this.currentSubtextID--
+          this.currentSubelementID--
         }
         if (this.wait) {
           // if we were waiting for user input before, we can stop waiting,
@@ -121,13 +134,19 @@
         }
       },
 
-      // start to wait for user input (= deactivate going next)
+      /**
+       * start to wait for user input (= deactivate going next)
+       * @public
+       */
       startWaiting() {
         this.wait = true
       },
 
-      // the user input we were waiting for has been arrived, we can now stop
-      // waiting for it and go to the next step
+      /**
+       * the user input we were waiting for has been arrived, we can now stop
+       * waiting for it and go to the next step
+       * @public
+       */
       stopWaitingGoNext() {
         this.wait = false
         this.next()
@@ -177,21 +196,21 @@
     <ChapterTextButton
       v-if="currentSubchapter.type === 'ChapterTextButton'"
       :texts="currentSubtexts"
-      :current-subtext-i-d="currentSubtextID"
+      :current-subtext-i-d="currentSubelementID"
       :button-text="currentSubchapter.buttonText"
       @next="next"
     />
     <ChapterTextChoice
       v-if="currentSubchapter.type === 'ChapterTextChoice'"
       :elements="currentSubchapter.elements"
-      :current-element-i-d="currentSubtextID"
+      :current-element-i-d="currentSubelementID"
       @wait="startWaiting"
       @stop-waiting-go-next="stopWaitingGoNext"
     />
     <ChapterContentCollector
       v-if="currentSubchapter.type === 'ChapterContentCollector'"
       :data-object="currentSubchapter"
-      :current-element-i-d="currentSubtextID"
+      :current-element-i-d="currentSubelementID"
     />
   </div>
 </template>
