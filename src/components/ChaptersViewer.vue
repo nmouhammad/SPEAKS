@@ -2,6 +2,7 @@
   import KeyboardListener from '@/components/KeyboardListener.vue'
   import ChapterTextButton from '@/components/ChapterTextButton.vue'
   import ChapterTextChoice from '@/components/ChapterTextChoice.vue'
+  import ChapterContentCollector from '@/components/ChapterContentCollector.vue'
 
   // @vuese
   // @group Components
@@ -12,7 +13,8 @@
     components: {
       KeyboardListener,
       ChapterTextButton,
-      ChapterTextChoice
+      ChapterTextChoice,
+      ChapterContentCollector
     },
     props: {
       // collection of content objects that should be displayed after each other
@@ -49,6 +51,8 @@
           return this.currentSubtexts.length
         } else if (this.currentSubchapter.type == 'ChapterTextChoice') {
           return this.currentSubchapter.elements.length - 1
+        } else if (this.currentSubchapter.type == 'ChapterContentCollector') {
+          return this.currentSubchapter.texts.length
         }
         return this.currentSubtexts.length - 1
       }
@@ -169,7 +173,7 @@
       </svg>
     </button>
   </div>
-  <div>
+  <div class="container">
     <ChapterTextButton
       v-if="currentSubchapter.type === 'ChapterTextButton'"
       :texts="currentSubtexts"
@@ -183,6 +187,11 @@
       :current-element-i-d="currentSubtextID"
       @wait="startWaiting"
       @stop-waiting-go-next="stopWaitingGoNext"
+    />
+    <ChapterContentCollector
+      v-if="currentSubchapter.type === 'ChapterContentCollector'"
+      :data-object="currentSubchapter"
+      :current-element-i-d="currentSubtextID"
     />
   </div>
 </template>

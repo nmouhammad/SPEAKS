@@ -12,6 +12,9 @@
   }
 </script>
 <script setup>
+  import { usePresentationPlanStore } from '@/stores/PresentationPlanStore'
+  const presentationPlanStore = usePresentationPlanStore()
+
   const subtextArray = [
     {
       type: 'ChapterTextButton',
@@ -70,6 +73,15 @@
           introType: 'question'
         }
       ]
+    },
+    {
+      type: 'ChapterContentCollector',
+      texts: ['example 1', 'example 2'],
+      contentElements: presentationPlanStore.introductionContent,
+      hasRemoveOption: true,
+      contentBoxHeading: 'heading',
+      remove: presentationPlanStore.removeFromIntroductionContent,
+      add: presentationPlanStore.addIntroductionContent
     },
     {
       type: 'ChapterTextButton',

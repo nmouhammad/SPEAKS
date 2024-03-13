@@ -4,7 +4,8 @@
 import { defineStore } from 'pinia'
 export const usePresentationPlanStore = defineStore('PresentationPlanStore', {
   state: () => ({
-    introductionType: ''
+    introductionType: '',
+    introductionContent: []
   }),
   actions: {
     /**
@@ -13,6 +14,14 @@ export const usePresentationPlanStore = defineStore('PresentationPlanStore', {
      */
     setIntroductionType(chosenIntroductionType) {
       this.introductionType = chosenIntroductionType
+    },
+    addIntroductionContent(content) {
+      this.introductionContent.push(content)
+    },
+    removeFromIntroductionContent(toDeleteObject) {
+      console.log('remove intro content: ' + toDeleteObject)
+      let id = toDeleteObject.toRemove
+      this.introductionContent.splice(id, 1)
     }
   },
   /**
