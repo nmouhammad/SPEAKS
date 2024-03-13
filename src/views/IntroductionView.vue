@@ -87,13 +87,6 @@
       contentBoxHeading: 'heading',
       remove: presentationPlanStore.removeFromIntroductionContent,
       add: presentationPlanStore.addIntroductionContent
-    },
-    {
-      type: 'ChapterTextButton',
-      texts: [
-        "The good news is: there are multiple great options how to gain the audience's interest. Just pick what feels like the best match for you!"
-      ],
-      buttonText: 'Show me these options!'
     }
   ])
 
