@@ -12,7 +12,11 @@ export const usePresentationPlanStore = defineStore('PresentationPlanStore', {
     /**
      * Array containing the content of the end of the user's presentation
      */
-    endContent: []
+    endContent: [],
+    /**
+     * Array containing the content of the middle of the user's presentation
+     */
+    middleContent: []
   }),
   actions: {
     /**
@@ -55,6 +59,23 @@ export const usePresentationPlanStore = defineStore('PresentationPlanStore', {
     removeFromEndContent(toDeleteObject) {
       let id = toDeleteObject.toRemove
       this.endContent.splice(id, 1)
+    },
+
+    /**
+     * Add content to the endContent
+     * @param {String} content
+     */
+    addMiddleContent(content) {
+      this.middleContent.push(content)
+    },
+
+    /**
+     * Remove content with the given ID from endContent
+     * @param {Object} toDeleteObject (has attribute toRemove containing the ID)
+     */
+    removeFromMiddleContent(toDeleteObject) {
+      let id = toDeleteObject.toRemove
+      this.middleContent.splice(id, 1)
     }
   },
   getters: {
