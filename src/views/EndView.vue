@@ -10,11 +10,11 @@
 <script setup>
   import { ref } from 'vue'
   import { storeToRefs } from 'pinia'
-  import KeyboardListener from '@/components/KeyboardListener.vue'
   import ContentBox from '@/components/ContentBox.vue'
   import ContentCollector from '@/components/ContentCollector.vue'
   import { usePresentationPlanStore } from '@/stores/PresentationPlanStore'
   import { useAudienceStore } from '@/stores/AudienceStore'
+  import ChapterStepsHandler from '@/components/ChapterStepsHandler.vue'
 
   // ++++ Import stores ++++
 
@@ -37,35 +37,6 @@
   const nrOfElementsInChapter = [7, 5]
 
   /**
-   * Adapt currentElementID and currentChapterID so that the next element
-   * is shown (if there is any)
-   */
-  function next() {
-    if (
-      currentElementID.value <
-      nrOfElementsInChapter[currentChapterID.value] - 1
-    ) {
-      currentElementID.value++
-    } else if (currentChapterID.value < nrOfElementsInChapter.length - 1) {
-      currentChapterID.value++
-      currentElementID.value = 0
-    }
-  }
-
-  /**
-   * Adapt currentElementID and currentChapterID so that the last shown element
-   * is hidden again (if there is any)
-   */
-  function previous() {
-    if (currentElementID.value > 0) {
-      currentElementID.value--
-    } else if (currentChapterID.value > 0) {
-      currentElementID.value = nrOfElementsInChapter[currentChapterID.value] - 1
-      currentChapterID.value--
-    }
-  }
-
-  /**
    * Returns true if the element with the given elementID and chapterID should be visible
    */
   function isElementShown(elementID, chapterID) {
@@ -76,8 +47,11 @@
 </script>
 
 <template>
-  <KeyboardListener @next="next" @previous="previous" />
-
+  <ChapterStepsHandler
+    v-model:current-element-i-d="currentElementID"
+    v-model:current-chapter-i-d="currentChapterID"
+    :nr-of-elements-in-chapter="nrOfElementsInChapter"
+  />
   <div class="container mt-5">
     <div class="row">
       <!-- We have a row with three equally sized columns, each column is used as one of the 
