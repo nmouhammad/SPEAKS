@@ -1,22 +1,7 @@
-# ThreePanes
-
-> Provides three equally-sized panes which can then be filled with content
-
-## Slots
-
-| Name        | Description | Bindings |
-| ----------- | ----------- | -------- |
-| left-pane   |             |          |
-| middle-pane |             |          |
-| right-pane  |             |          |
-
----
-
 ### Usage example
-
 If you want to use this component, you can copy-pasted the code below and add your content in the corresponding places.
 
-```jsx static
+``` jsx static
 <ThreePanes>
     <template #left-pane>
         <!-- Add content that should be displayed in the left pane here -->
