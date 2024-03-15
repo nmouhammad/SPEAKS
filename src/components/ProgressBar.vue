@@ -2,7 +2,7 @@
   import { useProgressStore } from '@/stores/ProgressStore'
 
   const store = useProgressStore()
-  const { steps } = storeToRefs(store)
+  const { stepsToShowInProgressBar } = storeToRefs(store)
 </script>
 
 <script>
@@ -20,7 +20,11 @@
 
 <template>
   <div class="d-flex justify-content-evenly">
-    <div v-for="(step, index) in steps" :key="index" class="mt-1 col-md-1">
+    <div
+      v-for="(step, index) in stepsToShowInProgressBar"
+      :key="index"
+      class="mt-1 col-md-1"
+    >
       <ProgressBarCircle
         :key="index"
         :abbreviation="step.abbreviation"

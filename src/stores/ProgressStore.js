@@ -11,19 +11,22 @@ export const useProgressStore = defineStore('ProgressStore', {
         name: 'Audience-Beginning',
         abbreviation: 'AB',
         nextStepAbbreviation: 'AE',
-        hasBeenVisited: true
+        hasBeenVisited: true,
+        showInProgressBar: true
       },
       {
         name: 'Introduction',
         abbreviation: 'I',
         nextStepAbbreviation: 'E',
-        hasBeenVisited: false
+        hasBeenVisited: false,
+        showInProgressBar: true
       },
       {
         name: 'Main',
         abbreviation: 'M',
-        nextStepAbbreviation: '2',
-        hasBeenVisited: false
+        nextStepAbbreviation: 'S',
+        hasBeenVisited: false,
+        showInProgressBar: true
       },
       // {
       //   name: 'Main-2',
@@ -41,13 +44,22 @@ export const useProgressStore = defineStore('ProgressStore', {
         name: 'End',
         abbreviation: 'E',
         nextStepAbbreviation: 'M',
-        hasBeenVisited: false
+        hasBeenVisited: false,
+        showInProgressBar: true
       },
       {
         name: 'Audience-End',
         abbreviation: 'AE',
         nextStepAbbreviation: 'I',
-        hasBeenVisited: false
+        hasBeenVisited: false,
+        showInProgressBar: true
+      },
+      {
+        name: 'Summary',
+        abbreviation: 'S',
+        nextStepAbbreviation: 'S',
+        hasBeenVisited: false,
+        showInProgressBar: false
       }
     ],
     currentStepID: 0
@@ -136,6 +148,9 @@ export const useProgressStore = defineStore('ProgressStore', {
         (step) => step.abbreviation === stepAbbreviation
       )
       return state.currentStepID == stepID
+    },
+    stepsToShowInProgressBar: (state) => {
+      return state.steps.filter((step) => step.showInProgressBar)
     }
   }
 })

@@ -5,6 +5,7 @@
   import IntroductionView from '@/views/IntroductionView.vue'
   import EndView from '@/views/EndView.vue'
   import MiddleView from './MiddleView.vue'
+  import SummaryView from './SummaryView.vue'
 
   // @vuese
   // @group Views
@@ -16,7 +17,8 @@
       AudienceBeginningView,
       AudienceEndView,
       IntroductionView,
-      EndView
+      EndView,
+      SummaryView
     }
   }
 </script>
@@ -41,6 +43,7 @@
     <IntroductionView v-if="progressStore.isCurrentByAbbreviation('I')" />
     <EndView v-if="progressStore.isCurrentByAbbreviation('E')" />
     <MiddleView v-if="progressStore.isCurrentByAbbreviation('M')" />
+    <SummaryView v-if="progressStore.isCurrentByAbbreviation('S')" />
 
     <!-- FOOTER -->
     <div
