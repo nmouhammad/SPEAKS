@@ -2,21 +2,32 @@
  * This store saves allinformation related to the presentation plan the user created.
  */
 import { defineStore } from 'pinia'
+import { addToCollection, removeFromCollection } from './AudienceStore'
+
 export const usePresentationPlanStore = defineStore('PresentationPlanStore', {
   state: () => ({
     introductionType: '',
     /**
      * Array containing the content of the introduction of the user's presentation
      */
-    introductionContent: [],
+    introductionContent: {
+      contentElements: [],
+      nextID: 0
+    },
     /**
      * Array containing the content of the end of the user's presentation
      */
-    endContent: [],
+    endContent: {
+      contentElements: [],
+      nextID: 0
+    },
     /**
      * Array containing the content of the middle of the user's presentation
      */
-    middleContent: []
+    middleContent: {
+      contentElements: [],
+      nextID: 0
+    }
   }),
   actions: {
     /**
@@ -27,21 +38,25 @@ export const usePresentationPlanStore = defineStore('PresentationPlanStore', {
       this.introductionType = chosenIntroductionType
     },
 
+    emptyIntroductionContent() {
+      this.introductionContent.contentElements = []
+      this.introductionContent.nextID = 0
+    },
+
     /**
      * Add content to the introductionContent
      * @param {String} content
      */
     addIntroductionContent(content) {
-      this.introductionContent.push(content)
+      addToCollection(content, this.introductionContent)
     },
 
     /**
      * Remove content with the given ID from introductionContent
      * @param {Object} toDeleteObject (has attribute toRemove containing the ID)
      */
-    removeFromIntroductionContent(toDeleteObject) {
-      let id = toDeleteObject.toRemove
-      this.introductionContent.splice(id, 1)
+    removeFromIntroductionContent(toDeleteID) {
+      removeFromCollection(toDeleteID, this.introductionContent)
     },
 
     /**
@@ -49,16 +64,15 @@ export const usePresentationPlanStore = defineStore('PresentationPlanStore', {
      * @param {String} content
      */
     addEndContent(content) {
-      this.endContent.push(content)
+      addToCollection(content, this.endContent)
     },
 
     /**
      * Remove content with the given ID from endContent
      * @param {Object} toDeleteObject (has attribute toRemove containing the ID)
      */
-    removeFromEndContent(toDeleteObject) {
-      let id = toDeleteObject.toRemove
-      this.endContent.splice(id, 1)
+    removeFromEndContent(toDeleteID) {
+      removeFromCollection(toDeleteID, this.endContent)
     },
 
     /**
@@ -66,16 +80,15 @@ export const usePresentationPlanStore = defineStore('PresentationPlanStore', {
      * @param {String} content
      */
     addMiddleContent(content) {
-      this.middleContent.push(content)
+      addToCollection(content, this.middleContent)
     },
 
     /**
      * Remove content with the given ID from endContent
      * @param {Object} toDeleteObject (has attribute toRemove containing the ID)
      */
-    removeFromMiddleContent(toDeleteObject) {
-      let id = toDeleteObject.toRemove
-      this.middleContent.splice(id, 1)
+    removeFromMiddleContent(toDeleteID) {
+      removeFromCollection(toDeleteID, this.middleContent)
     }
   },
   getters: {

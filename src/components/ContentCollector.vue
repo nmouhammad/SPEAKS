@@ -11,9 +11,9 @@
     props: {
       // Array containing the elements that should be shown
       allContentToDisplay: {
-        type: Array,
+        type: Object,
         default() {
-          return []
+          return {}
         }
       },
       // Whether there is an "x" on each badge for removing this content

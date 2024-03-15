@@ -99,7 +99,7 @@
     // and different than the previous introType
     if (newIntroType.length > 0 && !(newIntroType === oldIntroType)) {
       // remove the old introductionContent
-      presentationPlanStore.introductionContent = []
+      presentationPlanStore.emptyIntroductionContent()
       // find out which index the chapter where we need to change instructions has
       const relevantChapterID = subtextArray.value.findIndex(
         (element) => element.type === 'ChapterContentCollector'
