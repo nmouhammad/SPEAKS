@@ -81,7 +81,7 @@
         How can we move them from the left to the right?
       </p>
       <div
-        v-if="isElementShown(0, 1)"
+        v-if="isElementShown(1, 1)"
         class="d-flex flex-column align-items-center gap-3"
       >
         <ContentCollector
