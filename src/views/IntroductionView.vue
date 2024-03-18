@@ -56,13 +56,13 @@
           submitText: 'I want to start with a story',
           introType: 'story'
         },
-        {
-          type: 'button',
-          text: 'Make a joke',
-          description: 'Making a joke is a good way ...',
-          submitText: 'I want to start with a joke',
-          introType: 'joke'
-        },
+        // {
+        //   type: 'button',
+        //   text: 'Make a joke',
+        //   description: 'Making a joke is a good way ...',
+        //   submitText: 'I want to start with a joke',
+        //   introType: 'joke'
+        // },
         {
           type: 'button',
           text: 'Tell an impressive fact',
@@ -113,10 +113,10 @@
         subtextArray.value[relevantChapterID].texts = ['Fact 1', 'Fact 2']
         subtextArray.value[relevantChapterID].contentBoxHeading =
           'Presentation of your fact(s)'
-      } else if (newIntroType === 'joke') {
-        subtextArray.value[relevantChapterID].texts = ['Joke 1', 'Joke 2']
-        subtextArray.value[relevantChapterID].contentBoxHeading =
-          'Content of your joke'
+        // } else if (newIntroType === 'joke') {
+        //   subtextArray.value[relevantChapterID].texts = ['Joke 1', 'Joke 2']
+        //   subtextArray.value[relevantChapterID].contentBoxHeading =
+        //     'Content of your joke'
       } else if (newIntroType === 'question') {
         subtextArray.value[relevantChapterID].texts = [
           'Question 1',
