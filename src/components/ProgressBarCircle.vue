@@ -44,7 +44,7 @@
   /* modified from https://bootsnipp.com/snippets/dKB */
   .btn-lg {
     text-align: center;
-    width: 50px;
+    width: 80px;
     height: 50px;
     padding: 10px 5px;
     font-size: 18px;

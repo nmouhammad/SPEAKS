@@ -9,21 +9,21 @@ export const useProgressStore = defineStore('ProgressStore', {
     steps: [
       {
         name: 'Audience-Beginning',
-        abbreviation: 'AB',
-        nextStepAbbreviation: 'AE',
+        abbreviation: 'Before',
+        nextStepAbbreviation: 'After',
         hasBeenVisited: true,
         showInProgressBar: true
       },
       {
         name: 'Introduction',
-        abbreviation: 'I',
-        nextStepAbbreviation: 'E',
+        abbreviation: 'Intro',
+        nextStepAbbreviation: 'End',
         hasBeenVisited: false,
         showInProgressBar: true
       },
       {
         name: 'Main',
-        abbreviation: 'M',
+        abbreviation: 'Middle',
         nextStepAbbreviation: 'S',
         hasBeenVisited: false,
         showInProgressBar: true
@@ -42,15 +42,15 @@ export const useProgressStore = defineStore('ProgressStore', {
       // },
       {
         name: 'End',
-        abbreviation: 'E',
-        nextStepAbbreviation: 'M',
+        abbreviation: 'End',
+        nextStepAbbreviation: 'Middle',
         hasBeenVisited: false,
         showInProgressBar: true
       },
       {
         name: 'Audience-End',
-        abbreviation: 'AE',
-        nextStepAbbreviation: 'I',
+        abbreviation: 'After',
+        nextStepAbbreviation: 'Intro',
         hasBeenVisited: false,
         showInProgressBar: true
       },

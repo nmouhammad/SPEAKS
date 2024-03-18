@@ -38,11 +38,13 @@
 
     <!-- BODY -->
 
-    <AudienceBeginningView v-if="progressStore.isCurrentByAbbreviation('AB')" />
-    <AudienceEndView v-if="progressStore.isCurrentByAbbreviation('AE')" />
-    <IntroductionView v-if="progressStore.isCurrentByAbbreviation('I')" />
-    <EndView v-if="progressStore.isCurrentByAbbreviation('E')" />
-    <MiddleView v-if="progressStore.isCurrentByAbbreviation('M')" />
+    <AudienceBeginningView
+      v-if="progressStore.isCurrentByAbbreviation('Before')"
+    />
+    <AudienceEndView v-if="progressStore.isCurrentByAbbreviation('After')" />
+    <IntroductionView v-if="progressStore.isCurrentByAbbreviation('Intro')" />
+    <EndView v-if="progressStore.isCurrentByAbbreviation('End')" />
+    <MiddleView v-if="progressStore.isCurrentByAbbreviation('Middle')" />
     <SummaryView v-if="progressStore.isCurrentByAbbreviation('S')" />
 
     <!-- FOOTER -->
