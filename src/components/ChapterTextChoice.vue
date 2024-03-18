@@ -98,9 +98,9 @@
   </div>
 
   <!-- Buttons containing the choices -->
-  <div class="d-flex align-vertical gap-1">
+  <div class="d-flex justify-content-center gap-1">
     <div v-for="(currentElement, id) in elements" :key="id">
-      <div v-if="currentElement.type === 'button'" class="text-center col">
+      <div v-if="currentElement.type === 'button'" class="text-center">
         <button
           v-show="showElementWithID(id)"
           class="btn"
