@@ -90,6 +90,9 @@ This command compiles the project and generates a dist directory containing the 
 *Please test the output before deploying it.*
 
 ## Coding Guidelines
+### Vue
+This project uses vue 3 and the composition API.
+
 ### Documenting vue components
 This project uses [Vue Styleguidist](https://vue-styleguidist.github.io/) to document all vue components. The most important thing is to write a concise description for each prop, slot, event, method and component. [Here](https://vue-styleguidist.github.io/docs/Documenting.html#code-comments) you can find more detailed instructions.
 
@@ -110,6 +113,7 @@ The project is structured as a typical vue project. Here is an overview of the d
     ├── .vscode
     ├── dist                            # Contains the compiled version that will 
     |                                   # be deployed
+    ├── docs                            # Documentation generated with vue styleguidist
     ├── node_modules                    # Dependencies needed to build the project
     ├── public                          # Files that shouldn't be processed by vite 
     |                                     (e.g. html for static sites, large static 
@@ -122,8 +126,7 @@ The project is structured as a typical vue project. Here is an overview of the d
     |   ├── stores/                     # Pinia (state management)
     │   ├── views/                      # Components for different subpages
     │   ├── App.vue                     # Root component
-    │   └── main.js                     # Renders app & mounts it to DOM
-    └── vuese-documentation             # Documentation generated with vuese
+    └── └── main.js                     # Renders app & mounts it to DOM
 
 
 ## Customizing Bootstrap
