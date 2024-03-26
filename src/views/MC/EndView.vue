@@ -13,8 +13,8 @@
   import ContentBox from '@/components/ContentBox.vue'
   import ContentCollector from '@/components/ContentCollector.vue'
   import ThreePanes from '@/components/ThreePanes.vue'
-  import { usePresentationPlanStore } from '@/stores/PresentationPlanStore'
-  import { useAudienceStore } from '@/stores/AudienceStore'
+  import { usePresentationPlanStore } from '@/stores/MC/PresentationPlanStore'
+  import { useAudienceStore } from '@/stores/MC/AudienceStore'
   import ChapterStepsHandler from '@/components/ChapterStepsHandler.vue'
 
   // ++++ Import stores ++++

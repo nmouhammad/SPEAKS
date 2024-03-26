@@ -16,8 +16,8 @@
   import ContentBox from '@/components/ContentBox.vue'
   import ContentCollector from '@/components/ContentCollector.vue'
 
-  import { useAudienceStore } from '@/stores/AudienceStore'
-  import { usePresentationPlanStore } from '@/stores/PresentationPlanStore'
+  import { useAudienceStore } from '@/stores/MC/AudienceStore'
+  import { usePresentationPlanStore } from '@/stores/MC/PresentationPlanStore'
 
   const audienceStore = useAudienceStore()
   const { knowledgeEnd, knowledgeBeginning } = storeToRefs(audienceStore)

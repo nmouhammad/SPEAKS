@@ -12,7 +12,7 @@
 
 <script setup>
   import { storeToRefs } from 'pinia'
-  import { useAudienceStore } from '@/stores/AudienceStore'
+  import { useAudienceStore } from '@/stores/MC/AudienceStore'
 
   const store = useAudienceStore()
   const { knowledgeBeginning } = storeToRefs(store)

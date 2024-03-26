@@ -16,7 +16,7 @@
 <script setup>
   import { ref, watch } from 'vue'
   import { storeToRefs } from 'pinia'
-  import { usePresentationPlanStore } from '@/stores/PresentationPlanStore'
+  import { usePresentationPlanStore } from '@/stores/MC/PresentationPlanStore'
   const presentationPlanStore = usePresentationPlanStore()
   const { introductionContent } = storeToRefs(presentationPlanStore)
 

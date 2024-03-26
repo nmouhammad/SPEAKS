@@ -1,5 +1,5 @@
 <script setup>
-  import { useProgressStore } from '@/stores/ProgressStore'
+  import { useProgressStore } from '@/stores/MC/ProgressStore'
 
   const store = useProgressStore()
   const { stepsToShowInProgressBar } = storeToRefs(store)

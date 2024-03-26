@@ -124,7 +124,11 @@ The project is structured as a typical vue project. Here is an overview of the d
     |   ├── components/                 # Building blocks of the app
     |   ├── router/                     # Vue router (app navigation)
     |   ├── stores/                     # Pinia (state management)
+    |   |   ├── MC/                     # message composition stores
+    |   |   ├── rehearsal/              # rehearsal stores
     │   ├── views/                      # Components for different subpages
+    |   |   ├── MC/                     # message composition views
+    |   |   ├── rehearsal/              # rehearsal views
     │   ├── App.vue                     # Root component
     └── └── main.js                     # Renders app & mounts it to DOM
 

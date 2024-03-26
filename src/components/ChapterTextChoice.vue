@@ -14,7 +14,7 @@
 <script setup>
   import { ref } from 'vue'
   import { watch } from 'vue'
-  import { usePresentationPlanStore } from '@/stores/PresentationPlanStore'
+  import { usePresentationPlanStore } from '@/stores/MC/PresentationPlanStore'
 
   const props = defineProps({
     // all elements that should be displayed in this chapter

@@ -1,9 +1,9 @@
 <script>
   import ProgressBar from '@/components/ProgressBar.vue'
-  import AudienceBeginningView from '@/views/AudienceBeginningView.vue'
-  import AudienceEndView from '@/views/AudienceEndView.vue'
-  import IntroductionView from '@/views/IntroductionView.vue'
-  import EndView from '@/views/EndView.vue'
+  import AudienceBeginningView from '@/views/MC/AudienceBeginningView.vue'
+  import AudienceEndView from '@/views/MC/AudienceEndView.vue'
+  import IntroductionView from '@/views/MC/IntroductionView.vue'
+  import EndView from '@/views/MC/EndView.vue'
   import MiddleView from './MiddleView.vue'
   import SummaryView from './SummaryView.vue'
 
@@ -24,7 +24,7 @@
 </script>
 
 <script setup>
-  import { useProgressStore } from '@/stores/ProgressStore'
+  import { useProgressStore } from '@/stores/MC/ProgressStore'
 
   const progressStore = useProgressStore()
   const { nextStep } = progressStore

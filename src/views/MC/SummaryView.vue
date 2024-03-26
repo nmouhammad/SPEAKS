@@ -2,7 +2,7 @@
   import { storeToRefs } from 'pinia'
   import ThreePanes from '@/components/ThreePanes.vue'
   import ContentBox from '@/components/ContentBox.vue'
-  import { usePresentationPlanStore } from '@/stores/PresentationPlanStore.js'
+  import { usePresentationPlanStore } from '@/stores/MC/PresentationPlanStore.js'
 
   const PresentationPlanStore = usePresentationPlanStore()
   const { introductionContent, endContent, middleContent } = storeToRefs(

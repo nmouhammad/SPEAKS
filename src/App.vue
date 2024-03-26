@@ -1,5 +1,5 @@
 <script>
-  import MessageCompositionView from './views/MessageCompositionView.vue'
+  import MessageCompositionView from './views/MC/MessageCompositionView.vue'
 
   // @vuese
   // @group Views
