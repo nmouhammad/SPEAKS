@@ -63,11 +63,11 @@
   }
 </script>
 <template>
-  <div v-show="currentChapterID >= props.chapterID" class="text-center">
-    <h1>{{ props.heading }}</h1>
+  <div v-show="currentChapterID >= props.chapterID" class="text-center mt-4">
+    <h3 class="h3 mb-3">{{ props.heading }}</h3>
     <!-- @slot The user input to display (between the heading and the button) -->
     <slot></slot>
-    <button class="btn btn-primary" @click="stopWaiting">
+    <button class="btn btn-primary mt-3" @click="stopWaiting">
       {{ props.buttonText }}
     </button>
   </div>
