@@ -6,8 +6,7 @@
 
   const props = defineProps({
     /**
-     * Array containing one object for each text message. Each object should have
-     * the attributes "text" (String) and "id" (Number).
+     * Array of Strings, containing one String for each text message.
      */
     texts: {
       type: Array,
@@ -33,9 +32,7 @@
    */
   const shownTextsExceptLast = computed(() => {
     if (currentChapterID.value == props.chapterID) {
-      let texts = props.texts.filter(
-        (textObject) => textObject.id < currentElementID.value
-      )
+      let texts = props.texts.slice(0, currentElementID.value)
       return texts
     } else {
       return props.texts.slice(0, -1)
@@ -47,11 +44,10 @@
    */
   const lastText = computed(() => {
     if (currentChapterID.value == props.chapterID) {
-      return props.texts.find(
-        (textObject) => textObject.id == currentElementID.value
-      )
+      let text = props.texts[currentElementID.value]
+      return { text: text, id: currentElementID.value }
     } else {
-      return props.texts.slice(-1)[0]
+      return { text: props.texts.slice(-1)[0], id: props.texts.length - 1 }
     }
   })
 </script>
@@ -60,14 +56,14 @@
   <div v-show="currentChapterID >= props.chapterID">
     <!-- Chat messages except the last one (no parrot and no triangle on speech bubble) -->
     <div
-      v-for="currentText in shownTextsExceptLast"
-      :key="currentText.id"
+      v-for="(currentText, currentTextID) in shownTextsExceptLast"
+      :key="currentTextID"
       class="row justify-content-md-center"
     >
       <div class="col-1 justify-content-end align-self-end"></div>
       <div class="col-md-5 justify-content-start overflow-auto">
-        <SpeechBubble :key="currentText.id" :show-triangle="false">
-          {{ currentText.text }}
+        <SpeechBubble :key="currentTextID" :show-triangle="false">
+          {{ currentText }}
         </SpeechBubble>
       </div>
     </div>
