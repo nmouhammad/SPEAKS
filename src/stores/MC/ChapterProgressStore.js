@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { useProgressStore } from '@/stores/MC/ProgressStore'
 
 export const useChapterProgressStore = defineStore('ChapterProgressStore', {
   state: () => ({
@@ -22,6 +23,9 @@ export const useChapterProgressStore = defineStore('ChapterProgressStore', {
         } else if (this.currentChapterID < this.chapterLengths.length - 1) {
           this.currentChapterID++
           this.currentElementID = 0
+        } else {
+          // we have been through all chapters of this step. We need to start with the next step.
+          useProgressStore().nextStep()
         }
       }
     },
