@@ -1,35 +1,41 @@
-<script>
-  import ContentCollector from '@/components/ContentCollector.vue'
-  import CenteringContainer from '@/components/CenteringContainer.vue'
-  // @vuese
-  // @group Views
-  // This view contains all elements regarding the analysis of the audience in the end of the presentation
-  export default {
-    name: 'AudienceEndView',
-    components: { ContentCollector, CenteringContainer }
-  }
-</script>
-
 <script setup>
+  /**
+   * This view contains all elements regarding the analysis of the audience in the end of the presentation.
+   */
   import { storeToRefs } from 'pinia'
   import { useAudienceStore } from '@/stores/MC/AudienceStore'
+  import ContentCollector from '@/components/ContentCollector.vue'
+  import ChatInterface from '@/components/ChatInterface.vue'
+  import TextBlocks from '@/components/TextBlocks.vue'
+  import UserInput from '@/components/UserInput.vue'
 
   const store = useAudienceStore()
   const { knowledgeEnd } = storeToRefs(store)
+
+  const texts1 = [
+    "Great, now that we know what your audience already knows, we'll jump to after you gave the presentation to think about what you want your audience to know after your presentation."
+  ]
+  const nrOfElementsInChapter = [1, 1]
 </script>
 
 <template>
-  <CenteringContainer>
-    <h5 class="text-center">
-      What should your audience know about your topic after your presentation?
-    </h5>
-    <ContentCollector
-      :all-content-to-display="knowledgeEnd"
-      content-box-heading="Gained knowledge of your audience:"
-      @add="store.addToknowledgeEnd"
-      @remove="store.removeFromKnowledgeEnd"
-    />
-  </CenteringContainer>
+  <ChatInterface :nr-of-elements-in-chapter="nrOfElementsInChapter">
+    <TextBlocks :chapter-i-d="0" :texts="texts1" />
+    <UserInput
+      :chapter-i-d="1"
+      heading="What should your audience know about your topic after your presentation?"
+      button-text="I'm done"
+    >
+      <div class="row justify-content-md-center">
+        <div class="col-6">
+          <ContentCollector
+            :all-content-to-display="knowledgeEnd"
+            content-box-heading="Gained knowledge of your audience:"
+            @add="store.addToknowledgeEnd"
+            @remove="store.removeFromKnowledgeEnd"
+          />
+        </div>
+      </div>
+    </UserInput>
+  </ChatInterface>
 </template>
-
-<style scoped></style>
