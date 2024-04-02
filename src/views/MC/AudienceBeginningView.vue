@@ -30,7 +30,7 @@
       button-text="I'm done"
     >
       <div class="row justify-content-md-center">
-        <div class="col-6">
+        <div class="col-5">
           <ContentCollector
             :all-content-to-display="knowledgeBeginning"
             content-box-heading="Previous knowledge of your audience"

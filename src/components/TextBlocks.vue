@@ -66,6 +66,7 @@
           {{ currentText }}
         </SpeechBubble>
       </div>
+      <div class="col-1 justify-content-end align-self-end"></div>
     </div>
 
     <!-- Last chat message (with parrot and triangle on speech bubble) -->
@@ -80,6 +81,7 @@
           {{ lastText.text }}
         </SpeechBubble>
       </div>
+      <div class="col-1 justify-content-end align-self-end"></div>
     </div>
   </div>
 </template>

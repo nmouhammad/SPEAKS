@@ -27,7 +27,7 @@
       button-text="I'm done"
     >
       <div class="row justify-content-md-center">
-        <div class="col-6">
+        <div class="col-5">
           <ContentCollector
             :all-content-to-display="knowledgeEnd"
             content-box-heading="Gained knowledge of your audience:"
