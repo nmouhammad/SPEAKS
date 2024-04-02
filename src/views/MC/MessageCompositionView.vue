@@ -36,6 +36,9 @@
 
     <!-- BODY -->
 
+    <!-- If we want the content to appear on the bottom, uncomment the next line 
+      + line below marked with CONTENT_BOTTOM_2
+    <div class="d-flex align-items-bottom flex-column fixed-bottom mb-5"> -->
     <AudienceBeginningView
       v-if="progressStore.isCurrentByAbbreviation('Before')"
     />
@@ -45,6 +48,8 @@
     <MiddleView v-if="progressStore.isCurrentByAbbreviation('Middle')" />
     <SummaryView v-if="progressStore.isCurrentByAbbreviation('S')" />
   </div>
+  <!-- CONTENT_BOTTOM_2
+    </div> -->
 </template>
 
 <style scoped></style>
