@@ -1,6 +1,7 @@
 <script setup>
   import KeyboardListener from '@/components/KeyboardListener.vue'
   import { useChapterProgressStore } from '@/stores/MC/ChapterProgressStore'
+  import { scrollToBottomAfterUpdate } from '@/components/scrollToBottomAfterUpdate.js'
 
   /**
    * If you have a setup with chapters + subelements, this component will handle
@@ -19,12 +20,15 @@
 
   const chapterProgressStore = useChapterProgressStore()
   chapterProgressStore.init(props.nrOfElementsInChapter)
+
   /**
    * Adapt currentElementID and currentChapterID so that the next element
    * is shown (if there is any)
    */
   function next() {
     chapterProgressStore.next()
+    // Wait for DOM to update and then scroll to bottom
+    scrollToBottomAfterUpdate()
   }
 
   /**
@@ -37,7 +41,9 @@
 </script>
 
 <template>
-  <KeyboardListener @next="next" @previous="previous" />
-  <!-- @slot content elements that will be managed by this ChatInterface -->
-  <slot></slot>
+  <div class="mb-5">
+    <KeyboardListener @next="next" @previous="previous" />
+    <!-- @slot content elements that will be managed by this ChatInterface -->
+    <slot></slot>
+  </div>
 </template>
