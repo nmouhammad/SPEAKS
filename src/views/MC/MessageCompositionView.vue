@@ -32,7 +32,9 @@
 <template>
   <div class="container mt-5 mx-auto h-100">
     <!-- HEADER -->
-    <ProgressBar />
+    <div class="sticky-top m-3 bg-white">
+      <ProgressBar />
+    </div>
 
     <!-- BODY -->
 
