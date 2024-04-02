@@ -27,8 +27,6 @@
   import { useProgressStore } from '@/stores/MC/ProgressStore'
 
   const progressStore = useProgressStore()
-  const { nextStep } = progressStore
-  const { previousStep } = progressStore
 </script>
 
 <template>
@@ -46,16 +44,6 @@
     <EndView v-if="progressStore.isCurrentByAbbreviation('End')" />
     <MiddleView v-if="progressStore.isCurrentByAbbreviation('Middle')" />
     <SummaryView v-if="progressStore.isCurrentByAbbreviation('S')" />
-
-    <!-- FOOTER -->
-    <div
-      class="d-flex justify-content-center gap-2 align-self-end fixed-bottom mb-3"
-    >
-      <button class="btn btn-outline-primary" @click="previousStep()">
-        Back
-      </button>
-      <button class="btn btn-outline-primary" @click="nextStep()">Next</button>
-    </div>
   </div>
 </template>
 
