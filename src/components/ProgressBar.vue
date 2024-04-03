@@ -23,7 +23,7 @@
     <div
       v-for="(step, index) in stepsToShowInProgressBar"
       :key="index"
-      class="mt-1 col-md-1"
+      class="col-md-1"
     >
       <ProgressBarCircle
         :key="index"
