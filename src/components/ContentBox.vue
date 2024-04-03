@@ -41,7 +41,6 @@
         :list="contentElements.contentElements"
         item-key="text"
         ghost-class="ghost"
-        :move="checkMove"
       >
         <template #item="{ element }">
           <span
