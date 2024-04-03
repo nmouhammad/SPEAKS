@@ -1,6 +1,7 @@
 <script setup>
   import { watch } from 'vue'
   import { useChapterProgressStore } from '@/stores/MC/ChapterProgressStore'
+  import { scrollToBottomAfterUpdate } from '@/composables/scrollToBottomAfterUpdate.js'
   import { storeToRefs } from 'pinia'
 
   const props = defineProps({
@@ -68,6 +69,7 @@
    */
   function stopWaiting() {
     chapterProgressStore.unsetWaiting()
+    scrollToBottomAfterUpdate()
   }
 </script>
 <template>
