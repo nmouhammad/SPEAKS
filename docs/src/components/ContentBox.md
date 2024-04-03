@@ -4,7 +4,7 @@
 
 | Prop name         | Description | Type    | Values | Default |
 | ----------------- | ----------- | ------- | ------ | ------- |
-| contentElements   |             | array   | -      | []      |
+| contentElements   |             | object  | -      | {}      |
 | hasRemoveOption   |             | boolean | -      | true    |
 | contentBoxHeading |             | string  | -      |         |
 
