@@ -12,12 +12,20 @@
   import { useChapterProgressStore } from '@/stores/MC/ChapterProgressStore'
   import { scrollToBottomAfterUpdate } from '@/composables/scrollToBottomAfterUpdate.js'
 
+  // +++++++++++++++++++++++
+  // ++++ Import stores ++++
+  // +++++++++++++++++++++++
+
   const presentationPlanStore = usePresentationPlanStore()
   const { introductionContent } = storeToRefs(presentationPlanStore)
 
   const chapterProgressStore = useChapterProgressStore()
   const { currentChapterID, currentElementID } =
     storeToRefs(chapterProgressStore)
+
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  // ++++ Define content (e.g. text messages) that will be shown ++++
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   // text messages for the first text block
   const texts1 = [
@@ -63,6 +71,10 @@
     question: ['Question 1', 'Question 2']
   }
 
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++
+  // ++++ Provide functionality reg. the introType ++++
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++
+
   // the intro type for which the description should be shown ("" if none)
   let chosenIntroType = ref('')
 
@@ -80,8 +92,6 @@
     chosenIntroType.value = introType
     scrollToBottomAfterUpdate()
   }
-
-  const nrOfElementsInChapter = [7, 1, 2, 1]
 
   function saveIntroTypeAndContinue(userInputSlot) {
     presentationPlanStore.setIntroductionType(chosenIntroType.value)
@@ -101,6 +111,12 @@
       chosenIntroType.value = newIntroType
     }
   }
+
+  // ++++++++++++++++++++++++++++++++++++++++++++++
+  // ++++ Additional variables & functionality ++++
+  // ++++++++++++++++++++++++++++++++++++++++++++++
+
+  const nrOfElementsInChapter = [7, 1, 2, 1]
 </script>
 
 <template>
