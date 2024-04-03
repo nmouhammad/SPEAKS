@@ -24,7 +24,15 @@
      */
     buttonText: {
       type: String,
-      required: true
+      default: ''
+    },
+    /**
+     * Whether a custom button is added inside the slot instead of using the
+     * standard button of UserInput.
+     */
+    customButton: {
+      type: Boolean,
+      default: false
     }
   })
 
@@ -63,11 +71,17 @@
   }
 </script>
 <template>
-  <div v-show="currentChapterID >= props.chapterID" class="text-center mt-4">
-    <h3 class="h3 mb-3">{{ props.heading }}</h3>
-    <!-- @slot The user input to display (between the heading and the button) -->
-    <slot></slot>
-    <button class="btn btn-primary mt-3" @click="stopWaiting">
+  <div v-show="currentChapterID >= props.chapterID" class="text-center m-4">
+    <div class="row justify-content-md-center">
+      <h3 class="h3 mb-3 col-5">{{ props.heading }}</h3>
+    </div>
+    <!-- @slot The user input to display (between the heading and the (optional) button). If customButton is true, this slot should trigger stopWaiting when the next step should be shown. -->
+    <slot :stop-waiting="stopWaiting"></slot>
+    <button
+      v-if="!props.customButton"
+      class="btn btn-primary mt-3"
+      @click="stopWaiting"
+    >
       {{ props.buttonText }}
     </button>
   </div>
