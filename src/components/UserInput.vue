@@ -73,7 +73,7 @@
 <template>
   <div v-show="currentChapterID >= props.chapterID" class="text-center m-4">
     <div class="row justify-content-md-center">
-      <h3 class="h3 mb-3 col-5">{{ props.heading }}</h3>
+      <h3 class="h5 mb-3 col-5">{{ props.heading }}</h3>
     </div>
     <!-- @slot The user input to display (between the heading and the (optional) button). If customButton is true, this slot should trigger stopWaiting when the next step should be shown. -->
     <slot :stop-waiting="stopWaiting"></slot>
