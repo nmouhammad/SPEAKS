@@ -42,6 +42,7 @@
 <template>
   <SubpointAdder @add="addContent" />
   <ContentBox
+    class="mt-2"
     :content-elements="allContentToDisplay"
     :has-remove-option="hasRemoveOption"
     :content-box-heading="contentBoxHeading"
