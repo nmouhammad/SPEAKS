@@ -122,6 +122,7 @@ The project is structured as a typical vue project. Here is an overview of the d
     ├── src                             # Application code
     │   ├── assets/                     # Images, style sheets etc.
     |   ├── components/                 # Building blocks of the app
+    |   ├── composables/                # Composables (reusable js code)
     |   ├── router/                     # Vue router (app navigation)
     |   ├── stores/                     # Pinia (state management)
     |   |   ├── MC/                     # message composition stores

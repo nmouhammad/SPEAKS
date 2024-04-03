@@ -1,7 +1,7 @@
 <script setup>
   import KeyboardListener from '@/components/KeyboardListener.vue'
   import { useChapterProgressStore } from '@/stores/MC/ChapterProgressStore'
-  import { scrollToBottomAfterUpdate } from '@/components/scrollToBottomAfterUpdate.js'
+  import { scrollToBottomAfterUpdate } from '@/composables/scrollToBottomAfterUpdate.js'
 
   /**
    * If you have a setup with chapters + subelements, this component will handle
