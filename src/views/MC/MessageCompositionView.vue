@@ -1,4 +1,7 @@
-<script>
+<script setup>
+  /**
+   * The MessageCompositionView is the root view containing all other elements of the message composition software
+   */
   import ProgressBar from '@/components/ProgressBar.vue'
   import AudienceBeginningView from '@/views/MC/AudienceBeginningView.vue'
   import AudienceEndView from '@/views/MC/AudienceEndView.vue'
@@ -6,24 +9,6 @@
   import EndView from '@/views/MC/EndView.vue'
   import MiddleView from './MiddleView.vue'
   import SummaryView from './SummaryView.vue'
-
-  // @vuese
-  // @group Views
-  // The MessageCompositionView is the root view containing all other elements of the message composition software
-  export default {
-    name: 'MessageCompositionView',
-    components: {
-      ProgressBar,
-      AudienceBeginningView,
-      AudienceEndView,
-      IntroductionView,
-      EndView,
-      SummaryView
-    }
-  }
-</script>
-
-<script setup>
   import { useProgressStore } from '@/stores/MC/ProgressStore'
 
   const progressStore = useProgressStore()
