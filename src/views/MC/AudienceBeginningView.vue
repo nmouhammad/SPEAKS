@@ -7,6 +7,7 @@
   import ChatInterface from '@/components/ChatInterface.vue'
   import TextBlocks from '@/components/TextBlocks.vue'
   import UserInput from '@/components/UserInput.vue'
+  import CenteringCol5 from '@/components/CenteringCol5.vue'
   import { storeToRefs } from 'pinia'
   import { useAudienceStore } from '@/stores/MC/AudienceStore'
 
@@ -29,16 +30,14 @@
       heading="Collecting the audience's previous knowledge"
       button-text="I'm done"
     >
-      <div class="row justify-content-md-center">
-        <div class="col-5">
-          <ContentCollector
-            :all-content-to-display="knowledgeBeginning"
-            content-box-heading="Previous knowledge of your audience"
-            @add="store.addToknowledgeBeginning"
-            @remove="store.removeFromKnowledgeBeginning"
-          />
-        </div>
-      </div>
+      <CenteringCol5>
+        <ContentCollector
+          :all-content-to-display="knowledgeBeginning"
+          content-box-heading="Previous knowledge of your audience"
+          @add="store.addToknowledgeBeginning"
+          @remove="store.removeFromKnowledgeBeginning"
+        />
+      </CenteringCol5>
     </UserInput>
   </ChatInterface>
 </template>

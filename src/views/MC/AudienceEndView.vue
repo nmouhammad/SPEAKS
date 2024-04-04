@@ -8,6 +8,7 @@
   import ChatInterface from '@/components/ChatInterface.vue'
   import TextBlocks from '@/components/TextBlocks.vue'
   import UserInput from '@/components/UserInput.vue'
+  import CenteringCol5 from '@/components/CenteringCol5.vue'
 
   const store = useAudienceStore()
   const { knowledgeEnd } = storeToRefs(store)
@@ -26,16 +27,14 @@
       heading="What should your audience know about your topic after your presentation?"
       button-text="I'm done"
     >
-      <div class="row justify-content-md-center">
-        <div class="col-5">
-          <ContentCollector
-            :all-content-to-display="knowledgeEnd"
-            content-box-heading="Gained knowledge of your audience:"
-            @add="store.addToknowledgeEnd"
-            @remove="store.removeFromKnowledgeEnd"
-          />
-        </div>
-      </div>
+      <CenteringCol5>
+        <ContentCollector
+          :all-content-to-display="knowledgeEnd"
+          content-box-heading="Gained knowledge of your audience:"
+          @add="store.addToknowledgeEnd"
+          @remove="store.removeFromKnowledgeEnd"
+        />
+      </CenteringCol5>
     </UserInput>
   </ChatInterface>
 </template>

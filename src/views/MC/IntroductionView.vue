@@ -8,6 +8,7 @@
   import TextBlocks from '@/components/TextBlocks.vue'
   import UserInput from '@/components/UserInput.vue'
   import ContentCollector from '@/components/ContentCollector.vue'
+  import CenteringCol5 from '@/components/CenteringCol5.vue'
   import { usePresentationPlanStore } from '@/stores/MC/PresentationPlanStore'
   import { useChapterProgressStore } from '@/stores/MC/ChapterProgressStore'
   import { scrollToBottomAfterUpdate } from '@/composables/scrollToBottomAfterUpdate.js'
@@ -179,18 +180,14 @@
         :chapter-i-d="3"
         :heading="introOptions[chosenIntroType].contentBoxText"
         button-text="I'm done"
-        ><div class="row justify-content-md-center">
-          <div class="col-5">
-            <ContentCollector
-              :all-content-to-display="introductionContent"
-              :content-box-heading="
-                introOptions[chosenIntroType].contentBoxText
-              "
-              @add="presentationPlanStore.addIntroductionContent"
-              @remove="presentationPlanStore.removeFromIntroductionContent"
-            />
-          </div>
-        </div>
+        ><CenteringCol5>
+          <ContentCollector
+            :all-content-to-display="introductionContent"
+            :content-box-heading="introOptions[chosenIntroType].contentBoxText"
+            @add="presentationPlanStore.addIntroductionContent"
+            @remove="presentationPlanStore.removeFromIntroductionContent"
+          />
+        </CenteringCol5>
       </UserInput>
     </div>
   </ChatInterface>
