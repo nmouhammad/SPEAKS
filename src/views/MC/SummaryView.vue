@@ -24,37 +24,45 @@
     'Now you have created your full presentation plan. Good job! 💪',
     'Here is an overview of your plan:'
   ]
+
+  // ++++++++++++++++++++++++++++++++++++++++++++++
+  // ++++ Additional variables & functionality ++++
+  // ++++++++++++++++++++++++++++++++++++++++++++++
+
+  const nrOfElementsInChapter = [2, 1]
 </script>
 
 <template>
-  <TextBlocks :chapter-i-d="0" :texts="texts1" />
-  <UserInput
-    :chapter-i-d="1"
-    heading="Overview of your full presentation plan:"
-    :custom-button="true"
-  >
-    <ThreePanes>
-      <template #left-pane>
-        <ContentBox
-          :content-elements="introductionContent"
-          :has-remove-option="false"
-          content-box-heading="Introduction"
-        />
-      </template>
-      <template #middle-pane>
-        <ContentBox
-          :content-elements="middleContent"
-          :has-remove-option="false"
-          content-box-heading="Middle"
-        />
-      </template>
-      <template #right-pane>
-        <ContentBox
-          :content-elements="endContent"
-          :has-remove-option="false"
-          content-box-heading="End"
-        />
-      </template>
-    </ThreePanes>
-  </UserInput>
+  <ChatInterface :nr-of-elements-in-chapter="nrOfElementsInChapter">
+    <TextBlocks :chapter-i-d="0" :texts="texts1" />
+    <UserInput
+      :chapter-i-d="1"
+      heading="Overview of your full presentation plan:"
+      :custom-button="true"
+    >
+      <ThreePanes>
+        <template #left-pane>
+          <ContentBox
+            :content-elements="introductionContent"
+            :has-remove-option="false"
+            content-box-heading="Introduction"
+          />
+        </template>
+        <template #middle-pane>
+          <ContentBox
+            :content-elements="middleContent"
+            :has-remove-option="false"
+            content-box-heading="Middle"
+          />
+        </template>
+        <template #right-pane>
+          <ContentBox
+            :content-elements="endContent"
+            :has-remove-option="false"
+            content-box-heading="End"
+          />
+        </template>
+      </ThreePanes>
+    </UserInput>
+  </ChatInterface>
 </template>
