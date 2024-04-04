@@ -15,11 +15,18 @@
     nrOfElementsInChapter: {
       type: Array,
       required: true
+    },
+    /**
+     * The abbreviation of the step in which this component is used
+     */
+    stepAbbreviation: {
+      type: String,
+      required: true
     }
   })
 
   const chapterProgressStore = useChapterProgressStore()
-  chapterProgressStore.init(props.nrOfElementsInChapter)
+  chapterProgressStore.init(props.nrOfElementsInChapter, props.stepAbbreviation)
 
   /**
    * Adapt currentElementID and currentChapterID so that the next element

@@ -76,7 +76,10 @@
 </script>
 
 <template>
-  <ChatInterface :nr-of-elements-in-chapter="nrOfElementsInChapter">
+  <ChatInterface
+    :nr-of-elements-in-chapter="nrOfElementsInChapter"
+    step-abbreviation="End"
+  >
     <TextBlocks :chapter-i-d="0" :texts="texts1" />
     <UserInput
       :chapter-i-d="1"

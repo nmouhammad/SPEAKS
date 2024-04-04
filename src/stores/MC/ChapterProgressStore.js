@@ -45,10 +45,21 @@ export const useChapterProgressStore = defineStore('ChapterProgressStore', {
      * Initialise this class when a new step is started.
      * @param {Array} chapterLengths: Array with one number for each chapter standing for the
      * number of elements in the corresponding chapter
+     * @param {String} stepAbbreviation the abbreviation of the step initialising this store
      */
-    init(chapterLengths) {
-      this.currentChapterID = 0
-      this.currentElementID = 0
+    init(chapterLengths, stepAbbreviation) {
+      // if the step has been visited before, we don't start at the beginning but at the
+      // end of the chapter
+      const startAtChapterBeginning =
+        !useProgressStore().hasStepBeenVisited(stepAbbreviation)
+      console.log('startAtChapterBeginning: ' + startAtChapterBeginning)
+      if (startAtChapterBeginning) {
+        this.currentChapterID = 0
+        this.currentElementID = 0
+      } else {
+        this.currentChapterID = chapterLengths.length - 1
+        this.currentElementID = chapterLengths.slice(-1)
+      }
       this.waiting = false
       this.chapterLengths = chapterLengths
     },

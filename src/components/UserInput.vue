@@ -17,7 +17,7 @@
      */
     heading: {
       type: String,
-      required: true
+      default: ''
     },
     /**
      * The text of the button the user should click when they are done with the
@@ -32,6 +32,13 @@
      * standard button of UserInput.
      */
     customButton: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Whether no heading should be displayed above the slot
+     */
+    noHeading: {
       type: Boolean,
       default: false
     }
@@ -75,7 +82,7 @@
 <template>
   <div v-show="currentChapterID >= props.chapterID" class="text-center m-4">
     <div class="row justify-content-md-center">
-      <h3 class="h5 mb-3 col-5">{{ props.heading }}</h3>
+      <h3 v-if="!props.noHeading" class="h5 mb-3 col-5">{{ props.heading }}</h3>
     </div>
     <!-- @slot The user input to display (between the heading and the (optional) button). If customButton is true, this slot should trigger stopWaiting when the next step should be shown. -->
     <slot :stop-waiting="stopWaiting"></slot>

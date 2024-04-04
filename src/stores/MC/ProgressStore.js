@@ -68,15 +68,20 @@ export const useProgressStore = defineStore('ProgressStore', {
       // check if there is a next step
       if (nextStepAbbreviation) {
         // find the id of the next step based on the nextStepAbbreviation
-        const nextStepID = this.steps.findIndex(
-          (step) => step.abbreviation === nextStepAbbreviation
-        )
+        const nextStepID = this.getStepIDFromAbbreviation(nextStepAbbreviation)
         // set the currentStepID to the previously found nextStepID
         this.currentStepID = nextStepID
         // indicate that the next step has now been visited as well
         this.steps[nextStepID].hasBeenVisited = true
       }
     },
+
+    getStepIDFromAbbreviation(stepAbbreviation) {
+      return this.steps.findIndex(
+        (step) => step.abbreviation === stepAbbreviation
+      )
+    },
+
     /**
      * Change the current step to the previous step
      * (hint: in this case, steps are ordered depending on when
@@ -111,9 +116,7 @@ export const useProgressStore = defineStore('ProgressStore', {
      * @param {String} stepAbbreviation
      */
     changeStep(stepAbbreviation) {
-      const stepID = this.steps.findIndex(
-        (step) => step.abbreviation === stepAbbreviation
-      )
+      const stepID = this.getStepIDFromAbbreviation(stepAbbreviation)
       this.currentStepID = stepID
     }
   },
@@ -132,13 +135,25 @@ export const useProgressStore = defineStore('ProgressStore', {
      * @returns true, if the state with the given abbreviation is the current state
      */
     isCurrentByAbbreviation: (state) => (stepAbbreviation) => {
-      const stepID = state.steps.findIndex(
-        (step) => step.abbreviation === stepAbbreviation
-      )
-      return state.currentStepID == stepID
+      return state.isCurrent(state.getStepIDFromAbbreviation(stepAbbreviation))
     },
     stepsToShowInProgressBar: (state) => {
       return state.steps.filter((step) => step.showInProgressBar)
+    },
+    hasStepBeenVisited: (state) => (stepAbbreviation) => {
+      const stepID = state.getStepIDFromAbbreviation(stepAbbreviation)
+      const nextStepAbbreviation = state.steps[stepID].nextStepAbbreviation
+      if (nextStepAbbreviation) {
+        console.log('next step: ' + nextStepAbbreviation)
+        const nextStepID = state.getStepIDFromAbbreviation(nextStepAbbreviation)
+        console.log(
+          ' next steps has been visited = ' +
+            state.steps[nextStepID].hasBeenVisited
+        )
+        return state.steps[nextStepID].hasBeenVisited
+      } else {
+        return false
+      }
     }
   }
 })
