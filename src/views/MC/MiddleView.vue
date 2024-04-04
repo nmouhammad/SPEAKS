@@ -8,7 +8,6 @@
 </script>
 
 <script setup>
-  import { ref } from 'vue'
   import { storeToRefs } from 'pinia'
 
   import ContentBox from '@/components/ContentBox.vue'
