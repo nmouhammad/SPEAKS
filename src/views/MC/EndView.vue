@@ -10,20 +10,48 @@
 <script setup>
   import { ref } from 'vue'
   import { storeToRefs } from 'pinia'
+  import ChatInterface from '@/components/ChatInterface.vue'
+  import TextBlocks from '@/components/TextBlocks.vue'
+  import UserInput from '@/components/UserInput.vue'
   import ContentBox from '@/components/ContentBox.vue'
   import ContentCollector from '@/components/ContentCollector.vue'
-  import ThreePanes from '@/components/ThreePanes.vue'
+  import CenteringCol5 from '@/components/CenteringCol5.vue'
   import { usePresentationPlanStore } from '@/stores/MC/PresentationPlanStore'
   import { useAudienceStore } from '@/stores/MC/AudienceStore'
-  import ChapterStepsHandler from '@/components/ChapterStepsHandler.vue'
 
+  // +++++++++++++++++++++++
   // ++++ Import stores ++++
+  // +++++++++++++++++++++++
 
   const presentationPlanStore = usePresentationPlanStore()
   const { endContent } = storeToRefs(presentationPlanStore)
 
   const audienceStore = useAudienceStore()
   const { knowledgeEnd } = storeToRefs(audienceStore)
+
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  // ++++ Define content (e.g. text messages) that will be shown ++++
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  const texts1 = [
+    'Great, the first and probably most important part of your presentation is done! 🎉',
+    "Now we'll create the end for your presentation.",
+    'During the end, we should close any brackets that we opened during the introduction.',
+    "Let's look at the introduction again and check if there are any open brackets."
+  ]
+
+  const texts2 = [
+    'If there are any open brackets, you can note down below how to close them in the end'
+  ]
+
+  const texts3 = [
+    "Before we compose the rest of the end of your presentation, let's look at where you wanted your audience to be after your presentation again."
+  ]
+
+  const texts4 = [
+    'This is your main message. The conclusion is a good point to repeat your main message shortly & concisely again, so it sticks into the audience‘s head.',
+    'How do you want to end your presentation?'
+  ]
 
   // ++++ Counters for which elements to show ++++
 
@@ -35,7 +63,7 @@
   const currentChapterID = ref(0)
   // since not all chapters have the same length, we need to save the
   // length of each chapter
-  const nrOfElementsInChapter = [7, 5]
+  const nrOfElementsInChapter = [4, 1, 1, 1, 1, 1, 2, 1]
 
   /**
    * Returns true if the element with the given elementID and chapterID should be visible
@@ -48,92 +76,64 @@
 </script>
 
 <template>
-  <ChapterStepsHandler
-    v-model:current-element-i-d="currentElementID"
-    v-model:current-chapter-i-d="currentChapterID"
-    :nr-of-elements-in-chapter="nrOfElementsInChapter"
-  />
-  <ThreePanes>
-    <template #left-pane>
-      <ContentBox
-        v-if="isElementShown(4, 0)"
-        :content-elements="presentationPlanStore.introductionContent"
-        :has-remove-option="false"
-        content-box-heading="Your introduction plan"
+  <ChatInterface :nr-of-elements-in-chapter="nrOfElementsInChapter">
+    <TextBlocks :chapter-i-d="0" :texts="texts1" />
+    <UserInput
+      :chapter-i-d="1"
+      heading="Recap your introduction plan"
+      button-text="I'm done"
+    >
+      <CenteringCol5>
+        <ContentBox
+          :content-elements="presentationPlanStore.introductionContent"
+          :has-remove-option="false"
+          content-box-heading="Your introduction plan"
+        >
+          3"></ContentBox
+        ></CenteringCol5
       >
-        3"></ContentBox
-      >
-    </template>
-    <template #middle-pane>
-      <!-- CHAPTER 0 -->
-      <p v-if="isElementShown(0, 0)" class="text-center">
-        Great, the first and probably most important part of your presentation
-        is done! 🎉
-      </p>
-      <p v-if="isElementShown(1, 0)" class="text-center">
-        Now we'll create the end for your presentation.
-      </p>
-      <p v-if="isElementShown(2, 0)" class="text-center">
-        During the end, we should close any brackets that we opened during the
-        discussion.
-      </p>
-      <p v-if="isElementShown(3, 0)" class="text-center">
-        Let's look at the discussion again and check if there are any open
-        brackets.
-      </p>
-      <p v-if="isElementShown(5, 0)" class="text-center">
-        If there are any open brackets, you can note down below how to close
-        them in the end
-      </p>
-      <div
-        v-if="isElementShown(6, 0)"
-        class="d-flex flex-column align-items-center gap-3"
-      >
+    </UserInput>
+    <TextBlocks :chapter-i-d="2" :texts="texts2" />
+    <UserInput
+      :chapter-i-d="3"
+      heading="Close open brackets in the end"
+      button-text="I'm done"
+    >
+      <CenteringCol5>
         <ContentCollector
-          class="gap-3"
           :all-content-to-display="endContent"
           content-box-heading="Closing open brackets in the end"
           @add="presentationPlanStore.addEndContent"
           @remove="presentationPlanStore.removeFromEndContent"
         />
-      </div>
-
-      <!-- CHAPTER 1 -->
-      <p v-if="isElementShown(0, 1)" class="text-center">
-        Before we compose the rest of the end of your presentation, let's look
-        at where you wanted your audience to be after your presentation again.
-      </p>
-      <p v-if="isElementShown(2, 1)" class="text-center">
-        This is your main message. The conclusion is a good point to repeat your
-        main message shortly & concisely again, so it sticks into the audience‘s
-        head.
-      </p>
-      <p v-if="isElementShown(3, 1)" class="text-center">
-        How do you want to end your presentation?
-      </p>
-      <div
-        v-if="isElementShown(4, 1)"
-        class="d-flex flex-column align-items-center gap-3"
-      >
+      </CenteringCol5>
+    </UserInput>
+    <TextBlocks :chapter-i-d="4" :texts="texts3" />
+    <UserInput
+      :chapter-i-d="5"
+      heading="Recap what your audience should learn"
+      button-text="I'm done"
+      ><CenteringCol5>
+        <ContentBox
+          :content-elements="knowledgeEnd"
+          :has-remove-option="false"
+          content-box-heading="What your audience should learn"
+        />
+      </CenteringCol5>
+    </UserInput>
+    <TextBlocks :chapter-i-d="6" :texts="texts4" />
+    <UserInput
+      :chapter-i-d="7"
+      heading="Recap what your audience should learn"
+      button-text="I'm done"
+    >
+      <CenteringCol5>
         <ContentCollector
-          class="gap-3"
           :all-content-to-display="endContent"
           content-box-heading="End of your presentation"
           @add="presentationPlanStore.addEndContent"
           @remove="presentationPlanStore.removeFromEndContent"
-        />
-      </div>
-    </template>
-    <template #right-pane>
-      <!-- CHAPTER 1 -->
-      <ContentBox
-        v-if="isElementShown(1, 1)"
-        :content-elements="knowledgeEnd"
-        :has-remove-option="false"
-        content-box-heading="What your audience should learn"
-      >
-        3"></ContentBox
-      >
-    </template>
-  </ThreePanes>
+      /></CenteringCol5>
+    </UserInput>
+  </ChatInterface>
 </template>
