@@ -8,7 +8,7 @@
 </script>
 
 <template>
-  <div class="container mt-5">
+  <div class="container mt-3">
     <div class="row">
       <!-- We have a row with three equally sized columns, each column is used as one of the 
         panes where content will be shown step by step -->
