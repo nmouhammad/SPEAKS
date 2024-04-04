@@ -28,18 +28,6 @@ export const useProgressStore = defineStore('ProgressStore', {
         hasBeenVisited: false,
         showInProgressBar: true
       },
-      // {
-      //   name: 'Main-2',
-      //   abbreviation: '2',
-      //   nextStepAbbreviation: '3',
-      //   hasBeenVisited: false
-      // },
-      // {
-      //   name: 'Main-3',
-      //   abbreviation: '3',
-      //   nextStepAbbreviation: null,
-      //   hasBeenVisited: false
-      // },
       {
         name: 'End',
         abbreviation: 'End',
