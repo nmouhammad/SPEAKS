@@ -35,7 +35,7 @@
 <template>
   <ChatInterface
     :nr-of-elements-in-chapter="nrOfElementsInChapter"
-    step-abbreviation="Summary"
+    step-abbreviation="S"
   >
     <TextBlocks :chapter-i-d="0" :texts="texts1" />
     <UserInput
