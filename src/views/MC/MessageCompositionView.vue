@@ -3,7 +3,6 @@
    * The MessageCompositionView is the root view containing all other elements of the message composition software
    */
   import ProgressBar from '@/components/ProgressBar.vue'
-  import WelcomeView from '@/views/MC//WelcomeView.vue'
   import AudienceBeginningView from '@/views/MC/AudienceBeginningView.vue'
   import AudienceEndView from '@/views/MC/AudienceEndView.vue'
   import IntroductionView from '@/views/MC/IntroductionView.vue'
