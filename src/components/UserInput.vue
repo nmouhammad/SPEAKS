@@ -41,6 +41,15 @@
     noHeading: {
       type: Boolean,
       default: false
+    },
+    /**
+     * Whether the next element should be shown when pressing e.g. the right
+     * arrow (noWaiting = true) or only after the user clicked a button
+     * (noWaiting = false)
+     */
+    noWaiting: {
+      type: Boolean,
+      default: false
     }
   })
 
@@ -59,7 +68,8 @@
       if (
         typeof newChapterID !== 'undefined' &&
         typeof props.chapterID !== 'undefined' &&
-        newChapterID == props.chapterID
+        newChapterID == props.chapterID &&
+        !props.noWaiting
       ) {
         chapterProgressStore.setWaiting()
       }
@@ -75,8 +85,10 @@
    * uncovered again since the user is done with working on this block.
    */
   function stopWaiting() {
-    chapterProgressStore.unsetWaiting()
-    scrollToBottomAfterUpdate()
+    if (!props.noWaiting) {
+      chapterProgressStore.unsetWaiting()
+      scrollToBottomAfterUpdate()
+    }
   }
 </script>
 <template>

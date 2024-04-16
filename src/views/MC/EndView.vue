@@ -84,7 +84,8 @@
     <UserInput
       :chapter-i-d="1"
       heading="Recap your introduction plan"
-      button-text="I'm done"
+      :custom-button="true"
+      :no-waiting="true"
     >
       <CenteringCol5>
         <ContentBox
