@@ -12,6 +12,7 @@ export const useProgressStore = defineStore('ProgressStore', {
         abbreviation: 'Before',
         nextStepAbbreviation: 'After',
         hasBeenVisited: true,
+        hasBeenFinished: false,
         showInProgressBar: true
       },
       {
@@ -19,6 +20,7 @@ export const useProgressStore = defineStore('ProgressStore', {
         abbreviation: 'Intro',
         nextStepAbbreviation: 'End',
         hasBeenVisited: false,
+        hasBeenFinished: false,
         showInProgressBar: true
       },
       {
@@ -26,6 +28,7 @@ export const useProgressStore = defineStore('ProgressStore', {
         abbreviation: 'Middle',
         nextStepAbbreviation: 'S',
         hasBeenVisited: false,
+        hasBeenFinished: false,
         showInProgressBar: true
       },
       {
@@ -33,6 +36,7 @@ export const useProgressStore = defineStore('ProgressStore', {
         abbreviation: 'End',
         nextStepAbbreviation: 'Middle',
         hasBeenVisited: false,
+        hasBeenFinished: false,
         showInProgressBar: true
       },
       {
@@ -40,6 +44,7 @@ export const useProgressStore = defineStore('ProgressStore', {
         abbreviation: 'After',
         nextStepAbbreviation: 'Intro',
         hasBeenVisited: false,
+        hasBeenFinished: false,
         showInProgressBar: true
       },
       {
@@ -47,6 +52,7 @@ export const useProgressStore = defineStore('ProgressStore', {
         abbreviation: 'S',
         nextStepAbbreviation: 'S',
         hasBeenVisited: false,
+        hasBeenFinished: false,
         showInProgressBar: false
       }
     ],
@@ -65,6 +71,7 @@ export const useProgressStore = defineStore('ProgressStore', {
       // figure out which step will be next by getting the nextStepAbbreviation
       const nextStepAbbreviation =
         this.steps[this.currentStepID].nextStepAbbreviation
+      this.steps[this.currentStepID].hasBeenFinished = true
       // check if there is a next step
       if (nextStepAbbreviation) {
         // find the id of the next step based on the nextStepAbbreviation
@@ -140,20 +147,9 @@ export const useProgressStore = defineStore('ProgressStore', {
     stepsToShowInProgressBar: (state) => {
       return state.steps.filter((step) => step.showInProgressBar)
     },
-    hasStepBeenVisited: (state) => (stepAbbreviation) => {
+    hasStepBeenFinished: (state) => (stepAbbreviation) => {
       const stepID = state.getStepIDFromAbbreviation(stepAbbreviation)
-      const nextStepAbbreviation = state.steps[stepID].nextStepAbbreviation
-      if (nextStepAbbreviation) {
-        console.log('next step: ' + nextStepAbbreviation)
-        const nextStepID = state.getStepIDFromAbbreviation(nextStepAbbreviation)
-        console.log(
-          ' next steps has been visited = ' +
-            state.steps[nextStepID].hasBeenVisited
-        )
-        return state.steps[nextStepID].hasBeenVisited
-      } else {
-        return false
-      }
+      return state.steps[stepID].hasBeenFinished
     }
   }
 })

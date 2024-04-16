@@ -51,7 +51,7 @@ export const useChapterProgressStore = defineStore('ChapterProgressStore', {
       // if the step has been visited before, we don't start at the beginning but at the
       // end of the chapter
       const startAtChapterBeginning =
-        !useProgressStore().hasStepBeenVisited(stepAbbreviation)
+        !useProgressStore().hasStepBeenFinished(stepAbbreviation)
       console.log('startAtChapterBeginning: ' + startAtChapterBeginning)
       if (startAtChapterBeginning) {
         this.currentChapterID = 0
