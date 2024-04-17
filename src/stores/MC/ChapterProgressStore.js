@@ -6,6 +6,7 @@ export const useChapterProgressStore = defineStore('ChapterProgressStore', {
     currentChapterID: 0,
     currentElementID: 0,
     waiting: false,
+    cursorInsideTextfield: false,
     chapterLengths: []
   }),
   actions: {
@@ -34,17 +35,22 @@ export const useChapterProgressStore = defineStore('ChapterProgressStore', {
      * is hidden again (if there is any)
      */
     previous() {
-      if (this.currentElementID > 0) {
-        this.currentElementID--
-      } else if (this.currentChapterID > 0) {
-        this.currentChapterID--
-        this.currentElementID = this.chapterLengths[this.currentChapterID] - 1
-      } else {
-        // there is no previous chapter, we need to go to the previous step instead
-        useProgressStore().previousStep()
-      }
-      if (this.waiting) {
-        this.waiting = false
+      // if the user's cursor is inside a textfield right now, the user might use the arrows to
+      // navigate inside the textfield (i.e. to go a few char to the left), in these cases the
+      // previous-function should not be triggered
+      if (!this.cursorInsideTextfield) {
+        if (this.currentElementID > 0) {
+          this.currentElementID--
+        } else if (this.currentChapterID > 0) {
+          this.currentChapterID--
+          this.currentElementID = this.chapterLengths[this.currentChapterID] - 1
+        } else {
+          // there is no previous chapter, we need to go to the previous step instead
+          useProgressStore().previousStep()
+        }
+        if (this.waiting) {
+          this.waiting = false
+        }
       }
     },
     /**
