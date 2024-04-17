@@ -40,6 +40,9 @@ export const useChapterProgressStore = defineStore('ChapterProgressStore', {
         this.currentElementID = this.chapterLengths[this.currentChapterID] - 1
         this.currentChapterID--
       }
+      if (this.waiting) {
+        this.waiting = false
+      }
     },
     /**
      * Initialise this class when a new step is started.
