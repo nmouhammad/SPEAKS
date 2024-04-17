@@ -6,15 +6,18 @@
   import TextBlocks from '@/components/TextBlocks.vue'
   import UserInput from '@/components/UserInput.vue'
   import { usePresentationPlanStore } from '@/stores/MC/PresentationPlanStore.js'
+  import { useAudienceStore } from '@/stores/MC/AudienceStore'
 
   // +++++++++++++++++++++++
   // ++++ Import stores ++++
   // +++++++++++++++++++++++
 
-  const PresentationPlanStore = usePresentationPlanStore()
+  const presentationPlanStore = usePresentationPlanStore()
   const { introductionContent, endContent, middleContent } = storeToRefs(
-    PresentationPlanStore
+    presentationPlanStore
   )
+
+  const audienceStore = useAudienceStore()
 
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   // ++++ Define content (e.g. text messages) that will be shown ++++
@@ -30,6 +33,24 @@
   // ++++++++++++++++++++++++++++++++++++++++++++++
 
   const nrOfElementsInChapter = [2, 1]
+
+  /**
+   * Exports the data from the audienceStore and the presentationPlanStore
+   * to a JSON-file the user can save locally
+   */
+  function exportToJSON() {
+    const data = {
+      AudienceStore: audienceStore,
+      PresentationPlanStore: presentationPlanStore
+    }
+    const dataJSON = JSON.stringify(data)
+
+    var a = document.createElement('a')
+    var file = new Blob([dataJSON], { type: JSON })
+    a.href = URL.createObjectURL(file)
+    a.download = 'Presentable_Export.json'
+    a.click()
+  }
 </script>
 
 <template>
@@ -57,6 +78,9 @@
             :has-remove-option="false"
             content-box-heading="Middle"
           />
+          <button class="btn btn-primary mt-3" @click="exportToJSON">
+            Export to JSON
+          </button>
         </template>
         <template #right-pane>
           <ContentBox
