@@ -1,31 +1,24 @@
-<script>
-  // @vuese
-  // @group Components
-  // A component that can be used if subpoints should be added. It consists of a
-  // textfield and a button "Add."
-  export default {
-    name: 'SubpointAdder',
-    emits: ['add'],
-    data() {
-      return {
-        content: ''
-      }
-    },
-    methods: {
-      /**
-       * Checks if there is something except whitespace in content, if yes
-       *    it emits that content to the parent and cleans the textfield
-       * called when the user is clicking "Add"
-       */
-      addContent() {
-        const contentToAdd = this.content.trim()
-        if (contentToAdd !== '') {
-          // sends content of the textfield to parent when "Add" is clicked
-          // @arg an object containing the content of the textfield
-          this.$emit('add', contentToAdd)
-          this.content = ''
-        }
-      }
+<script setup>
+  /** A component that can be used if subpoints should be added. It consists of a
+   * textfield and a button "Add."
+   */
+
+  import { ref } from 'vue'
+  const content = ref('')
+  const emit = defineEmits(['add'])
+
+  /**
+   * Checks if there is something except whitespace in content, if yes
+   *    it emits that content to the parent and cleans the textfield
+   * called when the user is clicking "Add"
+   */
+  function addContent() {
+    const contentToAdd = content.value.trim()
+    if (contentToAdd !== '') {
+      // sends content of the textfield to parent when "Add" is clicked
+      // @arg an object containing the content of the textfield
+      emit('add', contentToAdd)
+      content.value = ''
     }
   }
 </script>
