@@ -37,8 +37,8 @@ export const useChapterProgressStore = defineStore('ChapterProgressStore', {
       if (this.currentElementID > 0) {
         this.currentElementID--
       } else if (this.currentChapterID > 0) {
-        this.currentElementID = this.chapterLengths[this.currentChapterID] - 1
         this.currentChapterID--
+        this.currentElementID = this.chapterLengths[this.currentChapterID] - 1
       }
       if (this.waiting) {
         this.waiting = false
