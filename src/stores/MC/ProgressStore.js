@@ -8,10 +8,18 @@ export const useProgressStore = defineStore('ProgressStore', {
   state: () => ({
     steps: [
       {
+        name: 'Welcome',
+        abbreviation: 'Welcome',
+        nextStepAbbreviation: 'Before',
+        hasBeenVisited: false,
+        hasBeenFinished: false,
+        showInProgressBar: false
+      },
+      {
         name: 'Audience-Beginning',
         abbreviation: 'Before',
         nextStepAbbreviation: 'After',
-        hasBeenVisited: true,
+        hasBeenVisited: false,
         hasBeenFinished: false,
         showInProgressBar: true
       },

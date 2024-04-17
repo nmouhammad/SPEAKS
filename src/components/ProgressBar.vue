@@ -28,7 +28,7 @@
       <ProgressBarCircle
         :key="index"
         :abbreviation="step.abbreviation"
-        :is-current="store.isCurrent(index)"
+        :is-current="store.isCurrent(index + 1)"
         :is-shown="step.hasBeenVisited"
       />
     </div>
