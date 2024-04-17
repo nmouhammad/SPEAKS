@@ -58,7 +58,6 @@ export const useChapterProgressStore = defineStore('ChapterProgressStore', {
       // end of the chapter
       const startAtChapterBeginning =
         !useProgressStore().hasStepBeenFinished(stepAbbreviation)
-      console.log('startAtChapterBeginning: ' + startAtChapterBeginning)
       if (startAtChapterBeginning) {
         this.currentChapterID = 0
         this.currentElementID = 0
