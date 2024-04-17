@@ -39,6 +39,9 @@ export const useChapterProgressStore = defineStore('ChapterProgressStore', {
       } else if (this.currentChapterID > 0) {
         this.currentChapterID--
         this.currentElementID = this.chapterLengths[this.currentChapterID] - 1
+      } else {
+        // there is no previous chapter, we need to go to the previous step instead
+        useProgressStore().previousStep()
       }
       if (this.waiting) {
         this.waiting = false
