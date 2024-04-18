@@ -55,18 +55,30 @@
   watch(
     currentChapterID,
     () => {
-      // check whether the user chose "No" & the parrot responded to it
-      if (
-        currentChapterID.value == 2 &&
-        wantingToContinue.value == false &&
-        currentElementID.value == 0
-      )
-        chapterProgressStore.setWaiting()
+      stopWhenUserClicksNo()
     },
     {
       immediate: true
     }
   )
+  watch(
+    wantingToContinue,
+    () => {
+      stopWhenUserClicksNo()
+    },
+    {
+      immediate: true
+    }
+  )
+  function stopWhenUserClicksNo() {
+    // check whether the user chose "No" & the parrot responded to it
+    if (
+      currentChapterID.value == 2 &&
+      wantingToContinue.value == false &&
+      currentElementID.value == 0
+    )
+      chapterProgressStore.setWaiting()
+  }
 </script>
 <template>
   <ChatInterface
