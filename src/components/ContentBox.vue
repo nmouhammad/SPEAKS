@@ -43,13 +43,18 @@
           <span
             :key="element.id"
             class="badge text-secondary fw-normal fs-6 border border-primary border-1 m-1"
-            >{{ element.text }}
-            <button
-              v-if="props.hasRemoveOption"
-              class="btn btn-close btn-sm"
-              aria-label="Remove"
-              @click="emit('remove', element.id)"
-            ></button>
+          >
+            <div class="d-flex flex-row">
+              <span class="automatic-line-breaks">
+                {{ element.text }}
+              </span>
+              <button
+                v-if="props.hasRemoveOption"
+                class="btn btn-close btn-sm"
+                aria-label="Remove"
+                @click="emit('remove', element.id)"
+              ></button>
+            </div>
           </span>
         </template>
       </draggable>
@@ -57,4 +62,13 @@
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+  .automatic-line-breaks {
+    overflow-wrap: break-word;
+    white-space: normal;
+    display: block;
+  }
+  .outer-span {
+    max-width: 100%;
+  }
+</style>

@@ -4,6 +4,8 @@
    */
 
   import { ref } from 'vue'
+  import { useChapterProgressStore } from '@/stores/MC/ChapterProgressStore'
+  import { storeToRefs } from 'pinia'
   const content = ref('')
   const emit = defineEmits(['add'])
 
@@ -21,6 +23,17 @@
       content.value = ''
     }
   }
+
+  const chapterProgressStore = useChapterProgressStore()
+  const { cursorInsideTextfield } = storeToRefs(chapterProgressStore)
+
+  function cursorEntersTextfield() {
+    cursorInsideTextfield.value = true
+  }
+
+  function cursorLeavesTextfield() {
+    cursorInsideTextfield.value = false
+  }
 </script>
 
 <template>
@@ -33,6 +46,8 @@
           class="form-control"
           aria-label="Previous knowledge of the audience"
           @keyup.enter="addContent"
+          @focus="cursorEntersTextfield"
+          @blur="cursorLeavesTextfield"
         />
       </div>
       <div class="col-2 p-0 ps-2">
