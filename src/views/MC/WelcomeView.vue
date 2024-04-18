@@ -1,8 +1,17 @@
 <script setup>
-  import { ref } from 'vue'
+  import { ref, watch } from 'vue'
   import ChatInterface from '@/components/ChatInterface.vue'
   import TextBlocks from '@/components/TextBlocks.vue'
   import UserInput from '@/components/UserInput.vue'
+  import { useChapterProgressStore } from '@/stores/MC/ChapterProgressStore'
+  import { storeToRefs } from 'pinia'
+
+  // +++++++++++++++++++++++
+  // ++++ Import stores ++++
+  // +++++++++++++++++++++++
+  const chapterProgressStore = useChapterProgressStore()
+  const { currentChapterID, currentElementID } =
+    storeToRefs(chapterProgressStore)
 
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   // ++++ Define content (e.g. text messages) that will be shown ++++
@@ -35,6 +44,29 @@
     wantingToContinue.value = decision
     userInputSlot.stopWaiting()
   }
+
+  /**
+   * If the user clicks "No" when being asked whether they want to try the
+   * application, we want to display a response message to this and then
+   * stop the program (= set waiting to true). This watch watches for changes
+   * in the currentChapterID and if it matches the ChapterID of the response
+   * to the "No" checks whether the user chose no and if yes sets waiting.
+   */
+  watch(
+    currentChapterID,
+    () => {
+      // check whether the user chose "No" & the parrot responded to it
+      if (
+        currentChapterID.value == 2 &&
+        wantingToContinue.value == false &&
+        currentElementID.value == 0
+      )
+        chapterProgressStore.setWaiting()
+    },
+    {
+      immediate: true
+    }
+  )
 </script>
 <template>
   <ChatInterface
