@@ -69,7 +69,7 @@ export const useChapterProgressStore = defineStore('ChapterProgressStore', {
         this.currentElementID = 0
       } else {
         this.currentChapterID = chapterLengths.length - 1
-        this.currentElementID = chapterLengths.slice(-1)
+        this.currentElementID = chapterLengths.slice(-1)[0] - 1
       }
       this.waiting = false
       this.chapterLengths = chapterLengths
