@@ -7,6 +7,7 @@
   import UserInput from '@/components/UserInput.vue'
   import { usePresentationPlanStore } from '@/stores/MC/PresentationPlanStore.js'
   import { useAudienceStore } from '@/stores/MC/AudienceStore'
+  import { useChapterProgressStore } from '@/stores/MC/ChapterProgressStore'
 
   // +++++++++++++++++++++++
   // ++++ Import stores ++++
@@ -16,6 +17,7 @@
   const { introductionContent, endContent, middleContent } = storeToRefs(
     presentationPlanStore
   )
+  const chapterProgressStore = useChapterProgressStore()
 
   const audienceStore = useAudienceStore()
 
@@ -41,7 +43,8 @@
   function exportToJSON() {
     const data = {
       AudienceStore: audienceStore,
-      PresentationPlanStore: presentationPlanStore
+      PresentationPlanStore: presentationPlanStore,
+      ChapterProgressStore: chapterProgressStore
     }
     const dataJSON = JSON.stringify(data, undefined, 4)
 
