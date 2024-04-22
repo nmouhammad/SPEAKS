@@ -3,6 +3,7 @@
  */
 
 import { defineStore } from 'pinia'
+import { useChapterProgressStore } from './ChapterProgressStore'
 
 export const useProgressStore = defineStore('ProgressStore', {
   state: () => ({
@@ -108,8 +109,7 @@ export const useProgressStore = defineStore('ProgressStore', {
      */
     previousStep() {
       // get the abbreviation of the current step
-      const currentStepAbbreviation =
-        this.steps[this.currentStepID].abbreviation
+      const currentStepAbbreviation = this.getCurrentStepAbbreviation
       /*
        * get the idea of the previous step (by checking for which step the
        * abbreviation of the current step is saved as nextStepAbbreviation)
@@ -133,6 +133,21 @@ export const useProgressStore = defineStore('ProgressStore', {
     changeStep(stepAbbreviation) {
       const stepID = this.getStepIDFromAbbreviation(stepAbbreviation)
       this.currentStepID = stepID
+      var currentTimeLog = {
+        action: 'jump',
+        start: {
+          step: null,
+          chapterID: null,
+          elementID: null
+        },
+        end: {
+          step: stepAbbreviation,
+          chapterID: null,
+          elementID: null
+        },
+        timestamp: new Date().toISOString()
+      }
+      useChapterProgressStore().timeLogs.push(currentTimeLog)
     }
   },
   getters: {
@@ -158,6 +173,9 @@ export const useProgressStore = defineStore('ProgressStore', {
     hasStepBeenFinished: (state) => (stepAbbreviation) => {
       const stepID = state.getStepIDFromAbbreviation(stepAbbreviation)
       return state.steps[stepID].hasBeenFinished
+    },
+    getCurrentStepAbbreviation: (state) => {
+      return state.steps[state.currentStepID].abbreviation
     }
   }
 })
