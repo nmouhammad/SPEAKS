@@ -48,7 +48,7 @@
     var a = document.createElement('a')
     var file = new Blob([dataJSON], { type: JSON })
     a.href = URL.createObjectURL(file)
-    a.download = 'Presentable_Export.json'
+    a.download = 'My_presentation_plan.presentable'
     a.click()
   }
 </script>
@@ -79,7 +79,7 @@
             content-box-heading="Middle"
           />
           <button class="btn btn-primary mt-3" @click="exportToJSON">
-            Export to JSON
+            Export data
           </button>
         </template>
         <template #right-pane>
