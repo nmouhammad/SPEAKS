@@ -43,7 +43,7 @@
       AudienceStore: audienceStore,
       PresentationPlanStore: presentationPlanStore
     }
-    const dataJSON = JSON.stringify(data)
+    const dataJSON = JSON.stringify(data, undefined, 4)
 
     var a = document.createElement('a')
     var file = new Blob([dataJSON], { type: JSON })
