@@ -9,6 +9,15 @@
   const content = ref('')
   const emit = defineEmits(['add'])
 
+  const props = defineProps({
+    keepDisplayingContent: {
+      type: Boolean,
+      default: false
+    }
+  })
+
+  const buttonText = ref('Add')
+
   /**
    * Checks if there is something except whitespace in content, if yes
    *    it emits that content to the parent and cleans the textfield
@@ -20,7 +29,11 @@
       // sends content of the textfield to parent when "Add" is clicked
       // @arg an object containing the content of the textfield
       emit('add', contentToAdd)
-      content.value = ''
+      if (props.keepDisplayingContent) {
+        buttonText.value = 'Change'
+      } else {
+        content.value = ''
+      }
     }
   }
 
@@ -39,7 +52,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-10 p-0">
+      <div class="col-9 p-0">
         <input
           v-model="content"
           type="text"
@@ -50,9 +63,9 @@
           @blur="cursorLeavesTextfield"
         />
       </div>
-      <div class="col-2 p-0 ps-2">
+      <div class="col-3 p-0 ps-2">
         <button class="btn btn-primary w-100" @click.prevent="addContent">
-          Add
+          {{ buttonText }}
         </button>
       </div>
     </div>

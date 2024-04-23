@@ -27,7 +27,11 @@ export const usePresentationPlanStore = defineStore('PresentationPlanStore', {
     middleContent: {
       contentElements: [],
       nextID: 0
-    }
+    },
+    /**
+     * Topic of the presentation / pitch
+     */
+    topic: ''
   }),
   actions: {
     /**
@@ -89,6 +93,14 @@ export const usePresentationPlanStore = defineStore('PresentationPlanStore', {
      */
     removeFromMiddleContent(toDeleteID) {
       removeFromCollection(toDeleteID, this.middleContent)
+    },
+
+    /**
+     * Save the topic of the presentation / pitch
+     * @param {String} topic of the presentation / pitch
+     */
+    addTopic(topic) {
+      this.topic = topic
     }
   },
   getters: {

@@ -5,6 +5,9 @@
   import UserInput from '@/components/UserInput.vue'
   import { useChapterProgressStore } from '@/stores/MC/ChapterProgressStore'
   import { storeToRefs } from 'pinia'
+  import SubpointAdder from '@/components/SubpointAdder.vue'
+  import { usePresentationPlanStore } from '@/stores/MC/PresentationPlanStore'
+  import CenteringCol5 from '@/components/CenteringCol5.vue'
 
   // +++++++++++++++++++++++
   // ++++ Import stores ++++
@@ -12,6 +15,7 @@
   const chapterProgressStore = useChapterProgressStore()
   const { currentChapterID, currentElementID } =
     storeToRefs(chapterProgressStore)
+  const presentationPlanStore = usePresentationPlanStore()
 
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   // ++++ Define content (e.g. text messages) that will be shown ++++
@@ -33,11 +37,13 @@
     ]
   }
 
+  const texts3 = ['Great, now we can start!']
+
   // ++++++++++++++++++++++++++++++++++++++++++++++
   // ++++ Additional variables & functionality ++++
   // ++++++++++++++++++++++++++++++++++++++++++++++
 
-  const nrOfElementsInChapter = [3, 1, 1]
+  const nrOfElementsInChapter = [3, 1, 1, 1, 1]
   const wantingToContinue = ref(false)
 
   function decideWhetherToContinue(decision, userInputSlot) {
@@ -79,6 +85,14 @@
     )
       chapterProgressStore.setWaiting()
   }
+  /**
+   * Save the topic of the presentation / pitch in the presentationPlanStore
+   * @param {String} topic
+   */
+  function addTopic(topic) {
+    presentationPlanStore.addTopic(topic)
+    chapterProgressStore.unsetWaiting()
+  }
 </script>
 <template>
   <ChatInterface
@@ -106,5 +120,11 @@
       </button>
     </UserInput>
     <TextBlocks :chapter-i-d="2" :texts="texts2[wantingToContinue]" />
+    <UserInput :chapter-i-d="3" :custom-button="true" heading="Your topic">
+      <CenteringCol5>
+        <SubpointAdder :keep-displaying-content="true" @add="addTopic" />
+      </CenteringCol5>
+    </UserInput>
+    <TextBlocks :chapter-i-d="4" :texts="texts3" />
   </ChatInterface>
 </template>
