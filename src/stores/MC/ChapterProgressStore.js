@@ -142,7 +142,6 @@ export const useChapterProgressStore = defineStore('ChapterProgressStore', {
     unsetWaiting() {
       if (this.waiting) {
         this.waiting = false
-        this.next()
       }
     }
   }
