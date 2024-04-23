@@ -11,7 +11,7 @@ function publicPath() {
   }
 }
 
-// https://vitejs.dev/config/ .
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
   resolve: {
@@ -23,5 +23,5 @@ export default defineConfig({
   build: {
     outDir: 'public'
   },
-  publicPath: publicPath()
+  base: 'https://pages.educs-hosting.net/presentable-client-vue-hytea-6fc38d617a40272622dd0e2874075dea9e/'
 })
