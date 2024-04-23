@@ -20,11 +20,11 @@
     // component first before your keydown events are registered
     created() {
       const component = this
-      this.handler = function (e) {
+      this.keydownHandler = function (e) {
         // if any of the following keys is pressed, 'next' should be emitted
-        const keysTriggeringNext = ['ArrowRight', 'Enter', ' ']
+        const keysTriggeringNext = ['ArrowRight', 'Enter', ' ', 'ArrowDown']
         // if any of the following keys is pressed, 'previous' should be emitted
-        const keysTriggeringPrevious = ['ArrowLeft']
+        const keysTriggeringPrevious = ['ArrowLeft', 'ArrowUp']
         const pressedKey = event.key
 
         // check whether the pressedKey is in the array keysTriggeringNext
@@ -36,11 +36,18 @@
           component.$emit('previous')
         }
       }
-      window.addEventListener('keydown', this.handler)
+      window.addEventListener('keydown', this.keydownHandler)
+
+      // add a listener triggering "next" when a click somewhere is recognised
+      this.clickHandler = function (e) {
+        component.$emit('next')
+      }
+      window.addEventListener('click', this.clickHandler)
     },
-    // when this component is not needed anymore, remove the global listener
+    // when this component is not needed anymore, remove the global listeners
     beforeUnmount() {
-      window.removeEventListener('keydown', this.handler)
+      window.removeEventListener('keydown', this.keydownHandler)
+      window.removeEventListener('click', this.clickHandler)
     }
   }
 </script>
