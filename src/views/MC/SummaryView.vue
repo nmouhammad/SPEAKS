@@ -90,11 +90,10 @@
       button-text="I'm done"
     >
       <div class="ratio ratio-16x9">
-        <iframe
-          src="https://limesurvey.svc.external.tba-hosting.de/index.php/637788?lang=en"
-          title="Questionnaire"
-          allowfullscreen
-        ></iframe>
+        <a
+          href="https://limesurvey.svc.external.tba-hosting.de/index.php/637788?lang=en"
+          >https://limesurvey.svc.external.tba-hosting.de/index.php/637788?lang=en</a
+        >
       </div>
     </UserInput>
     <UserInput
