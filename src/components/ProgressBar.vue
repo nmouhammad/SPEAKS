@@ -6,7 +6,7 @@
 </script>
 
 <script>
-  import ProgressBarCircle from './ProgressBarCircle.vue'
+  import ProgressBarArrow from './ProgressBarArrow.vue'
   import { storeToRefs } from 'pinia'
 
   // @vuese
@@ -14,7 +14,7 @@
   // The progress indicator on top showing users which step of the message composition they are in.
   export default {
     name: 'ProgressBar',
-    components: { ProgressBarCircle }
+    components: { ProgressBarArrow }
   }
 </script>
 
@@ -25,7 +25,7 @@
       :key="index"
       class="col-md-1"
     >
-      <ProgressBarCircle
+      <ProgressBarArrow
         :key="index"
         :abbreviation="step.abbreviation"
         :is-current="store.isCurrent(index + 1)"
