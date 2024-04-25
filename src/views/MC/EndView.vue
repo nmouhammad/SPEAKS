@@ -116,7 +116,8 @@
     <UserInput
       :chapter-i-d="5"
       heading="Recap what your audience should learn"
-      button-text="I'm done"
+      :custom-button="true"
+      :no-waiting="true"
       ><CenteringCol5>
         <ContentBox
           :content-elements="knowledgeEnd"
@@ -128,7 +129,7 @@
     <TextBlocks :chapter-i-d="6" :texts="texts4" />
     <UserInput
       :chapter-i-d="7"
-      heading="Recap what your audience should learn"
+      heading="Adding your main message to the end"
       button-text="I'm done"
     >
       <CenteringCol5>

@@ -57,7 +57,8 @@
     <UserInput
       :chapter-i-d="1"
       heading="Recap your audience's previous knowledge"
-      button-text="I'm done"
+      :custom-button="true"
+      :no-waiting="true"
       ><CenteringCol5>
         <ContentBox
           :content-elements="knowledgeBeginning"
@@ -71,7 +72,8 @@
     <UserInput
       :chapter-i-d="3"
       heading="Recap your audience's gained knowledge"
-      button-text="I'm done"
+      :custom-button="true"
+      :no-waiting="true"
       ><CenteringCol5>
         <ContentBox
           :content-elements="knowledgeEnd"
