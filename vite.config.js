@@ -3,14 +3,25 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
+function publicPath() {
+  if (process.env.CI_PAGES_URL) {
+    return new URL(process.env.CI_PAGES_URL).pathname
+  } else {
+    return '/'
+  }
+}
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-  ],
+  plugins: [vue()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+
+  build: {
+    outDir: 'public'
+  },
+  base: 'https://pages.educs-hosting.net/presentable-client-vue-hytea-6fc38d617a40272622dd0e2874075dea9e/'
 })

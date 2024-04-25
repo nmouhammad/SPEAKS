@@ -1,0 +1,25 @@
+image: "node:latest"
+
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - yarn install --frozen-lockfile --check-files --non-interactive
+    - yarn build
+  artifacts:
+    paths:
+      - public
+
+pages:
+  stage: deploy
+  script:
+    - echo 'Pages deployment job'
+  artifacts:
+    paths:
+      - public
+  only:
+    - deploy-MC-gitlab-pages
