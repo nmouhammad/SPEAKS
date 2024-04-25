@@ -1,32 +1,25 @@
-<script>
-  // @vuese
-  // @group Components
-  // One of the circles representing one step in the ProgressBar.
-  export default {
-    name: 'ProgressBarCircle',
-    props: {
-      // Abbreviation of the step title (should be <=2 letters) that will be displayed inside the circle
-      abbreviation: {
-        type: String,
-        required: true
-      },
-      // True, if this step is the current step, false otherwise
-      isCurrent: {
-        type: Boolean,
-        default: false
-      },
-      // True if this step should already be visible
-      isShown: {
-        type: Boolean,
-        default: false
-      }
-    }
-  }
-</script>
-
 <script setup>
+  // One of the arrows representing one step in the ProgressBar.
   import { useProgressStore } from '@/stores/MC/ProgressStore'
   const store = useProgressStore()
+
+  const props = defineProps({
+    // Abbreviation of the step title (should be <=2 letters) that will be displayed inside the circle
+    abbreviation: {
+      type: String,
+      required: true
+    },
+    // True, if this step is the current step, false otherwise
+    isCurrent: {
+      type: Boolean,
+      default: false
+    },
+    // True if this step should already be visible
+    isShown: {
+      type: Boolean,
+      default: false
+    }
+  })
 
   /**
    * Converts the abbreviation of a step into the arrow type
@@ -55,6 +48,14 @@
       false: 'svg-button-after-outline'
     }
   }
+
+  function showFilledVersion() {
+    return (
+      props.isCurrent ||
+      (store.getCurrentStepAbbreviation === 'S' &&
+        !(props.abbreviation == 'Before' || props.abbreviation == 'After'))
+    )
+  }
 </script>
 
 <template>
@@ -70,7 +71,9 @@
     v-show="isShown"
     class="svg-button"
     :class="
-      situationToCssClass[abbreviationToArrowType(abbreviation)][isCurrent]
+      situationToCssClass[abbreviationToArrowType(abbreviation)][
+        showFilledVersion()
+      ]
     "
     @click="store.changeStep(abbreviation)"
   >
