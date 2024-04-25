@@ -129,7 +129,7 @@
     <TextBlocks :chapter-i-d="6" :texts="texts4" />
     <UserInput
       :chapter-i-d="7"
-      heading="Recap what your audience should learn"
+      heading="Adding your main message to the end"
       button-text="I'm done"
     >
       <CenteringCol5>
