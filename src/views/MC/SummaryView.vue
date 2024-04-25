@@ -27,20 +27,29 @@
 
   const texts1 = [
     'Now you have created your full presentation plan. Good job! 💪',
-    'Here is an overview of your plan:'
+    'But before I show you an overview of your plan, we need something from you 😋',
+    'We need your help for our research!',
+    'Please click on the button below to download a file containing information on how you used this application and save it on your laptop.'
   ]
+
+  const texts2 = [
+    'Thank you!',
+    'We would also like to ask you to fill a survey about your usage experience with this part of the software. In this questionnaire you will also be asked to upload the file you just downloaded.',
+    'All data will be saved on a server of our institute, anonymized and only used for research purposes.'
+  ]
+  const textsX = ['Here is an overview of your plan:']
 
   // ++++++++++++++++++++++++++++++++++++++++++++++
   // ++++ Additional variables & functionality ++++
   // ++++++++++++++++++++++++++++++++++++++++++++++
 
-  const nrOfElementsInChapter = [2, 1]
+  const nrOfElementsInChapter = [4, 1, 2, 1, 1]
 
   /**
    * Exports the data from the audienceStore and the presentationPlanStore
    * to a JSON-file the user can save locally
    */
-  function exportToJSON() {
+  function exportToJSON(userInputSlot) {
     const data = {
       AudienceStore: audienceStore,
       PresentationPlanStore: presentationPlanStore,
@@ -53,6 +62,8 @@
     a.href = URL.createObjectURL(file)
     a.download = 'My_presentation_plan.presentable'
     a.click()
+
+    userInputSlot.stopWaiting()
   }
 </script>
 
@@ -63,7 +74,31 @@
   >
     <TextBlocks :chapter-i-d="0" :texts="texts1" />
     <UserInput
+      v-slot="userInputSlot"
       :chapter-i-d="1"
+      heading="Download the usage data:"
+      :custom-button="true"
+    >
+      <button class="btn btn-primary mt-3" @click="exportToJSON(userInputSlot)">
+        Download data
+      </button>
+    </UserInput>
+    <TextBlocks :chapter-i-d="2" :texts="texts2" />
+    <UserInput
+      :chapter-i-d="3"
+      heading="Fillout the survey here:"
+      button-text="I'm done"
+    >
+      <div class="ratio ratio-16x9">
+        <iframe
+          src="https://limesurvey.svc.external.tba-hosting.de/index.php/637788?lang=en"
+          title="Questionnaire"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </UserInput>
+    <UserInput
+      :chapter-i-d="4"
       heading="Overview of your full presentation plan:"
       :custom-button="true"
     >
@@ -81,9 +116,6 @@
             :has-remove-option="false"
             content-box-heading="Middle"
           />
-          <button class="btn btn-primary mt-3" @click="exportToJSON">
-            Export data
-          </button>
         </template>
         <template #right-pane>
           <ContentBox
