@@ -59,14 +59,6 @@
 </script>
 
 <template>
-  <!-- <button
-    v-show="isShown"
-    class="btn arrow"
-    :class="[isCurrent ? 'btn-primary' : 'btn-outline-primary']"
-    @click="store.changeStep(abbreviation)"
-  >
-    {{ abbreviation }}
-  </button> -->
   <button
     v-show="isShown"
     class="svg-button"
