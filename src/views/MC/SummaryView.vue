@@ -26,7 +26,7 @@
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   const texts1 = [
-    'Now you have created your full presentation plan. Good job! 💪',
+    'Now you have created your full pitch plan. Good job! 💪',
     'But before I show you an overview of your plan, we need something from you 😋',
     'We need your help for our research!',
     'Please click on the button below to download a file containing information on how you used this application and save it on your laptop.'
@@ -34,16 +34,19 @@
 
   const texts2 = [
     'Thank you!',
-    'We would also like to ask you to fill a survey about your usage experience with this part of the software. In this questionnaire you will also be asked to upload the file you just downloaded.',
+    'We would also like to ask you to fill out a survey about your usage experience with this part of the software. In this questionnaire you will also be asked to upload the file you just downloaded.',
     'All data will be saved on a server of our institute, anonymized and only used for research purposes.'
   ]
-  const textsX = ['Here is an overview of your plan:']
+  const texts3 = [
+    'Thank you, this helped us a lot!',
+    'So, as promised, here is the overview of your full pitch plan. Good luck! 💪'
+  ]
 
   // ++++++++++++++++++++++++++++++++++++++++++++++
   // ++++ Additional variables & functionality ++++
   // ++++++++++++++++++++++++++++++++++++++++++++++
 
-  const nrOfElementsInChapter = [4, 1, 2, 1, 1]
+  const nrOfElementsInChapter = [4, 1, 3, 1, 2, 1]
 
   /**
    * Exports the data from the audienceStore and the presentationPlanStore
@@ -86,18 +89,20 @@
     <TextBlocks :chapter-i-d="2" :texts="texts2" />
     <UserInput
       :chapter-i-d="3"
-      heading="Fillout the survey here:"
+      heading="Fill out the survey here:"
       button-text="I'm done"
     >
-      <div class="ratio ratio-16x9">
+      <div>
         <a
           href="https://limesurvey.svc.external.tba-hosting.de/index.php/637788?lang=en"
+          target="_blank"
           >https://limesurvey.svc.external.tba-hosting.de/index.php/637788?lang=en</a
         >
       </div>
     </UserInput>
+    <TextBlocks :chapter-i-d="4" :texts="texts3" />
     <UserInput
-      :chapter-i-d="4"
+      :chapter-i-d="5"
       heading="Overview of your full presentation plan:"
       :custom-button="true"
     >
