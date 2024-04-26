@@ -36,14 +36,18 @@
       "Let's start! 💪 What will be the topic of your presentation / pitch?"
     ]
   }
+  const texts3 = [
+    'Sounds interesting!',
+    'Before we start, can you please enter the research-ID (the animal) from the paper we gave to you?'
+  ]
 
-  const texts3 = ['Great, now we can start!']
+  const texts4 = ['Great, thank you! Now we can start 🚀']
 
   // ++++++++++++++++++++++++++++++++++++++++++++++
   // ++++ Additional variables & functionality ++++
   // ++++++++++++++++++++++++++++++++++++++++++++++
 
-  const nrOfElementsInChapter = [3, 1, 1, 1, 1]
+  const nrOfElementsInChapter = [3, 1, 1, 1, 2, 1, 1]
   const wantingToContinue = ref(false)
 
   function decideWhetherToContinue(decision, userInputSlot) {
@@ -93,6 +97,15 @@
     presentationPlanStore.addTopic(topic)
     chapterProgressStore.unsetWaiting()
   }
+
+  /**
+   * Save the research-ID of the participant in the presentationPlanStore
+   * @param {String} researchID
+   */
+  function addResearchID(researchID) {
+    presentationPlanStore.addResearchID(researchID)
+    chapterProgressStore.unsetWaiting()
+  }
 </script>
 <template>
   <ChatInterface
@@ -126,5 +139,17 @@
       </CenteringCol5>
     </UserInput>
     <TextBlocks :chapter-i-d="4" :texts="texts3" />
+
+    <UserInput
+      :chapter-i-d="5"
+      :custom-button="true"
+      heading="Your research-ID (animal)"
+    >
+      <CenteringCol5>
+        <SubpointAdder :keep-displaying-content="true" @add="addResearchID" />
+      </CenteringCol5>
+    </UserInput>
+
+    <TextBlocks :chapter-i-d="6" :texts="texts4" />
   </ChatInterface>
 </template>

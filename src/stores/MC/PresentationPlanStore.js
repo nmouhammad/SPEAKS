@@ -31,7 +31,11 @@ export const usePresentationPlanStore = defineStore('PresentationPlanStore', {
     /**
      * Topic of the presentation / pitch
      */
-    topic: ''
+    topic: '',
+    /**
+     * Research-ID of the participant
+     */
+    researchID: ''
   }),
   actions: {
     /**
@@ -101,6 +105,14 @@ export const usePresentationPlanStore = defineStore('PresentationPlanStore', {
      */
     addTopic(topic) {
       this.topic = topic
+    },
+
+    /**
+     * Save the researchID of the participante
+     * @param {String} researchID of the participante
+     */
+    addResearchID(researchID) {
+      this.researchID = researchID
     }
   },
   getters: {
