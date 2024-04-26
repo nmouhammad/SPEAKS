@@ -82,12 +82,16 @@
   )
   function stopWhenUserClicksNo() {
     // check whether the user chose "No" & the parrot responded to it
-    if (
-      currentChapterID.value == 2 &&
-      wantingToContinue.value == false &&
-      currentElementID.value == 0
-    )
+    if (currentChapterID.value >= 2 && wantingToContinue.value == false) {
       chapterProgressStore.setWaiting()
+      // set the chapterID & elementID to the response of the parrot for choosing "No"
+      // (this is needed in case the user chose yes first, then continued (so
+      // currentChapterID might already be e.g. 3 or 4) and afterwards chose "No", then
+      // we need to change the currentChapterID & currentElementID so that the messages
+      // shown in e.g. chapter 3 or 4 vanish)
+      currentChapterID.value = 2
+      currentElementID.value = 0
+    }
   }
   /**
    * Save the topic of the presentation / pitch in the presentationPlanStore
