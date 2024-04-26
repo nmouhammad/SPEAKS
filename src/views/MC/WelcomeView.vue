@@ -48,7 +48,7 @@
   // ++++++++++++++++++++++++++++++++++++++++++++++
 
   const nrOfElementsInChapter = [3, 1, 1, 1, 2, 1, 1]
-  const wantingToContinue = ref(false)
+  const wantingToContinue = ref(true)
 
   function decideWhetherToContinue(decision, userInputSlot) {
     wantingToContinue.value = decision
