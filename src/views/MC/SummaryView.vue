@@ -94,9 +94,14 @@
     >
       <div>
         <a
-          href="https://limesurvey.svc.external.tba-hosting.de/index.php/637788?lang=en"
+          :href="
+            'https://limesurvey.svc.external.tba-hosting.de/index.php/637788?lang=en&ResearchID=' +
+            presentationPlanStore.researchID
+          "
           target="_blank"
-          >https://limesurvey.svc.external.tba-hosting.de/index.php/637788?lang=en</a
+          >https://limesurvey.svc.external.tba-hosting.de/index.php/637788?lang=en&ResearchID={{
+            presentationPlanStore.researchID
+          }}</a
         >
       </div>
     </UserInput>
