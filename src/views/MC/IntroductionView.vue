@@ -43,21 +43,31 @@
   const introOptions = {
     story: {
       text: 'Tell a story',
-      description: 'Telling a story is a good way ...',
+      description:
+        "People love to hear stories. If you kick off your pitch with an interesting story, you'll draw your audience in and make them more intrigued by the topic.",
       submitText: 'I want to start with a story',
       contentBoxText: 'Content of your story'
     },
     fact: {
       text: 'Tell an impressive fact',
-      description: 'Starting with an impressive fact ..',
+      description:
+        "Open your pitch with an attention-grabbing fact about your topic, something that's both surprising and unfamiliar to your audience. This unexpected revelation will instantly intrigue them and make them more receptive to your message.",
       submitText: 'I want to start with a fact',
       contentBoxText: 'Presentation of your fact'
     },
     question: {
       text: 'Ask a question',
-      description: 'Asking your audience a question ...',
+      description:
+        'Captivate your audience with a thought-provoking question related to your topic. This will prompt them to start thinking and fuel their desire to learn more.',
       submitText: 'I want to start with a question',
       contentBoxText: 'Presentation of your question'
+    },
+    other: {
+      text: 'I already have another idea',
+      description:
+        "You have an idea about how to capture your audience's attention that is not in the list? Great! Authenticity is key, so please continue with this idea.",
+      submitText: 'I want to start with my own idea',
+      contentBoxText: 'Presentation of your own idea to start the presentation'
     }
   }
 
@@ -67,9 +77,22 @@
   // when choosing the introType needs to adapt the nrOfElementsInChapter
   // in the store
   const texts2BasedOnIntroType = {
-    story: ['Story 1', 'Story 2'],
-    fact: ['Fact 1', 'Fact 2'],
-    question: ['Question 1', 'Question 2']
+    story: [
+      'Do you already have a story you could tell the audience? Great! If not, think about the problem you are solving in your resarch and in which real-life situation this problem appears.',
+      "If possible, choose a story that is somehow relevant to your audience e.g. because it's a story somehow related to their lives or their interest. Also funny stories tend to work well."
+    ],
+    fact: [
+      "To choose an appropriate fact, think about which facts about you're topic are important for what you want to transmit in the pitch.",
+      'Then choose that fact that is probably most unknown but interesting to the audience.'
+    ],
+    question: [
+      'To find a good question to start with, think about the main point you want to transmit in your elevator pitch (i.e. what your audience should learn).',
+      "Then think about a way that you can create a question related to this main point that is interesting but probably won't be answerable by the audience yet."
+    ],
+    other: [
+      "Great that you have a good idea to get your audience's interest already!",
+      'Please enter it below:'
+    ]
   }
 
   // ++++++++++++++++++++++++++++++++++++++++++++++++++
