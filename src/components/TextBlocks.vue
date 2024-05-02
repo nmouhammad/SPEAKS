@@ -62,8 +62,11 @@
     >
       <div class="col-1 justify-content-end align-self-end"></div>
       <div class="col-md-5 justify-content-start overflow-auto">
-        <SpeechBubble :key="currentTextID" :show-triangle="false">
-          {{ currentText }}
+        <SpeechBubble
+          :key="currentTextID"
+          :show-triangle="false"
+          v-html="currentText"
+        >
         </SpeechBubble>
       </div>
       <div class="col-1 justify-content-end align-self-end"></div>
@@ -77,8 +80,11 @@
       <div
         class="col-md-5 justify-content-start overflow-auto align-self-center"
       >
-        <SpeechBubble :key="lastText.id" :show-triangle="true">
-          {{ lastText.text }}
+        <SpeechBubble
+          :key="lastText.id"
+          :show-triangle="true"
+          v-html="lastText.text"
+        >
         </SpeechBubble>
       </div>
       <div class="col-1 justify-content-end align-self-end"></div>

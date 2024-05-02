@@ -15,7 +15,7 @@
 
 <template>
   <div
-    class="text-center speech-bubble my-1"
+    class="text-center speech-bubble my-1 flex-column"
     :class="{ 'speech-bubble-with-triangle': props.showTriangle }"
   >
     <!-- @slot the content that will be shown inside the speech bubble -->
