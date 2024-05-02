@@ -95,11 +95,11 @@
       <div>
         <a
           :href="
-            'https://limesurvey.svc.external.tba-hosting.de/index.php/637788?lang=en&ResearchID=' +
+            'https://limesurvey.svc.educs-hosting.net/index.php/868297?lang=en&ResearchID=' +
             presentationPlanStore.researchID
           "
           target="_blank"
-          >https://limesurvey.svc.external.tba-hosting.de/index.php/637788?lang=en&ResearchID={{
+          >https://limesurvey.svc.educs-hosting.net/index.php/868297?lang=en&ResearchID={{
             presentationPlanStore.researchID
           }}</a
         >
