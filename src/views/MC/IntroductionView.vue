@@ -99,6 +99,10 @@
     ]
   }
 
+  const texts3 = [
+    'Now, after you made sure you got the interest of the audience, would then be a good time to introduce yourself. 👋'
+  ]
+
   // ++++++++++++++++++++++++++++++++++++++++++++++++++
   // ++++ Provide functionality reg. the introType ++++
   // ++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -144,7 +148,7 @@
   // ++++ Additional variables & functionality ++++
   // ++++++++++++++++++++++++++++++++++++++++++++++
 
-  const nrOfElementsInChapter = [7, 1, 3, 1]
+  const nrOfElementsInChapter = [7, 1, 3, 1, 1]
 </script>
 
 <template>
@@ -219,6 +223,7 @@
           />
         </CenteringCol5>
       </UserInput>
+      <TextBlocks :chapter-i-d="4" :texts="texts3" />
     </div>
   </ChatInterface>
 </template>
