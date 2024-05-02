@@ -16,9 +16,10 @@
 
   const texts1 = [
     "Experts told us that it is really important for effective presentations to first consider the audience of the presentation. So that's what we will do now.",
-    'What does your audience already know about your topic?'
+    'What does your audience already know about your topic? Add this in bullet points below.',
+    '<p>For example, I think my audience knows the following: </p><i>- parrots are colorful birds<br>- parrots can mimick human speech</li></i></ul>'
   ]
-  const nrOfElementsInChapter = [2, 1]
+  const nrOfElementsInChapter = [3, 1]
 </script>
 
 <template>
@@ -30,7 +31,7 @@
 
     <UserInput
       :chapter-i-d="1"
-      heading="Collecting the audience's previous knowledge"
+      heading="Collecting your audience's previous knowledge"
       button-text="I'm done"
     >
       <CenteringCol5>

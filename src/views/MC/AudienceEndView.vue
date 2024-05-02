@@ -14,9 +14,10 @@
   const { knowledgeEnd } = storeToRefs(store)
 
   const texts1 = [
-    "Great, now that we know what your audience already knows, we'll jump to after you gave the presentation to think about what you want your audience to know after your presentation."
+    "Great, now that we know what your audience already knows, we'll jump to after you gave the presentation to think about what you want your audience to know after your presentation.",
+    '<p>My audience should know the following after my presentation:</p><p><i> - parrots are very social animals <br> - they learn to speak because they want to interact with you <br> - teaching them how to talk is somehow similar to teaching a kid how to talk</i></p>'
   ]
-  const nrOfElementsInChapter = [1, 1]
+  const nrOfElementsInChapter = [2, 1]
 </script>
 
 <template>

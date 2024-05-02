@@ -41,7 +41,8 @@
   ]
 
   const texts2 = [
-    'If there are any open brackets, you can note down below how to close them in the end'
+    'If there are any open brackets, you can note down below how to close them in the end',
+    '<p>For my pitch, I would like to refer back to the introduction with the following: <p> <i>- Parrots learn to talk mainly to interact with you & to be part of your social group, not (mainly) for rewards</i>'
   ]
 
   const texts3 = [
@@ -50,7 +51,8 @@
 
   const texts4 = [
     'This is your main message. The conclusion is a good point to repeat your main message shortly & concisely again, so it sticks into the audience‘s head.',
-    'How do you want to end your presentation?'
+    'How do you want to end your presentation?',
+    "<p>I'll end mine with my three most important points: </p> <i>- Parrots learn to talk mainly to interact with you & to be part of your social group, not (mainly) for rewards <br> - Make them part of your social group by talking to them as you would talk to a child learning to speak <br> - Use emotions, be empathetic and show genuine interest</i>"
   ]
 
   // ++++ Counters for which elements to show ++++
@@ -63,7 +65,7 @@
   const currentChapterID = ref(0)
   // since not all chapters have the same length, we need to save the
   // length of each chapter
-  const nrOfElementsInChapter = [4, 1, 1, 1, 1, 1, 2, 1]
+  const nrOfElementsInChapter = [4, 1, 2, 1, 1, 1, 3, 1]
 
   /**
    * Returns true if the element with the given elementID and chapterID should be visible

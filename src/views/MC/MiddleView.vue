@@ -38,13 +38,16 @@
     "For this, we'll look at what our audience knows before our presentation..."
   ]
   const texts2 = ['... and what they should know afterwards.']
-  const texts3 = ['How can we move them from the left to the right?']
+  const texts3 = [
+    'How can we move them from what they know before to what they should know afterwards?',
+    "<p>In my presentation I would roughly do that by addressing the following points: </p> <i> - parrots are intelligent & social <br> - they not only mimick human speech but use it for communication <br> - they do this because they want to be part of your social group <br> - teaching them to speak is like teaching a child to speak <br> - it's not only about teaching new words but also about bonding with each other <br> - communicate much, but use few and simple words <br> - show empathy, speak with emotion - the goal is to create a bond <br> - overpronounce words <br> - be patient <br> - make the parrot feel loved</i>"
+  ]
 
   // ++++++++++++++++++++++++++++++++++++++++++++++
   // ++++ Additional variables & functionality ++++
   // ++++++++++++++++++++++++++++++++++++++++++++++
 
-  const nrOfElementsInChapter = [2, 1, 1, 1, 1, 1]
+  const nrOfElementsInChapter = [2, 1, 1, 1, 2, 1]
 </script>
 
 <template>

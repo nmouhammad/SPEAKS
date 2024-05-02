@@ -33,8 +33,8 @@
     'Great, now that we know more about your audience and what you want to reach with your presentation, we can start with preparing the actual presentation!',
     "First, we'll make sure to interest your audience into your topic.",
     'A good chance for this is in your Introduction.',
-    'Many people waste this chance by starting with "Hello my name is Presentable and today we talk about xyz. This is my schedule. First, we start with ..."',
-    'See how everyone is already falling asleep or looking at their phones?',
+    'Many people waste this chance by starting with <i>"Hello my name is Presentable and today we talk about parrots. This is my schedule. First, we start with ..." </i>',
+    'See how everyone is already falling asleep or looking at their phones? 😴',
     "Let's make sure this won't happen to you!",
     "The good news is: there are multiple great options how to gain the audience's interest. Just pick what feels like the best match for you and this presentation!"
   ]
@@ -79,19 +79,23 @@
   const texts2BasedOnIntroType = {
     story: [
       'Do you already have a story you could tell the audience? Great! If not, think about the problem you are solving in your resarch and in which real-life situation this problem appears.',
-      "If possible, choose a story that is somehow relevant to your audience e.g. because it's a story somehow related to their lives or their interest. Also funny stories tend to work well."
+      "If possible, choose a story that is somehow relevant to your audience e.g. because it's a story somehow related to their lives or their interest. Also funny stories tend to work well.",
+      "<p>I think I'll start my pitch with the following story: </p> <i> - a parrot, called Yosuke, once flew out of his cage and got lost <br> - do you know how he got back home? <br> - he told his full address to a vet who then helped him to get back <br> - are parrots maybe not only mimicking human language? Is there more to it? </i>"
     ],
     fact: [
       "To choose an appropriate fact, think about which facts about you're topic are important for what you want to transmit in the pitch.",
-      'Then choose that fact that is probably most unknown but interesting to the audience.'
+      'Then choose that fact that is probably most unknown but interesting to the audience.',
+      "<p>I think I'll start my pitch with the following facts: </p> <i> - when parrots talk one might assume they would just mimick human language <br> - but they have the cognitive abilities of a young child and can actually develop understanding of human language <br> - they do so because they are highly social creatures wanting to bond with the humans around them</i>"
     ],
     question: [
       'To find a good question to start with, think about the main point you want to transmit in your elevator pitch (i.e. what your audience should learn).',
-      "Then think about a way that you can create a question related to this main point that is interesting but probably won't be answerable by the audience yet."
+      'Then think about a way that you can create a question related to this main point that is interesting and will make the audience think.',
+      "<p>I think I will start my pitch with the following questions: </p> <i>- Did you ever hear a parrot talk? <br> - What if I told you that teaching a parrot to talk isn't just about entertainment but a journey of mutual understanding and connection?</i>"
     ],
     other: [
       "Great that you have a good idea to get your audience's interest already!",
-      'Please enter it below:'
+      'Please enter it below:',
+      "(This time I don't have an example for you)"
     ]
   }
 
@@ -140,7 +144,7 @@
   // ++++ Additional variables & functionality ++++
   // ++++++++++++++++++++++++++++++++++++++++++++++
 
-  const nrOfElementsInChapter = [7, 1, 2, 1]
+  const nrOfElementsInChapter = [7, 1, 3, 1]
 </script>
 
 <template>

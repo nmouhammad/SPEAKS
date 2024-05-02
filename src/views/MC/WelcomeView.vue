@@ -33,11 +33,12 @@
       'Sorry to see you go. But we understand that becoming a great presenter might not be a goal for everyone 👋'
     ],
     true: [
-      "Let's start! 💪 What will be the topic of your presentation / pitch?"
+      "Let's start! 💪 What will be the topic of your presentation / pitch?",
+      '<p>For example, I want to create a pitch about how to teach parrots to talk. So I would enter: </p> <p><i>"Teaching parrots to talk"</i></p>'
     ]
   }
   const texts3 = [
-    'Sounds interesting!',
+    'Sounds interesting! Nearly as interesting as my topic 😋',
     'Before we start, can you please enter the research-ID (the animal) from the paper we gave to you?'
   ]
 
@@ -47,7 +48,7 @@
   // ++++ Additional variables & functionality ++++
   // ++++++++++++++++++++++++++++++++++++++++++++++
 
-  const nrOfElementsInChapter = [3, 1, 1, 1, 2, 1, 1]
+  const nrOfElementsInChapter = [3, 1, 2, 1, 2, 1, 1]
   const wantingToContinue = ref(true)
 
   function decideWhetherToContinue(decision, userInputSlot) {
