@@ -29,7 +29,7 @@
     'Now you have created your full pitch plan. Good job! 💪',
     'But before I show you an overview of your plan, we need something from you 😋',
     'We need your help for our research!',
-    'Please click on the button below to download a file containing information on how you used this application and save it on your laptop.'
+    'Please click on the button below to download a file containing information on how you used this application and save it on your laptop. <br> We will in a few moments ask you to upload it when you fill out the survey.'
   ]
 
   const texts2 = [
