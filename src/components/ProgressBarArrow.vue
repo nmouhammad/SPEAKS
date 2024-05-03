@@ -67,8 +67,8 @@
         showFilledVersion()
       ]
     "
-    @click="store.changeStep(abbreviation)"
   >
+    <!-- @click="store.changeStep(abbreviation)" -->
     {{ abbreviation }}
   </button>
 </template>
