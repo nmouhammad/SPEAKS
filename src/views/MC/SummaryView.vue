@@ -27,20 +27,18 @@
 
   const texts1 = [
     'Now you have created your full pitch plan. Good job! 💪',
-    "In a moment I'll show you a full overview of your plan. Afterwards I'll ask you to download your data and fill out a survey.",
-    "Please don't skip the survey, your opinion is really important for us and our research."
+    "In a moment I'll show you a full overview of your plan. Afterwards I'll provide a link to a survey where you could give feedback on this software.",
+    'It would be really helpful for us if you could give us some feedback in this survey!'
     // 'But before I show you an overview of your plan, we need something from you 😋',
     // 'We need your help for our research!',
     // 'Please click on the button below to download a file containing information on how you used this application and save it on your laptop. <br> We will in a few moments ask you to upload it when you fill out the survey.'
   ]
-  const texts2 = [
-    'Please click on the button below to download a file containing information on how you used this application and save it on your laptop. <br> We will in a few moments ask you to upload it when you fill out the survey.'
-  ]
+  // const texts2 = [
+  //   'Please click on the button below to download a file containing information on how you used this application and save it on your laptop. <br> We will in a few moments ask you to upload it when you fill out the survey.'
+  // ]
 
   const texts3 = [
-    'Thank you!',
-    'We would also like to ask you to fill out a survey about your usage experience with this part of the software. In this questionnaire you will also be asked to upload the file you just downloaded.',
-    'All data will be saved on a server of our institute, anonymized and only used for research purposes.'
+    'As mentioned before, we would be very grateful to get some feedback from you here:'
   ]
   const texts4 = ['Thank you, this helped us a lot!']
 
@@ -48,7 +46,7 @@
   // ++++ Additional variables & functionality ++++
   // ++++++++++++++++++++++++++++++++++++++++++++++
 
-  const nrOfElementsInChapter = [3, 1, 3, 1, 1]
+  const nrOfElementsInChapter = [3, 1, 1]
 
   /**
    * Exports the data from the audienceStore and the presentationPlanStore
@@ -83,6 +81,7 @@
       :chapter-i-d="1"
       heading="Overview of your full presentation plan:"
       :custom-button="true"
+      :no-waiting="true"
     >
       <ThreePanes>
         <template #left-pane>
@@ -108,8 +107,8 @@
         </template>
       </ThreePanes>
     </UserInput>
-    <TextBlocks :chapter-i-d="1" :texts="texts2" />
-    <UserInput
+    <!-- <TextBlocks :chapter-i-d="1" :texts="texts2" /> -->
+    <!-- <UserInput
       v-slot="userInputSlot"
       :chapter-i-d="1"
       heading="Download the usage data:"
@@ -118,26 +117,21 @@
       <button class="btn btn-primary mt-3" @click="exportToJSON(userInputSlot)">
         Download data
       </button>
-    </UserInput>
-    <TextBlocks :chapter-i-d="2" :texts="texts3" />
+    </UserInput> -->
+    <TextBlocks :chapter-i-d="1" :texts="texts3" />
     <UserInput
-      :chapter-i-d="3"
+      :chapter-i-d="1"
       heading="Fill out the survey here:"
       button-text="I'm done"
     >
       <div>
         <a
-          :href="
-            'https://limesurvey.svc.educs-hosting.net/index.php/998153?lang=en&ResearchID=' +
-            presentationPlanStore.researchID
-          "
+          href="https://limesurvey.svc.educs-hosting.net/index.php/998154?lang=en"
           target="_blank"
-          >https://limesurvey.svc.educs-hosting.net/index.php/998153?lang=en&ResearchID={{
-            presentationPlanStore.researchID
-          }}</a
+          >https://limesurvey.svc.educs-hosting.net/index.php/998154?lang=en</a
         >
       </div>
     </UserInput>
-    <TextBlocks :chapter-i-d="4" :texts="texts4" />
+    <TextBlocks :chapter-i-d="3" :texts="texts4" />
   </ChatInterface>
 </template>
