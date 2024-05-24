@@ -39,17 +39,16 @@
   }
   const texts3 = [
     'Sounds interesting! Nearly as interesting as my topic 😋',
-    "Let's start creating the content for your pitch! 🚀"
-    // 'Before we start, can you please enter the research-ID (the animal) from the paper we gave to you?'
+    'Before we start, can you please enter the research-ID (the animal) from the paper we gave to you?'
   ]
 
-  // const texts4 = ['Great, thank you! Now we can start 🚀']
+  const texts4 = ['Great, thank you! Now we can start 🚀']
 
   // ++++++++++++++++++++++++++++++++++++++++++++++
   // ++++ Additional variables & functionality ++++
   // ++++++++++++++++++++++++++++++++++++++++++++++
 
-  const nrOfElementsInChapter = [3, 1, 2, 1, 2] // 1, 1]
+  const nrOfElementsInChapter = [3, 1, 2, 1, 2, 1, 1]
   const wantingToContinue = ref(true)
 
   function decideWhetherToContinue(decision, userInputSlot) {
@@ -146,7 +145,7 @@
     </UserInput>
     <TextBlocks :chapter-i-d="4" :texts="texts3" />
 
-    <!-- <UserInput
+    <UserInput
       :chapter-i-d="5"
       :custom-button="true"
       heading="Your research-ID (animal)"
@@ -156,6 +155,6 @@
       </CenteringCol5>
     </UserInput>
 
-    <TextBlocks :chapter-i-d="6" :texts="texts4" /> -->
+    <TextBlocks :chapter-i-d="6" :texts="texts4" />
   </ChatInterface>
 </template>
