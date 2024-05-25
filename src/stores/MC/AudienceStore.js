@@ -80,5 +80,8 @@ export const useAudienceStore = defineStore('AudienceStore', {
       removeFromCollection(toDeleteID, this.knowledgeEnd)
     }
   },
-  getters: {}
+  getters: {},
+  persist: {
+    storage: sessionStorage
+  }
 })

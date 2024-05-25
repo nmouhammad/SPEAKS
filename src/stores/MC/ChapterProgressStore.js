@@ -144,5 +144,8 @@ export const useChapterProgressStore = defineStore('ChapterProgressStore', {
         this.waiting = false
       }
     }
+  },
+  persist: {
+    storage: sessionStorage
   }
 })

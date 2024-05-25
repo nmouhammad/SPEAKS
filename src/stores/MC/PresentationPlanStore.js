@@ -122,5 +122,8 @@ export const usePresentationPlanStore = defineStore('PresentationPlanStore', {
     getIntroductionType: (state) => {
       state.introductionType
     }
+  },
+  persist: {
+    storage: sessionStorage
   }
 })

@@ -177,5 +177,8 @@ export const useProgressStore = defineStore('ProgressStore', {
     getCurrentStepAbbreviation: (state) => {
       return state.steps[state.currentStepID].abbreviation
     }
+  },
+  persist: {
+    storage: sessionStorage
   }
 })
