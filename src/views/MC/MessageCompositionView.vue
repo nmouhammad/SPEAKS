@@ -19,7 +19,11 @@
   <div class="container mt-5">
     <!-- HEADER -->
     <div class="sticky-top p-3 bg-white">
-      <ProgressBar />
+      <div class="row justify-content-md-center">
+        <div class="col-md-8">
+          <ProgressBar />
+        </div>
+      </div>
     </div>
 
     <!-- BODY -->
