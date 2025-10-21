@@ -1,11 +1,21 @@
 <p align="center">
-  <img src="src/assets/logo-presentable-v2.png" width="300" alt="logo"/>
+  <img src="src/assets/parrot.png" width="300" alt="logo"/>
 </p>
 
-# Presentable Client (Vue)
-Client of "Presentable" (Vue version).
+# SPEAKS
+[SPEAKS](https://github.com/nmouhammad/SPEAKS) is the standalone research prototype used in our paper:
+
+**From Nervous to Noteworthy: Evaluating SPEAKS, an Educational Software for Speech Content**  
+
+Nina Mouhammad, Jan Schneider, Roland Klemke and Daniele Di Mitri | 
+24th European Conference on E-Learning | ECEL 2025 | [https://doi.org/10.34190/ecel.24.1.4104](https://doi.org/10.34190/ecel.24.1.4104)
+
+You can test SPEAKS yourself [here](https://github.com/nmouhammad/SPEAKS). All data will only be saved on your machine.
+
+SPEAKS has later been integrated into [Presentable](https://presentable.hytea.de/).
 
 ## Table of Contents
+- [Project Overview](#project-overview)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -16,6 +26,17 @@ Client of "Presentable" (Vue version).
     - [CSS Framework (Bootstrap)](#css-framework-bootstrap)
 - [Project Structure](#project-structure)
 - [Customizing Bootstrap](#customizing-bootstrap)
+- [Citation](#citation)
+- [Acknowledgements](#acknowledgements)
+
+## Project overview
+Preparing a speech can be challenging. SPEAKS is an educational application that guides students step by step through preparing their entire speech. With a friendly cockatoo character, users learn to consider their audience’s prior knowledge, define their main message, and craft an engaging introduction and conclusion.
+
+In our [study](https://doi.org/10.34190/ecel.24.1.4104), participants reported that SPEAKS was easy to use and that its guidance-based approach was highly useful. Moreover, their confidence in delivering effective speeches increased significantly after using the application.
+
+Contact person: [Nina Mouhammad](mailto:n.mouhammad@dipf.de)
+
+You can test SPEAKS yourself [here](https://github.com/nmouhammad/SPEAKS). All data will only be saved on your machine.
 
 ## Getting started
 ### Prerequisites
@@ -141,3 +162,25 @@ After each change, the `custom-styles.scss` needs to be compiled, this can be do
 ```sh
 npx sass ./src/assets/bootstrap-customisation/custom-styles.scss ./src/assets/bootstrap-customisation/custom-styles.css
 ```
+
+## Citation
+Please use the following citation:
+
+```bibtex
+@article{Mouhammad25N,
+  title      = {From Nervous to Noteworthy: Evaluating SPEAKS, an Educational Software for Speech Content},
+  author     = {Mouhammad, Nina and Schneider, Jan and Klemke, Roland and Di Mitri, Daniele},
+  year       = 2025,
+  month      = oct,
+  journal    = {European Conference on e-Learning},
+  volume     = {24},
+  number     = {1},
+  pages      = {271--280},
+  issn       = {2048-8645, 2048-8637},
+  doi        = {10.34190/ecel.24.1.4104},
+  urldate    = {2025-10-19},
+}
+```
+
+## Acknowledgements
+The authors gratefully acknowledge the support of the German Federal Ministry of Education and Research (BMBF) within the framework of the HyTea project (Grant "01|S22075A HyTea").

@@ -21,7 +21,7 @@ export default defineConfig({
   },
 
   build: {
-    outDir: 'public'
+    outDir: 'dist'
   },
-  base: 'https://pages.educs-hosting.net/presentable-client-vue-hytea-6fc38d617a40272622dd0e2874075dea9e/'
+  base: '/SPEAKS/'
 })
