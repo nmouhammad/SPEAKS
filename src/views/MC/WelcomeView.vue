@@ -24,7 +24,7 @@
   const texts1 = [
     'Did you ever wonder what makes some presentations outstanding while others are so boring that everyone just wants to leave?',
     'We did.',
-    'We read tons of literature, interviewed experts and did research on the topic. Then we took the gist of all this and created "Presentable" to help others to create great presentations.',
+    'We read tons of literature, interviewed experts and did research on the topic. Then we took the gist of all this and created "SPEAKS" to help others to create great presentations.',
     'Do you want to try it?'
   ]
 

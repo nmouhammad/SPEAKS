@@ -33,7 +33,7 @@
     'Great, now that we know more about your audience and what you want to reach with your presentation, we can start with preparing the actual presentation!',
     "First, we'll make sure to interest your audience into your topic.",
     'A good chance for this is in your Introduction.',
-    'Many people waste this chance by starting with <i>"Hello my name is Presentable and today we talk about parrots. This is my schedule. First, we start with ..." </i>',
+    'Many people waste this chance by starting with <i>"Hello my name is SPEAKS and today we talk about parrots. This is my schedule. First, we start with ..." </i>',
     'See how everyone is already falling asleep or looking at their phones? 😴',
     "Let's make sure this won't happen to you!",
     "The good news is: there are multiple great options how to gain the audience's interest. Just pick what feels like the best match for you and this presentation!"

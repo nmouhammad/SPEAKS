@@ -65,7 +65,7 @@
     var a = document.createElement('a')
     var file = new Blob([dataJSON], { type: JSON })
     a.href = URL.createObjectURL(file)
-    a.download = 'My_presentation_plan.presentable'
+    a.download = 'My_presentation_plan.SPEAKS'
     a.click()
 
     userInputSlot.stopWaiting()
