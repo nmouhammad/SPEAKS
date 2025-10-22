@@ -16,7 +16,8 @@
 </script>
 
 <template>
-  <div class="container mt-5">
+  <!-- add the content-with-footer class so the page content won't be hidden behind the fixed footer -->
+  <div class="container mt-5 main content-with-footer">
     <!-- HEADER -->
     <div class="sticky-top p-3 bg-white">
       <div class="row justify-content-md-center">
@@ -45,4 +46,10 @@
     </div> -->
 </template>
 
-<style scoped></style>
+<style scoped>
+  /* Reserve space at the bottom so content doesn't get covered by the fixed footer.
+   Keep this value >= .app-footer height set in src/App.vue (88px). */
+  .content-with-footer {
+    padding-bottom: 100px;
+  }
+</style>
