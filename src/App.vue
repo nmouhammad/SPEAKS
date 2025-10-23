@@ -24,6 +24,15 @@
           <div class="col-md-8 text-center">
             <div class="content">
               <p class="mb-0">
+                <strong>Privacy Notice:</strong> All data you enter is stored
+                only locally on your device and never transmitted to the site
+                operator. This site is hosted on GitHub Pages — see
+                <a
+                  href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+                  >GitHub's Privacy Policy</a
+                >.
+              </p>
+              <p class="mb-0" style="padding-top: 8px">
                 Made by
                 <a
                   href="https://edutec.science"
@@ -50,7 +59,7 @@
 <style>
   /* Footer height: keep in sync with the content-padding added to the page */
   .app-footer {
-    height: 88px; /* adjust if you change the footer padding/size */
+    height: 120px; /* adjust if you change the footer padding/size */
     z-index: 1030;
     padding-top: 14px;
     padding-bottom: 14px;
